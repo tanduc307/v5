@@ -1,0 +1,33 @@
+---
+title: Thiết kế website sử dụng wowchemy theme
+author: Duc Nguyen
+date: '2022-07-07'
+slug: thiet-ke-website
+categories:
+  - kỹ năng làm website
+tags:
+  - blogdown
+  - wowchemy
+  - hugo theme
+  - github
+  - netlify
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-07-07T17:48:35+07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+- Cài đặt RStudio
+- Cài đặt package `blogdown`
+- Sau đó gõ đoạn code này:
+```{r}
+# library(blogdown)
+# new_site(theme = "wowchemy/starter-academic") # Lưu ý là bỏ ký hiệu `#` trước đoạn code
+```
+

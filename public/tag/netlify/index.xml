@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>netlify | My Project</title>
+    <link>https://example.com/tag/netlify/</link>
+      <atom:link href="https://example.com/tag/netlify/index.xml" rel="self" type="application/rss+xml" />
+    <description>netlify</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 07 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://example.com/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
+      <title>netlify</title>
+      <link>https://example.com/tag/netlify/</link>
+    </image>
+    
+    <item>
+      <title>Thiết kế website sử dụng wowchemy theme</title>
+      <link>https://example.com/docs/chapter1/thiet-ke-website/</link>
+      <pubDate>Thu, 07 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://example.com/docs/chapter1/thiet-ke-website/</guid>
+      <description>
+
+
+&lt;ul&gt;
+&lt;li&gt;Cài đặt RStudio&lt;/li&gt;
+&lt;li&gt;Cài đặt package &lt;code&gt;blogdown&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Sau đó gõ đoạn code này:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# library(blogdown)
+# new_site(theme = &amp;quot;wowchemy/starter-academic&amp;quot;) # Lưu ý là bỏ ký hiệu `#` trước đoạn code&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
