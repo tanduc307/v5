@@ -6,26 +6,18 @@
   <url>
     <loc>https://ducnguyenlibrary.netlify.app/cam-nang/chuong1/</loc><changefreq>weekly</changefreq></url>
   <url>
+    <loc>https://ducnguyenlibrary.netlify.app/xac-suat/chuong1/</loc><changefreq>weekly</changefreq></url>
+  <url>
     <loc>https://ducnguyenlibrary.netlify.app/cam-nang/chuong2/</loc><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://ducnguyenlibrary.netlify.app/categories/</loc><lastmod>2020-12-01T21:13:14-05:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://ducnguyenlibrary.netlify.app/</loc><lastmod>2020-12-01T21:13:14-05:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://ducnguyenlibrary.netlify.app/post/2020-12-01-r-rmarkdown/</loc><lastmod>2020-12-01T21:13:14-05:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://ducnguyenlibrary.netlify.app/tag/plot/</loc><lastmod>2020-12-01T21:13:14-05:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://ducnguyenlibrary.netlify.app/post/</loc><lastmod>2020-12-01T21:13:14-05:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://ducnguyenlibrary.netlify.app/category/r/</loc><lastmod>2020-12-01T21:13:14-05:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://ducnguyenlibrary.netlify.app/tag/r-markdown/</loc><lastmod>2020-12-01T21:13:14-05:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://ducnguyenlibrary.netlify.app/tag/regression/</loc><lastmod>2020-12-01T21:13:14-05:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://ducnguyenlibrary.netlify.app/tags/</loc><lastmod>2020-12-01T21:13:14-05:00</lastmod><changefreq>weekly</changefreq></url>
   <url>
     <loc>https://ducnguyenlibrary.netlify.app/authors/</loc><changefreq>weekly</changefreq></url>
   <url>
-    <loc>https://ducnguyenlibrary.netlify.app/cam-nang/</loc><changefreq>weekly</changefreq></url></urlset>
+    <loc>https://ducnguyenlibrary.netlify.app/cam-nang/</loc><changefreq>weekly</changefreq></url>
+  <url>
+    <loc>https://ducnguyenlibrary.netlify.app/categories/</loc><changefreq>weekly</changefreq></url>
+  <url>
+    <loc>https://ducnguyenlibrary.netlify.app/</loc><changefreq>weekly</changefreq></url>
+  <url>
+    <loc>https://ducnguyenlibrary.netlify.app/tags/</loc><changefreq>weekly</changefreq></url>
+  <url>
+    <loc>https://ducnguyenlibrary.netlify.app/xac-suat/</loc><changefreq>weekly</changefreq></url></urlset>

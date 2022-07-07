@@ -10,3 +10,6 @@ main:
   - name: Cẩm nang
     url: cam-nang/
     weight: 20
+  - name: Xác suất
+    url: xac-suat/
+    weight: 21

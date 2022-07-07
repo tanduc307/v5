@@ -1,6 +1,6 @@
 ---
-title: Cẩm nang
-icon: fa-solid fa-gears
+title: Xác suất
+icon: fa-solid fa-calculator
 icon_pack: fas
 date: "`r Sys.Date()`"
 toc: false

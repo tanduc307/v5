@@ -1,0 +1,70 @@
+---
+title: "Bài tập 1"
+author: "Duc Nguyen"
+date: '2022-07-08'
+slug: bai-tap-1
+categories: xác suất thống kê
+tags: bài tập
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-07-08T01:28:55+07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+bibliography: D:/GITHUB/v5/zoterobib/xacsuat.bib
+link-citations: yes
+nocite: |
+  @R-bookdown
+---
+
+**Đề bài**: Giả sử có 1 loại dịch bệnh gây hại cho các gia đình trong một cộng đồng. Cho là xác suất bị bệnh của ít nhất 1 người trong 2 người (cha hay mẹ) là 15%. Xác xuất bị bệnh của cha là 10%, trong khi của mẹ là 9%. Hỏi xác suất bị bệnh của cả cha và mẹ trong các gia đình ở cộng đồng đó?
+
+> Consider influenza epidemics for two parent heterosexual families. Suppose that the probability is 15% that at least one of the parents has contracted the disease. The probability that the father has contracted influenza is 10% while that the mother contracted the disease is 9%. What is the probability that both contracted influenza expressed as a whole number percentage? [@CaffoStatistical]
+
+**Đáp án**: Áp dụng theo cách tiếp cận tư duy thiết kế ([design thinking][1]), đầu tiên cần khảo sát kỹ vấn đề, bài toán đặt ra, sau đó mới tìm hiểu các hướng giải bài toán khác nhau để đạt được mục tiêu đề bài.
+
+> “Most people don’t make much of an effort to explore the problem space before exploring the solution space,” said MIT Sloan professor Steve Eppinger.
+
+### Understand problem space
+
+Từ dữ liệu cung cấp, ta đặt các ký hiệu sau: 
+
+- $A$ và $B$ lần lượt là tình trạng (sự kiện/event) sức khỏe của cha và mẹ. 
+
+- $P(A)$ là xác suất bị bệnh của cha (ở đây là 10% = 0.1), $P(B)$ là xác suất bị bệnh của mẹ (9% = 0.09).
+
+- $P(A\cup B)$ hay $P(A + B)$ là xác suất bị bệnh của ít nhất 1 trong 2 người (or/hoặc) là 15% = 0.15.
+
+- $P(A\cap B)$ hay $P(AB)$ là xác suất bị bệnh của cả cha và mẹ (and/và) cần tìm.
+
+Thể hiện trên Venn diagram như sau:
+
+```{r echo = TRUE, message = FALSE, warning = FALSE}
+# load Venn diagram package
+library("VennDiagram")
+
+# move to new plotting page
+grid.newpage()
+
+# create pairwise Venn diagram
+draw.pairwise.venn(area1 = 10, area2 = 9, cross.area = 4,
+                   category = c("P(A)", "P(B)"), fill = c("Blue", "Green"))
+```
+
+### Explore solution space
+
+Xác xuất để cả hai cha mẹ (intersect) cùng bị bệnh là:
+
+$P(A\cup B) = P(A) + P(B) - P(AB)$ do đó (thus)
+
+$\Leftrightarrow 0.15 = 0.10 + 0.09 - P(AB) \Leftrightarrow P(AB) = 0.04 = 4\%$
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CvnmoCuIN08" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### Tài liệu tham khảo
+
+[1]: https://mitsloan.mit.edu/ideas-made-to-matter/design-thinking-explained
