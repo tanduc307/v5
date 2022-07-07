@@ -11,12 +11,12 @@ design:
     text_color_light: true
 cta:
   url: cam-nang/
-  label: Get Started
+  label: Bắt đầu
   icon_pack: fas
   icon: download
 cta_alt:
   url: cam-nang/
-  label: View Documentation
+  label: Xem tài liệu
 cta_note:
   label: >-
     <span class="js-github-release" data-repo="wowchemy/wowchemy-hugo-themes">

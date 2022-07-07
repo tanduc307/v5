@@ -1,5 +1,5 @@
 ---
-title: Thiết kế website với wowchemy theme
+title: Thiết kế website với wowchemy
 author: Duc Nguyen
 date: "`r Sys.Date()`"
 slug: thiet-ke-website
