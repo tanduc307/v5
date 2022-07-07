@@ -2,7 +2,6 @@
 title: Thiết kế website với wowchemy
 author: Duc Nguyen
 date: "`r Sys.Date()`"
-slug: thiet-ke-website
 categories:
   - kỹ năng website
 tags:
@@ -21,9 +20,6 @@ image:
   focal_point: ''
   preview_only: no
 projects: []
-output:
-  blogdown::html_page:
-    toc: false
 ---
 
 ## Cài đặt bước đầu
