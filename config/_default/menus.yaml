@@ -7,6 +7,6 @@ main:
   - name: Home
     url: /
     weight: 10
-  - name: Documentation
-    url: docs/
+  - name: Cẩm nang
+    url: cam-nang/
     weight: 20

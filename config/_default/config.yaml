@@ -3,8 +3,8 @@
 # Hugo Documentation: https://gohugo.io/getting-started/configuration/#all-configuration-settings
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
-title: 'My Project' # Website name
-baseURL: 'https://example.com/' # Website URL
+title: 'Duc Nguyen''s library' # Website name
+baseURL: 'https://ducnguyenlibrary.netlify.app/' # Website URL
 
 ############################
 ## PAGE OPTIONS
@@ -13,8 +13,8 @@ baseURL: 'https://example.com/' # Website URL
 cascade:
   # Docs folder options
   - _target:
-      path: /docs/**
-    editable: true
+      path: /cam-nang/**
+    editable: false
     show_breadcrumb: true
 
 ############################

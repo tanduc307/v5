@@ -1,0 +1,85 @@
+---
+title: Thiết kế website với wowchemy theme
+author: Duc Nguyen
+date: "2022-07-08"
+slug: thiet-ke-website
+categories:
+  - kỹ năng website
+tags:
+  - blogdown
+  - wowchemy
+  - hugo theme
+  - github
+  - netlify
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-07-07T17:48:35+07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+output:
+  blogdown::html_page:
+    toc: false
+---
+
+
+
+<div id="cài-đặt-bước-đầu" class="section level2">
+<h2>Cài đặt bước đầu</h2>
+<ul>
+<li>Cài đặt RStudio</li>
+<li>Cài đặt package <code>blogdown</code></li>
+<li>Sau đó gõ đoạn code này:</li>
+</ul>
+<pre class="r"><code>library(blogdown)
+new_site(theme = &quot;wowchemy/starter-academic&quot;) 
+
+# Sau đó cho tạo site
+blogdown::serve_site() # Lệnh này chỉ cần dùng 1 lần mỗi khi vào session
+# Và xây dựng site
+blogdown::build_site()
+
+# Các lệnh khác
+blogdown::check_gitignore()  
+blogdown::check_content()</code></pre>
+<ul>
+<li>File <code>.gitignore</code> thì bổ sung các folder này vào:</li>
+</ul>
+<pre class="r"><code>.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.DS_Store
+Thumbs.db</code></pre>
+<ul>
+<li><p>Trong <code>Tools/Project Options/Build Tools</code> chọn turn off <code>Preview site after building</code>.</p></li>
+<li><p>Sau khi upload lên Github và deploy ở Netlify, có được URL chính thức thì sửa ở đoạn <code>baseURL:</code> trong file <code>config.yaml</code>.</p></li>
+</ul>
+<pre class="r"><code>rstudioapi::navigateToFile(&quot;config/_default/config.yaml&quot;, line = 7, column = 10)</code></pre>
+</div>
+<div id="chỉnh-sửa-site" class="section level2">
+<h2>Chỉnh sửa site</h2>
+<ul>
+<li>Thay đổi các nút chia sẻ ở file này <code>Root\themes\github.com\wowchemy\wowchemy-hugo-modules\wowchemy\v5\data\page_sharer.toml</code></li>
+</ul>
+<pre class="r"><code>[[buttons]]
+  id = &quot;telegram&quot;
+  url = &quot;https://t.me/share/url?url={url}&amp;title={title}&quot;
+  title = &quot;Telegram&quot;
+  icon_pack = &quot;fab&quot;
+  icon = &quot;telegram&quot;
+  enable = true</code></pre>
+<ul>
+<li>Những cấu trúc lặt vặt khác thì khi thay đổi cần để ý đồng bộ giữa file đang nằm trong folder với các đường dẫn ở <code>config.yaml, menus.yamal</code>.</li>
+</ul>
+</div>
+<div id="tham-khảo" class="section level2">
+<h2>Tham khảo</h2>
+<p><a href="https://www.apreshill.com/blog/2020-12-new-year-new-blogdown/">Alison Hill’s method</a></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/c7vpcqA6SEQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>

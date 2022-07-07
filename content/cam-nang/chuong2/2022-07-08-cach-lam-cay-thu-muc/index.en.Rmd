@@ -1,0 +1,31 @@
+---
+title: "Cách làm cây thư mục"
+author: "Duc Nguyen"
+date: "`r Sys.Date()`"
+slug: cach-lam-cay-thu-muc
+categories: kỹ năng r
+tags: package r
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-07-08T01:05:23+07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+## Thuật ngữ
+
+Cây thư mục = dir tree = hierarchical directory
+
+Trong `R` sử dụng package `fs` với function `dir_tree`.
+
+```{r message = FALSE, warning = FALSE}
+library('fs')
+dir_tree("D:/GITHUB/v5/content")
+```
+
+Trong `Visual Studio Code` sử dụng extension [`file-tree-generator`](https://marketplace.visualstudio.com/items?itemName=Shinotatwu-DS.file-tree-generator)
