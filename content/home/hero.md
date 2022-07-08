@@ -17,11 +17,6 @@ cta:
 cta_alt:
   url: cam-nang/
   label: Xem tài liệu
-cta_note:
-  label: >-
-    <span class="js-github-release" data-repo="wowchemy/wowchemy-hugo-themes">
-      <!-- Automatically filled based on data-repo value -->
-    </span>
 ---
 
 Lưu trữ các tài liệu học tập. 
