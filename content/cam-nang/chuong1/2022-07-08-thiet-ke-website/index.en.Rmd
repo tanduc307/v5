@@ -1,0 +1,73 @@
+---
+title: Thiết kế website với wowchemy
+author: Duc Nguyen
+date: '2022-07-08'
+slug: thiet-ke-website
+categories:
+  - kỹ năng website
+tags:
+  - blogdown
+  - hugo theme
+  - wowchemy
+  - github
+  - netlify
+---
+
+## Cài đặt bước đầu
+
+- Cài đặt RStudio
+- Cài đặt package `blogdown`
+- Sau đó gõ đoạn code này:
+```{r eval=FALSE}
+library(blogdown)
+new_site(theme = "wowchemy/starter-academic") 
+
+# Sau đó cho tạo site
+blogdown::serve_site() # Lệnh này chỉ cần dùng 1 lần mỗi khi vào session
+# Và xây dựng site
+blogdown::build_site()
+
+# Các lệnh khác
+blogdown::check_gitignore()  
+blogdown::check_content()
+```
+
+- File `.gitignore` thì bổ sung các folder này vào: 
+```{r eval=FALSE}
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.DS_Store
+Thumbs.db
+```
+
+- Trong `Tools/Project Options/Build Tools` chọn turn off `Preview site after building`.
+
+- Sau khi upload lên Github và deploy ở Netlify, có được URL chính thức thì sửa ở đoạn `baseURL:` trong file `config.yaml`.
+
+```{r eval=FALSE}
+rstudioapi::navigateToFile("config/_default/config.yaml", line = 7, column = 10)
+```
+
+## Chỉnh sửa site
+
+- Thay đổi các nút chia sẻ ở file này `Root\themes\github.com\wowchemy\wowchemy-hugo-modules\wowchemy\v5\data\page_sharer.toml`
+
+```{r eval=FALSE}
+[[buttons]]
+  id = "telegram"
+  url = "https://t.me/share/url?url={url}&title={title}"
+  title = "Telegram"
+  icon_pack = "fab"
+  icon = "telegram"
+  enable = true
+```
+
+- Những cấu trúc lặt vặt khác thì khi thay đổi cần để ý đồng bộ giữa file đang nằm trong folder với các đường dẫn ở `config.yaml, menus.yamal`.
+
+## Tham khảo
+
+[Alison Hill's method](https://www.apreshill.com/blog/2020-12-new-year-new-blogdown/)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/c7vpcqA6SEQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
