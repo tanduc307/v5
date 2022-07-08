@@ -51,7 +51,8 @@ Thumbs.db</code></pre>
 <div id="chỉnh-sửa-site" class="section level2">
 <h2>Chỉnh sửa site</h2>
 <ul>
-<li>Thay đổi các nút chia sẻ ở file này <code>Root\themes\github.com\wowchemy\wowchemy-hugo-modules\wowchemy\v5\data\page_sharer.toml</code></li>
+<li><p>Thay đổi các nút chia sẻ ở file này <code>Root\themes\github.com\wowchemy\wowchemy-hugo-modules\wowchemy\v5\data\page_sharer.toml</code></p></li>
+<li><p>Thêm các thông tin mặc định cho mỗi poast ở file này <code>Root\themes\github.com\wowchemy\wowchemy-hugo-modules\wowchemy\v5\archetypes\default.md</code></p></li>
 </ul>
 <pre class="r"><code>[[buttons]]
   id = &quot;telegram&quot;
@@ -61,8 +62,55 @@ Thumbs.db</code></pre>
   icon = &quot;telegram&quot;
   enable = true</code></pre>
 <ul>
-<li>Những cấu trúc lặt vặt khác thì khi thay đổi cần để ý đồng bộ giữa file đang nằm trong folder với các đường dẫn ở <code>config.yaml, menus.yamal</code>.</li>
+<li><p>Những cấu trúc lặt vặt khác thì khi thay đổi cần để ý đồng bộ giữa file đang nằm trong folder với các đường dẫn ở <code>config.yaml, menus.yamal</code>.</p></li>
+<li><p>Khi cần tạo table thì để thẻ <code>&lt;style&gt;...&lt;/style&gt;</code> trong nội dung văn bản giống như vầy để tạo ra bảng đơn giản.</p></li>
 </ul>
+<pre class="r"><code>|        |      |         |
+|:------:|:----:|:-------:|
+| $W$    | $-X$ | $Y$     |
+| $P(W)$ | $p$  | $1 - p$ |
+
+&lt;style&gt;
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+table, th, td {
+   border: 1px solid black;
+}
+blockquote {
+    border-left: solid blue;
+    padding-left: 10px;
+}
+&lt;/style&gt;</code></pre>
+<p>Kết quả là:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(W\)</span></td>
+<td align="center"><span class="math inline">\(-X\)</span></td>
+<td align="center"><span class="math inline">\(Y\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(P(W)\)</span></td>
+<td align="center"><span class="math inline">\(p\)</span></td>
+<td align="center"><span class="math inline">\(1 - p\)</span></td>
+</tr>
+</tbody>
+</table>
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+table, th, td {
+   border: 1px solid black;
+}
+blockquote {
+    border-left: solid blue;
+    padding-left: 10px;
+}
+</style>
 </div>
 <div id="tham-khảo" class="section level2">
 <h2>Tham khảo</h2>

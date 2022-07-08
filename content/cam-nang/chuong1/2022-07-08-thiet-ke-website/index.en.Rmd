@@ -54,6 +54,8 @@ rstudioapi::navigateToFile("config/_default/config.yaml", line = 7, column = 10)
 
 - Thay đổi các nút chia sẻ ở file này `Root\themes\github.com\wowchemy\wowchemy-hugo-modules\wowchemy\v5\data\page_sharer.toml`
 
+- Thêm các thông tin mặc định cho mỗi poast ở file này `Root\themes\github.com\wowchemy\wowchemy-hugo-modules\wowchemy\v5\archetypes\default.md`
+
 ```{r eval=FALSE}
 [[buttons]]
   id = "telegram"
@@ -65,6 +67,51 @@ rstudioapi::navigateToFile("config/_default/config.yaml", line = 7, column = 10)
 ```
 
 - Những cấu trúc lặt vặt khác thì khi thay đổi cần để ý đồng bộ giữa file đang nằm trong folder với các đường dẫn ở `config.yaml, menus.yamal`.
+
+- Khi cần tạo table thì để thẻ `<style>...</style>` trong nội dung văn bản giống như vầy để tạo ra bảng đơn giản.
+
+```{r eval=FALSE}
+|        |      |         |
+|:------:|:----:|:-------:|
+| $W$    | $-X$ | $Y$     |
+| $P(W)$ | $p$  | $1 - p$ |
+
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+table, th, td {
+   border: 1px solid black;
+}
+blockquote {
+    border-left: solid blue;
+    padding-left: 10px;
+}
+</style>
+```
+
+Kết quả là:
+
+|        |      |         |
+|:------:|:----:|:-------:|
+| $W$    | $-X$ | $Y$     |
+| $P(W)$ | $p$  | $1 - p$ |
+
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+table, th, td {
+   border: 1px solid black;
+}
+blockquote {
+    border-left: solid blue;
+    padding-left: 10px;
+}
+</style>
+
 
 ## Tham khảo
 

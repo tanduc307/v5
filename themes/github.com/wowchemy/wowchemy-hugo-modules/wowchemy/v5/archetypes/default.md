@@ -11,6 +11,10 @@ date: {{ .Date }}
 lastmod: {{ .Date }}
 featured: false
 draft: false
+bibliography: D:/GITHUB/v5/zoterobib/xacsuat.bib
+link-citations: yes
+nocite: |
+  @R-bookdown
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
