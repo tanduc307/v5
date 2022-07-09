@@ -48,7 +48,7 @@ Since the probability of a particular outcome or event E is the ratio of ways th
 
 If you're doing an experiment with <span style="color:red">***n***</span> possible outcomes, say e~1~, e~2~, ..., e~n~, then the sum of the probabilities of all the outcomes is 1. If all the outcomes are equally likely, as in the case of a fair die, then the probability of each is $1/n$.
 
-If $A$ and $B$ are two **independent** events then the probability of them **both occurring** is the product of the probabilities $P(A&B) = P(A) \times P(B)$.
+If $A$ and $B$ are two **independent** events then the <mark>probability</mark> of them **both occurring** is the product of the probabilities, $P(A \& B) = P(A) \times P(B)$.
 
 > Suppose you rolled the fair die twice in succession. What is the probability of rolling two 4's? The probability of rolling the first 4 is $1/6$. The second roll of the dice doesn't depend on the outcome of the first, so that also has a probability of $1/6$. The probability of both events occurring is $1/6 \times 1/6$. This makes intuitive sense since the probability of 2 such events occurring has to be smaller than the probability of only 1 event. Xác suất để gieo xúc sắc liên tiếp hai lần mà đều xuất hiện mặt có 4 điểm là $1/6 \times 1/6 = 1/36$.
 
