@@ -21,8 +21,9 @@ image:
   focal_point: ''
   preview_only: no
 projects: []
-toc: yes
-type: book
+output:
+  blogdown::html_page:
+    toc: true
 ---
 
 **Bộ tài liệu Bergey's Manual có các lần xuất bản như sau:**

@@ -11,8 +11,9 @@ date: {{ .Date }}
 lastmod: {{ .Date }}
 featured: false
 draft: false
-toc: yes
-type: book
+output:
+  blogdown::html_page:
+    toc: true
 bibliography: D:/GITHUB/v5/zoterobib/xacsuat.bib
 link-citations: yes
 nocite: |
