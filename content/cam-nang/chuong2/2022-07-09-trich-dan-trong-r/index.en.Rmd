@@ -1,0 +1,29 @@
+---
+title: Trích dẫn trong R
+author: Duc Nguyen
+date: '2022-07-09'
+slug: trich-dan-trong-r
+categories:
+  - kỹ năng r
+tags:
+  - trích dẫn
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-07-09T22:18:00+07:00'
+featured: no
+output:
+  blogdown::html_page:
+    toc: yes
+bibliography: D:/GITHUB/v5/zoterobib/xacsuat.bib
+link-citations: yes
+nocite: |
+  @R-bookdown
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+Để trích dẫn package nào đó trong `R` thì ta dùng lệnh `citation('packagename')`.

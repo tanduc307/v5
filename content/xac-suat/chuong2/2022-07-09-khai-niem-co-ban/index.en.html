@@ -1,0 +1,67 @@
+---
+title: Khái niệm cơ bản
+author: Duc Nguyen
+date: '2022-07-09'
+slug: khai-niem-co-ban
+categories:
+  - xác suất thống kê
+tags:
+  - thuật ngữ
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-07-09T22:04:46+07:00'
+featured: no
+output:
+  blogdown::html_page:
+    toc: yes
+bibliography: D:/GITHUB/v5/zoterobib/xacsuat.bib
+link-citations: yes
+nocite: |
+  @R-bookdown
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#probability">Probability</a></li>
+<li><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
+</ul>
+</div>
+
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>We want to emphasize a couple of important points here. First, a statistic (singular) is a number computed from a sample of data. We use statistics to infer information about a population. Second, a random variable is an outcome from an experiment. Deterministic processes, such as computing means or variances, applied to random variables, produce additional random variables which have their own distributions. It’s important to keep straight which distributions you’re talking about.</p>
+<p>Finally, there are two broad flavors of inference. The first is frequency, which uses “long run proportion of times an event occurs in independent, identically distributed repetitions.” The second is Bayesian in which the probability estimate for a hypothesis is updated as additional evidence is acquired. Both flavors require an understanding of probability <span class="citation">(<a href="#ref-swirl2020" role="doc-biblioref">Kross et al. 2020</a>)</span>.</p>
+</div>
+<div id="probability" class="section level2">
+<h2>Probability</h2>
+<p>Here we’ll review basic ideas of probability, the study of quantifying the likelihood of particular events occurring. Note the similarity between the words probability and probably. Every time you use the latter word you’re implying that an event is more likely than not to occur.</p>
+<p>The first step in understanding probability is to see if you understand what outcomes of an experiment are possible. For instance, if you were rolling a single, fair die once, how many outcomes are possible?</p>
+<p>The answer is 6 types of outcome from 1 to 6 point per dice’s plane.</p>
+<p>The probability of a particular outcome of an experiment is the ratio of the number of ways that outcome can occur to all possible outcomes of the experiment. Since there are 6 possible outcomes to the experiment of rolling a die, and we assume the die is fair, each outcome is equally likely. So what is the probability of rolling a 2? <em>Xác suất để tung ra mặt có 2 điểm là <span class="math inline">\(1/6\)</span></em></p>
+<p>What is the probability of rolling an even number? Xác xuất để tung ra số chẵn (2, 4, 6) là <span class="math inline">\(1/2\)</span>.</p>
+<p>Since the probability of a particular outcome or event E is the ratio of ways that E could occur to the number of all possible outcomes or events, the probability of <span class="math inline">\(E\)</span>, denoted <span class="math inline">\(P(E)\)</span>, is <strong>always</strong> between 0 and 1. <span style="color:blue"><strong>Impossible events</strong></span> have a probability of 0 (since they can’t occur) and events that are <span style="color:blue"><strong>certain to occur</strong></span> have a probability of 1.</p>
+<p>If you’re doing an experiment with <span style="color:red"><strong><em>n</em></strong></span> possible outcomes, say e<sub>1</sub>, e<sub>2</sub>, …, e<sub>n</sub>, then the sum of the probabilities of all the outcomes is 1. If all the outcomes are equally likely, as in the case of a fair die, then the probability of each is <span class="math inline">\(1/n\)</span>.</p>
+<p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are two <strong>independent</strong> events then the probability of them <strong>both occurring</strong> is the product of the probabilities <span class="math inline">\(P(A&amp;B) = P(A) \times P(B)\)</span>.</p>
+<blockquote>
+<p>Suppose you rolled the fair die twice in succession. What is the probability of rolling two 4’s? The probability of rolling the first 4 is <span class="math inline">\(1/6\)</span>. The second roll of the dice doesn’t depend on the outcome of the first, so that also has a probability of <span class="math inline">\(1/6\)</span>. The probability of both events occurring is <span class="math inline">\(1/6 \times 1/6\)</span>. This makes intuitive sense since the probability of 2 such events occurring has to be smaller than the probability of only 1 event. Xác suất để gieo xúc sắc liên tiếp hai lần mà đều xuất hiện mặt có 4 điểm là <span class="math inline">\(1/6 \times 1/6 = 1/36\)</span>.</p>
+</blockquote>
+<blockquote>
+<p>Suppose you rolled the fair die twice. What is the probability of rolling the same number two times in a row? Since we don’t care what the outcome of the first roll is, its probability is <span class="math inline">\(1\)</span>. The second roll of the dice has to match the outcome of the first, so that has a probability of <span class="math inline">\(1/6\)</span>. The probability of both events occurring is <span class="math inline">\(1 \times 1/6\)</span>.</p>
+</blockquote>
+</div>
+<div id="tài-liệu-tham-khảo" class="section level2 unnumbered">
+<h2>Tài liệu tham khảo</h2>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-swirl2020" class="csl-entry">
+Kross, Sean, Nick Carchedi, Bill Bauer, and Gina Grdina. 2020. <em>Swirl: Learn r, in r</em>. <a href="https://CRAN.R-project.org/package=swirl">https://CRAN.R-project.org/package=swirl</a>.
+</div>
+</div>
+</div>

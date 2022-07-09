@@ -59,7 +59,7 @@ locale:
 features:
   syntax_highlighter:
     enable: true    
-    theme: "idea.min"
+    theme: "rainbow"
     extra_languages:
       - r
       - latex
