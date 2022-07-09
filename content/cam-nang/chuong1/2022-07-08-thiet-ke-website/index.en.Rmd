@@ -11,8 +11,9 @@ tags:
   - wowchemy
   - github
   - netlify
-toc: yes
-type: book
+output:
+  blogdown::html_page:
+    toc: true
 ---
 
 ## Cài đặt bước đầu

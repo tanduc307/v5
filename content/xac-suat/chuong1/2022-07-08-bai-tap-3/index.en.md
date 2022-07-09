@@ -2,7 +2,7 @@
 title: "Bài tập 3"
 author: "Duc Nguyen"
 date: '2022-07-08'
-slug: bai-tap-3
+output: pdf_document
 categories: xác suất thống kê
 tags: bài tập
 subtitle: ''
@@ -21,6 +21,7 @@ image:
 projects: []
 toc: yes
 type: book
+slug: bai-tap-3
 ---
 
 **Đề bài**: Tưởng tượng rằng bạn đang chơi trò gieo đồng xu với 1 người bạn. Nếu bạn gieo đồng xu có mặt **ngửa** thì bạn **thua** và phải đưa cho bạn ấy `\(X\)` dollar, còn nếu ngược lại đồng xu có mặt **úp** thì bạn **thắng** và bạn kia sẽ đưa bạn `\(Y\)` dollar. Vì đồng xu không cân xứng mà bị lệch một chút, giá trị odds khi đồng xu <span style="color:blue">*ngửa*</span> là `\(d\)`. Dự đoán xem bạn sẽ thắng được bao nhiêu tiền?
