@@ -13,3 +13,6 @@ main:
   - name: Xác suất
     url: xac-suat/
     weight: 21
+  - name: Blog
+    url: post/
+    weight: 22    

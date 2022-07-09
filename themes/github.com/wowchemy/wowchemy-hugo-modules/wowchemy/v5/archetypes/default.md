@@ -11,6 +11,8 @@ date: {{ .Date }}
 lastmod: {{ .Date }}
 featured: false
 draft: false
+toc: yes
+type: book
 bibliography: D:/GITHUB/v5/zoterobib/xacsuat.bib
 link-citations: yes
 nocite: |

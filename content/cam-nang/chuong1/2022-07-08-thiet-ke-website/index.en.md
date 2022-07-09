@@ -20,7 +20,8 @@ type: book
 - Cài đặt RStudio
 - Cài đặt package `blogdown`
 - Sau đó gõ đoạn code này:
-```{r eval=FALSE}
+
+```r
 library(blogdown)
 new_site(theme = "wowchemy/starter-academic") 
 
@@ -35,7 +36,8 @@ blogdown::check_content()
 ```
 
 - File `.gitignore` thì bổ sung các folder này vào: 
-```{r eval=FALSE}
+
+```r
 .Rproj.user
 .Rhistory
 .RData
@@ -48,7 +50,8 @@ Thumbs.db
 
 - Sau khi upload lên Github và deploy ở Netlify, có được URL chính thức thì sửa ở đoạn `baseURL:` trong file `config.yaml`.
 
-```{r eval=FALSE}
+
+```r
 rstudioapi::navigateToFile("config/_default/config.yaml", line = 7, column = 10)
 ```
 
@@ -56,7 +59,8 @@ rstudioapi::navigateToFile("config/_default/config.yaml", line = 7, column = 10)
 
 - Thay đổi các nút chia sẻ ở file này `Root\themes\github.com\wowchemy\wowchemy-hugo-modules\wowchemy\v5\data\page_sharer.toml`
 
-```{r eval=FALSE}
+
+```r
 [[buttons]]
   id = "telegram"
   url = "https://t.me/share/url?url={url}&title={title}"
@@ -68,7 +72,8 @@ rstudioapi::navigateToFile("config/_default/config.yaml", line = 7, column = 10)
 
 - Khi cần tạo table thì để thẻ `<style>...</style>` trong nội dung văn bản giống như vầy để tạo ra bảng đơn giản.
 
-```{r eval=FALSE}
+
+```r
 |        |      |         |
 |:------:|:----:|:-------:|
 | $W$    | $-X$ | $Y$     |
@@ -93,8 +98,8 @@ Kết quả là:
 
 |        |      |         |
 |:------:|:----:|:-------:|
-| $W$    | $-X$ | $Y$     |
-| $P(W)$ | $p$  | $1 - p$ |
+| `\(W\)`    | `\(-X\)` | `\(Y\)`     |
+| `\(P(W)\)` | `\(p\)`  | `\(1 - p\)` |
 
 <style>
 table {
@@ -122,7 +127,8 @@ blockquote {
 
 - Thay đổi chỗ này `blogdown.method = 'markdown'` trong file `.Rprofile`. Tuy nhiên mục lục chỉ hiển thị từ secondary heading trở đi. Trong `post` thì thêm dòng code sau:
 
-```{r eval=FALSE}
+
+```r
 toc: yes
 type: book
 ```

@@ -21,6 +21,8 @@ bibliography: D:/GITHUB/v5/zoterobib/xacsuat.bib
 link-citations: yes
 nocite: |
   @R-bookdown
+toc: yes
+type: book
 ---
 
 **Đề bài**: Một biến ngẫu nhiên $X$ đồng nhất, có hàm phân bố xác suất từ 0 đến 1, chiều cao 1. Hỏi giá trị media của biến đó là bao nhiêu?

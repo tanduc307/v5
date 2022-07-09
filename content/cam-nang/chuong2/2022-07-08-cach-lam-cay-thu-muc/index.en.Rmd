@@ -17,6 +17,8 @@ image:
   focal_point: ''
   preview_only: no
 projects: []
+toc: yes
+type: book
 ---
 
 ## Thuật ngữ

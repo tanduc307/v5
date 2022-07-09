@@ -21,6 +21,8 @@ bibliography: D:/GITHUB/v5/zoterobib/xacsuat.bib
 link-citations: yes
 nocite: |
   @R-bookdown
+toc: yes
+type: book
 ---
 
 **Đề bài**: Giả sử có 1 loại dịch bệnh gây hại cho các gia đình trong một cộng đồng. Cho là xác suất bị bệnh của ít nhất 1 người trong 2 người (cha hay mẹ) là 15%. Xác xuất bị bệnh của cha là 10%, trong khi của mẹ là 9%. Hỏi xác suất bị bệnh của cả cha và mẹ trong các gia đình ở cộng đồng đó?

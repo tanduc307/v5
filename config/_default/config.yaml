@@ -16,6 +16,14 @@ cascade:
       path: /cam-nang/**
     editable: false
     show_breadcrumb: true
+  - _target:
+      path: /xac-suat/**
+    editable: false
+    show_breadcrumb: true
+  - _target:
+      path: /post/**
+    editable: false
+    show_breadcrumb: true    
 
 ############################
 ## LANGUAGE

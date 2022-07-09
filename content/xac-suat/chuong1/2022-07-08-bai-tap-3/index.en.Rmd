@@ -19,13 +19,15 @@ image:
   focal_point: ''
   preview_only: no
 projects: []
+toc: yes
+type: book
 ---
 
 **Đề bài**: Tưởng tượng rằng bạn đang chơi trò gieo đồng xu với 1 người bạn. Nếu bạn gieo  đồng xu có mặt **ngửa** thì bạn **thua** và phải đưa cho bạn ấy $X$ dollar, còn nếu ngược lại đồng xu có mặt **úp** thì bạn **thắng** và bạn kia sẽ đưa bạn $Y$ dollar. Vì đồng xu không cân xứng mà bị lệch một chút, giá trị odds khi đồng xu <span style="color:blue">*ngửa*</span> là $d$. Dự đoán xem bạn sẽ thắng được bao nhiêu tiền?
 
 > You are playing a game with a friend where you flip a coin and if it comes up heads you give her $X$ dollars and if it comes up tails she gives you $Y$ dollars. The odds that the coin is heads is $d$. What is your expected earnings? [@CaffoStatistical]
 
-**Đáp án**: Gọi $p$ là xác suất mà bạn sẽ **thua** (khi có mặt **ngửa**), do đó $1 - p$ là xác suất mà bạn **thắng** (khi có mặt úp). Gọi $W$ là số tiền mà bạn *thu* được, do đó $-X$ là số tiền bạn thua, còn $Y$ là số tiền bạn thắng, $P(W)$ là xác suất **thu/earning/winning** được số tiền trong mỗi lần gieo đồng xu. Ta trình bày mối quan hệ của các tham số này trong Table \@ref(tab:manual). 
+**Đáp án**: Gọi $p$ là xác suất mà bạn sẽ **thua** (khi có mặt **ngửa**), do đó $1 - p$ là xác suất mà bạn **thắng** (khi có mặt **úp**). Gọi $W$ là số tiền mà bạn *thu* được, do đó $-X$ là số tiền bạn thua, còn $Y$ là số tiền bạn thắng, $P(W)$ là xác suất **thu/earning/winning** được số tiền trong mỗi lần gieo đồng xu. Ta trình bày mối quan hệ của các tham số này trong Table \@ref(tab:manual). 
 
 Table: (\#tab:manual) Các tham số bài toán.
 

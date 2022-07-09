@@ -17,17 +17,24 @@ image:
   focal_point: ''
   preview_only: no
 projects: []
+toc: yes
+type: book
 ---
 
+## Thuật ngữ
+
+Cây thư mục = dir tree = hierarchical directory
+
+Trong `R` sử dụng package `fs` với function `dir_tree`.
 
 
-<div id="thuật-ngữ" class="section level2">
-<h2>Thuật ngữ</h2>
-<p>Cây thư mục = dir tree = hierarchical directory</p>
-<p>Trong <code>R</code> sử dụng package <code>fs</code> với function <code>dir_tree</code>.</p>
-<pre class="r"><code>library(&#39;fs&#39;)
-dir_tree(&quot;D:/GITHUB/v5/content&quot;)</code></pre>
-<pre><code>D:/GITHUB/v5/content
+```r
+library('fs')
+dir_tree("D:/GITHUB/v5/content")
+```
+
+```
+D:/GITHUB/v5/content
 +-- cam-nang
 |   +-- chuong1
 |   |   +-- 2022-07-07-thiet-ke-website
@@ -50,6 +57,7 @@ dir_tree(&quot;D:/GITHUB/v5/content&quot;)</code></pre>
         +-- index.en.Rmd
         \-- index.en_files
             \-- figure-html
-                \-- pie-1.png</code></pre>
-<p>Trong <code>Visual Studio Code</code> sử dụng extension <a href="https://marketplace.visualstudio.com/items?itemName=Shinotatwu-DS.file-tree-generator"><code>file-tree-generator</code></a></p>
-</div>
+                \-- pie-1.png
+```
+
+Trong `Visual Studio Code` sử dụng extension [`file-tree-generator`](https://marketplace.visualstudio.com/items?itemName=Shinotatwu-DS.file-tree-generator)

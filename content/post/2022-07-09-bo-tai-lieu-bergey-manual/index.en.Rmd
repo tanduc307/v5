@@ -1,0 +1,88 @@
+---
+title: Bộ tài liệu về phân lập vi sinh vật Bergey's manual
+author: Duc Nguyen
+date: '2022-07-09'
+slug: bo-tai-lieu-bergey-manual
+categories:
+  - kỹ năng vi sinh
+tags:
+  - tài liệu
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-07-09T14:20:06+07:00'
+featured: no
+bibliography: D:/GITHUB/v5/zoterobib/xacsuat.bib
+link-citations: yes
+nocite: |
+  @R-bookdown
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+toc: yes
+type: book
+---
+
+**Bộ tài liệu Bergey's Manual có các lần xuất bản như sau:**
+
+## <span style="color:blue">1. Bergey's Manual of Determinative Bacteriology</span>
+
+-   First edition, 1923
+
+-   Second edition, 1925
+
+-   Third edition, 1930
+
+-   Fourth edition, 1934
+
+-   Fifth edition, 1939
+
+-   Sixth edition, 1948. Bergey's Manual of Determinative Bacteriology 6th edition. [view](https://archive.org/details/bergeysmanualofd00amer/page/n4/mode/1up)
+
+-   Seventh edition, 1957. Bergey's Manual of Determinative Bacteriology 7th edition. [view](https://archive.org/details/bergeysmanualofd0000amer_h0k6/mode/1up) | [light](https://t.me/c/1605387342/121)
+
+-   Eighth edition, 1974. Bergey's Manual of Determinative Bacteriology 8th edition. [view](https://archive.org/details/bergeysmanualofd00atio)
+
+-   Ninth edition, 1994. Bergey's Manual of Determinative Bacteriology 9th edition. [view](https://archive.org/details/bergeysmanualofd0000unse_l7d4/page/757/mode/2up)
+
+## <span style="color:blue">2. Bergey's Manual of Systematic Bacteriology, 1st ed</span>
+
+-   Krieg, N.R. & Holt, J.G. (eds., 1984). Bergey's Manual of Systematic Bacteriology, 1st ed., vol. 1, Williams and Wilkins, Baltimore. [view](https://archive.org/details/bergeysmanualofs01atio)
+
+-   Sneath, P.H.A., Mair, N.S., Sharpe, M.E. & Holt, J.G. (eds., 1986). Bergey's Manual of Systematic Bacteriology, 1st ed., vol. 2, Williams & Wilkins, Baltimore. [view](https://archive.org/details/bergeysmanualofs02atio/mode/1up)
+
+-   Staley, J.T., Bryant, M.P., Pfennig, N. & Holt, J.G. (eds., 1989). Bergey's Manual of Systematic Bacteriology, 1st ed., vol. 3, Williams and Wilkins, Baltimore. [view](https://archive.org/details/bergeysmanualofs03atio)
+
+-   Williams, S.T., Sharpe, M.E. & Holt, J.G. (eds., 1989). Bergey's Manual of Systematic Bacteriology, 1st ed., vol. 4, Williams and Wilkins, Baltimore. [view](https://archive.org/details/bergeysmanualofs04atio/page/n7/mode/1up)
+
+## <span style="color:blue">3. Bergey's Manual of Systematic Bacteriology, 2nd ed</span>
+
+- Garrity, G.M., Boone, D.R. & Castenholz, R.W. (eds., 2001). Bergey's Manual of Systematic Bacteriology, 2nd ed., vol. 1, Springer-Verlag, New York, NY. [light](https://t.me/c/1605387342/114)
+
+- Brenner, D.J., Krieg, N.R., Staley, J.T. & Garrity, G.M. (eds., 2005). Bergey's Manual of Systematic Bacteriology, 2nd ed., vol. 2, parts A, B and C, Springer-Verlag, New York, NY.
+
+    - Part A: Introductory Essays. [light](https://t.me/c/1605387342/115)
+
+    - Part B: The Gammaproteobacteria. [light](https://t.me/c/1605387342/116)
+
+    - Part C: The Alpha-, Beta-, Delta-, and Epsilonproteobacteria. [light](https://t.me/c/1605387342/117)
+
+- Vos, P., Garrity, G., Jones, D., Krieg, N.R., Ludwig, W., Rainey, F.A., Schleifer, K.-H. & Whitman, W.B. (eds., 2009). Bergey's Manual of Systematic Bacteriology, 2nd ed., vol. 3, Springer-Verlag, New York, NY. [light](https://t.me/c/1605387342/118)
+
+- Krieg, N.R., Ludwig, W., Whitman, W.B., Hedlund, B.P., Paster, B.J., Staley, J.T., Ward, N. & Brown, D. (eds., 2010). Bergey's Manual of Systematic Bacteriology, 2nd ed., vol. 4, Springer-Verlag, New York, NY. [light](https://t.me/c/1605387342/119)
+
+- Whitman, W.B., Goodfellow, M., Kämpfer, P., Busse, H.-J., Trujillo, M.E., Ludwig, W. & Suzuki, K.-i. (eds., 2012). Bergey's Manual of Systematic Bacteriology, 2nd ed., vol. 5, parts A and B, Springer-Verlag, New York, NY. [light](https://t.me/c/1605387342/120)
+
+## <span style="color:green">4. Bergey's Manual of Systematics of Archaea and Bacteria (online version from 2015)</span>
+
+Wiley version [view](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118960608) 
+
+Hướng dẫn cách tải tài liệu [video](https://youtu.be/wcwJjPpddXA)
+
+## 5. Các tài liệu khác
+
+- Identification Flow Charts - Bergey's Manual of Determinative Bacteriology," n.d. [light](https://t.me/c/1605387342/113)
+
+- Thông tin từ [wikipedia](https://en.wikipedia.org/wiki/Bergey%27s_Manual_of_Systematic_Bacteriology#cite_note-15)
