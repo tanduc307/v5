@@ -2,7 +2,6 @@
 title: "Bài tập 3"
 author: "Duc Nguyen"
 date: '2022-07-08'
-output: pdf_document
 categories: xác suất thống kê
 tags: bài tập
 subtitle: ''
