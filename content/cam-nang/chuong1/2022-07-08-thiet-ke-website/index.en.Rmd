@@ -132,6 +132,10 @@ type: book
 
 - Để đảm bảo việc hiện trang khi có sự thay đổi thông tin thì ta cần vào thư mục chứa bài viết mà xóa các file không liên quan, chỉ giữ lại file `.Rmd` gốc ban đầu. Khi `serve_site` thì hệ thống sẽ từ file gốc này mà xuất ra các file thứ cấp.
 
+## Markdown syntax
+
+[Cú pháp Markdown](https://daringfireball.net/projects/markdown/syntax)
+
 ## Tham khảo
 
 [Alison Hill's method](https://www.apreshill.com/blog/2020-12-new-year-new-blogdown/)

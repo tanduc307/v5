@@ -26,9 +26,21 @@ image:
 projects: []
 ---
 
-## Introduction
+## Nhập môn [xác suất] và [thống kê]
 
-We want to emphasize a couple of important points here. First, a statistic (singular) is a number computed from a sample of data. We use statistics to infer information about a population. Second, a random variable is an outcome from an experiment. Deterministic processes, such as computing means or variances, applied to random variables, produce additional random variables which have their own distributions. It's important to keep straight which distributions you're talking about.
+Có một số việc quan trọng cần làm rõ khi tìm hiểu về xác suất thống kê. 
+
+Đầu tiên, thuật ngữ *chỉ số thống kê* (tiếng anh là *a statistic*) là một con số được tính toán từ một *mẫu* (sample) của một dữ liệu nào đó.
+
+Thứ hai là, một *biến* (variable) là kết quả đầu ra (outcome) từ một thí nghiệm.
+
+Logic ở đây là dựa trên khái niệm tính tất định, tất yếu xảy ra, có thể tính toán được nếu chúng ta biết được điều kiện biên ban đầu của bài toán, biết được phân phối xác suất, khả năng xảy ra sự kiện nào đó thì chúng ta sẽ dự đoán được kết quả xảy ra **dao động trong một khoảng** nào đó. Gọi là *deterministic system* hay là *hệ tất định* (không còn yếu tố ngẫu nhiên, không phải bất định).
+
+> In mathematics, computer science and physics, [a deterministic system][1] is a system in which no randomness is involved in the development of future states of the system.[1] A deterministic model will thus always produce the same output from a given starting condition or initial state.
+
+Do vậy, 
+
+> We want to emphasize a couple of important points here. First, a statistic (singular) is a number computed from a sample of data. We use statistics to infer information about a population. Second, a random variable is an outcome from an experiment. Deterministic processes, such as computing means or variances, applied to random variables, produce additional random variables which have their own distributions. It's important to keep straight which distributions you're talking about.
 
 Finally, there are two broad flavors of inference. The first is frequency, which uses "long run proportion of times an event occurs in independent, identically distributed repetitions." The second is Bayesian in which the probability estimate for a hypothesis is updated as additional evidence is acquired. Both flavors require an understanding of probability [@swirl2020].
 
@@ -106,9 +118,7 @@ Suppose you draw a face card and don't replace it in the deck. What is the proba
 
 Suppose you draw a face card and don't replace it in the deck. What is the probability that when you draw a second card it also will be a face card of the same suit? There are 2 face cards of the same suit left in the deck. 2/51.
 
-
-
-
-
 ## Tài liệu tham khảo
+
+[1]: https://en.wikipedia.org/wiki/Deterministic_system/ 
 

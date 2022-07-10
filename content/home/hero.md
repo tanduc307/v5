@@ -19,4 +19,4 @@ cta_alt:
   label: Xem tài liệu
 ---
 
-Lưu trữ các tài liệu học tập. 
+Những gì không thể hiểu qua lý thuyết thì chỉ có thể hiểu qua thực hành.

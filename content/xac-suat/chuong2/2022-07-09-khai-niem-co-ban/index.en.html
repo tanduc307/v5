@@ -29,15 +29,25 @@ projects: []
 
 <div id="TOC">
 <ul>
-<li><a href="#introduction">Introduction</a></li>
+<li><a href="#nhập-môn-xác-suất-và-thống-kê">Nhập môn [xác suất] và [thống kê]</a></li>
 <li><a href="#probability">Probability</a></li>
+<li><a href="#now-well-apply-the-concepts-of-probability-to-playing-cards.">Now we’ll apply the concepts of probability to playing cards.</a></li>
 <li><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
 </ul>
 </div>
 
-<div id="introduction" class="section level2">
-<h2>Introduction</h2>
+<div id="nhập-môn-xác-suất-và-thống-kê" class="section level2">
+<h2>Nhập môn [xác suất] và [thống kê]</h2>
+<p>Có một số việc quan trọng cần làm rõ khi tìm hiểu về xác suất thống kê.</p>
+<p>Đầu tiên, thuật ngữ <em>chỉ số thống kê</em> (tiếng anh là <em>a statistic</em>) là một con số được tính toán từ một <em>mẫu</em> (sample) của một dữ liệu nào đó.</p>
+<p>Thứ hai là, một <em>biến</em> (variable) là kết quả đầu ra (outcome) từ một thí nghiệm.</p>
+<p>Logic ở đây là dựa trên khái niệm tính tất định, tất yếu xảy ra, có thể tính toán được nếu chúng ta biết được điều kiện biên ban đầu của bài toán, biết được phân phối xác suất, khả năng xảy ra sự kiện nào đó. Gọi là <em>deterministic system</em> hay là <em>hệ tất định</em> (không còn yếu tố ngẫu nhiên, không phải bất định).</p>
+<blockquote>
+<p>In mathematics, computer science and physics, <a href="https://en.wikipedia.org/wiki/Deterministic_system/">a deterministic system</a> is a system in which no randomness is involved in the development of future states of the system.<a href="https://en.wikipedia.org/wiki/Deterministic_system/">1</a> A deterministic model will thus always produce the same output from a given starting condition or initial state.</p>
+</blockquote>
+<blockquote>
 <p>We want to emphasize a couple of important points here. First, a statistic (singular) is a number computed from a sample of data. We use statistics to infer information about a population. Second, a random variable is an outcome from an experiment. Deterministic processes, such as computing means or variances, applied to random variables, produce additional random variables which have their own distributions. It’s important to keep straight which distributions you’re talking about.</p>
+</blockquote>
 <p>Finally, there are two broad flavors of inference. The first is frequency, which uses “long run proportion of times an event occurs in independent, identically distributed repetitions.” The second is Bayesian in which the probability estimate for a hypothesis is updated as additional evidence is acquired. Both flavors require an understanding of probability <span class="citation">(<a href="#ref-swirl2020" role="doc-biblioref">Kross et al. 2020</a>)</span>.</p>
 </div>
 <div id="probability" class="section level2">
@@ -64,6 +74,34 @@ projects: []
 <p>It’s easy to see why this is. Calculating P(A) and P(B) counts outcomes that are in both A and B twice, so they’re overcounted. The probability of the intersection of the two events, denoted as A&amp;B, must be subtracted from the sum.</p>
 <p>Back to rolling two dice. Which expression represents the probability of rolling an even number or a number greater than 8? The probability of rolling an even number is 1/2 or 18/36. There are 10 ways of rolling a number greater than ‘8’ - 4 ways for rolling ‘9’, 3 for ‘10’, 2 for ‘11’ and 1 for ‘12’. How big is the intersection between rolling an even number and those greater than ‘8’? (18+10-4)/36 is the answer.</p>
 <p>It follows that if A and B are disjoint or mutually exclusive, i.e. only one of them can occur, then P(A U B) = P(A)+P(B).</p>
+<p>Which of the following expressions represents the probability of rolling a number greater than 10? The only outcomes greater than 10 are 11 and 12 which are mutually exclusive. The first, 11, can occur in two ways, and the second, 12, can occur only with a roll of double 6’s. (2+1)/36.</p>
+<p>Use the answer to the previous question and the fact that the sum of all outcomes must sum to 1 to determine the probability of rolling a number less than or equal to 10. Hint: Subtract the previous answer from 1. 11/12.</p>
+</div>
+<div id="now-well-apply-the-concepts-of-probability-to-playing-cards." class="section level2">
+<h2>Now we’ll apply the concepts of probability to playing cards.</h2>
+<p>A deck of cards is a set of 52 cards, 4 suits of 13 cards each. There are two red suits, diamonds and hearts, and two black suits, spades and clubs. Each of the 13 cards in a suit has a value - an ace which is sometimes thought of as 1, a number from 2 to 10, and 3 face cards, king, queen, and jack. We’ve created a deck in R for you. Type ‘deck’ to see it now.</p>
+<pre><code>deck
+      spades      hearts      diamonds      clubs     
+ [1,] &quot;A:spades&quot;  &quot;A:hearts&quot;  &quot;A:diamonds&quot;  &quot;A:clubs&quot; 
+ [2,] &quot;2:spades&quot;  &quot;2:hearts&quot;  &quot;2:diamonds&quot;  &quot;2:clubs&quot; 
+ [3,] &quot;3:spades&quot;  &quot;3:hearts&quot;  &quot;3:diamonds&quot;  &quot;3:clubs&quot; 
+ [4,] &quot;4:spades&quot;  &quot;4:hearts&quot;  &quot;4:diamonds&quot;  &quot;4:clubs&quot; 
+ [5,] &quot;5:spades&quot;  &quot;5:hearts&quot;  &quot;5:diamonds&quot;  &quot;5:clubs&quot; 
+ [6,] &quot;6:spades&quot;  &quot;6:hearts&quot;  &quot;6:diamonds&quot;  &quot;6:clubs&quot; 
+ [7,] &quot;7:spades&quot;  &quot;7:hearts&quot;  &quot;7:diamonds&quot;  &quot;7:clubs&quot; 
+ [8,] &quot;8:spades&quot;  &quot;8:hearts&quot;  &quot;8:diamonds&quot;  &quot;8:clubs&quot; 
+ [9,] &quot;9:spades&quot;  &quot;9:hearts&quot;  &quot;9:diamonds&quot;  &quot;9:clubs&quot; 
+[10,] &quot;10:spades&quot; &quot;10:hearts&quot; &quot;10:diamonds&quot; &quot;10:clubs&quot;
+[11,] &quot;J:spades&quot;  &quot;J:hearts&quot;  &quot;J:diamonds&quot;  &quot;J:clubs&quot; 
+[12,] &quot;Q:spades&quot;  &quot;Q:hearts&quot;  &quot;Q:diamonds&quot;  &quot;Q:clubs&quot; 
+[13,] &quot;K:spades&quot;  &quot;K:hearts&quot;  &quot;K:diamonds&quot;  &quot;K:clubs&quot; </code></pre>
+<p>When drawing a single card, how many outcomes are possible? 52.
+What is the probability of drawing a jack? 4/52 (có 4 con jack).
+If you’re dealt a hand of 5 cards, what is the probability of getting all 5 of the same value?
+There are only 4 different suits in a deck. 0 is the answer.</p>
+<p>What is the probability of drawing a face card? There are 3 face cards in each of the 4 suits in the deck. 3/13</p>
+<p>Suppose you draw a face card and don’t replace it in the deck. What is the probability that when you draw a second card it also will be a face card? There are only 51 cards remaining in the deck, and of those, only 11 are face cards. 11/51.</p>
+<p>Suppose you draw a face card and don’t replace it in the deck. What is the probability that when you draw a second card it also will be a face card of the same suit? There are 2 face cards of the same suit left in the deck. 2/51.</p>
 </div>
 <div id="tài-liệu-tham-khảo" class="section level2 unnumbered">
 <h2>Tài liệu tham khảo</h2>
