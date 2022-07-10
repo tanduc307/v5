@@ -136,6 +136,8 @@ type: book
 
 [Cú pháp Markdown](https://daringfireball.net/projects/markdown/syntax)
 
+Khi muốn <mark>highlight</mark> thì dùng thẻ `<mark>...</mark>`.
+
 ## Tham khảo
 
 [Alison Hill's method](https://www.apreshill.com/blog/2020-12-new-year-new-blogdown/)

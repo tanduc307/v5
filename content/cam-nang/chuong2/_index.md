@@ -7,7 +7,7 @@ summary:
 title: Chương 2
 toc: false
 type: book
-weight: 1
+weight: 2
 ---
 
 {{< list_children >}}
