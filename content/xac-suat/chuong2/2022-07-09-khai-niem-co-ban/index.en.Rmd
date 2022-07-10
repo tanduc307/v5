@@ -38,11 +38,13 @@ Logic ở đây là dựa trên khái niệm tính tất định, tất yếu x�
 
 > In mathematics, computer science and physics, [a deterministic system][1] is a system in which no randomness is involved in the development of future states of the system.[1] A deterministic model will thus always produce the same output from a given starting condition or initial state.
 
-Do vậy, 
+Trên cơ sở cách tiếp cận *hệ tất định* như trên, việc tính toán các con số thống kê như **số trung bình** (mean) hay **phương sai** (variance) khi áp dụng trên các biến ngẫu nhiên, sẽ tạo ra các **biến ngẫu nhiên thứ cấp** mà chúng sẽ có luôn các phân phối (distribution) của riêng tụi nó. Do vậy, khi nói đến **phân phối** thì bạn phải làm rõ bạn đang nói đến **biến ngẫu nhiên** hay các đại lượng được tính toán từ đó như trung bình hay phương sai (sẽ có phân phối tương ứng cho trung bình và phương sai của dữ liệu).
 
 > We want to emphasize a couple of important points here. First, a statistic (singular) is a number computed from a sample of data. We use statistics to infer information about a population. Second, a random variable is an outcome from an experiment. Deterministic processes, such as computing means or variances, applied to random variables, produce additional random variables which have their own distributions. It's important to keep straight which distributions you're talking about.
 
-Finally, there are two broad flavors of inference. The first is frequency, which uses "long run proportion of times an event occurs in independent, identically distributed repetitions." The second is Bayesian in which the probability estimate for a hypothesis is updated as additional evidence is acquired. Both flavors require an understanding of probability [@swirl2020].
+Sau cùng, có hai trường phái lớn trong môn thống kê suy luận (suy luận từ kết quả thống kê). Thứ nhất là trường phái tần số (frequentist) dựa trên lập luận rằng *khi lặp đi lặp lại nhiều lần thì ta sẽ rút ra được quy luật phân bố xác suất của một sự kiện nào đó*. Trường phái Bayesian thì phát biểu rằng *xác suất của một sự kiện xảy ra sẽ được thay đổi khi có thêm thông tin mới*. Cả hai cách tiếp cận này đều cần thiết để hiểu được xác suất.
+
+> Finally, there are two broad flavors of inference. The first is frequency, which uses "long run proportion of times an event occurs in independent, identically distributed repetitions." The second is Bayesian in which the probability estimate for a hypothesis is updated as additional evidence is acquired. Both flavors require an understanding of probability [@swirl2020, @Pham10].
 
 ## Probability
 
