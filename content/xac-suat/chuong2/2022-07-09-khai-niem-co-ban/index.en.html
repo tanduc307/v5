@@ -30,7 +30,10 @@ projects: []
 <div id="TOC">
 <ul>
 <li><a href="#nhập-môn-xác-suất-và-thống-kê">Nhập môn [xác suất] và [thống kê]</a></li>
-<li><a href="#probability">Probability</a></li>
+<li><a href="#xác-suất-probability">Xác suất [Probability]</a>
+<ul>
+<li><a href="#cụ-thể-hơn">Cụ thể hơn</a></li>
+</ul></li>
 <li><a href="#now-well-apply-the-concepts-of-probability-to-playing-cards.">Now we’ll apply the concepts of probability to playing cards.</a></li>
 <li><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
 </ul>
@@ -45,38 +48,334 @@ projects: []
 <blockquote>
 <p>In mathematics, computer science and physics, <a href="https://en.wikipedia.org/wiki/Deterministic_system/">a deterministic system</a> is a system in which no randomness is involved in the development of future states of the system.<a href="https://en.wikipedia.org/wiki/Deterministic_system/">1</a> A deterministic model will thus always produce the same output from a given starting condition or initial state.</p>
 </blockquote>
-<p>Do vậy,</p>
+<p>Trên cơ sở cách tiếp cận <em>hệ tất định</em> như trên, việc tính toán các con số thống kê như <strong>số trung bình</strong> (mean) hay <strong>phương sai</strong> (variance) khi áp dụng trên các biến ngẫu nhiên, sẽ tạo ra các <strong>biến ngẫu nhiên thứ cấp</strong> mà chúng sẽ có luôn các phân phối (distribution) của riêng tụi nó. Do vậy, khi nói đến <strong>phân phối</strong> thì bạn phải làm rõ bạn đang nói đến <strong>biến ngẫu nhiên</strong> hay các đại lượng được tính toán từ đó như trung bình hay phương sai (sẽ có phân phối tương ứng cho trung bình và phương sai của dữ liệu).</p>
 <blockquote>
 <p>We want to emphasize a couple of important points here. First, a statistic (singular) is a number computed from a sample of data. We use statistics to infer information about a population. Second, a random variable is an outcome from an experiment. Deterministic processes, such as computing means or variances, applied to random variables, produce additional random variables which have their own distributions. It’s important to keep straight which distributions you’re talking about.</p>
 </blockquote>
-<p>Finally, there are two broad flavors of inference. The first is frequency, which uses “long run proportion of times an event occurs in independent, identically distributed repetitions.” The second is Bayesian in which the probability estimate for a hypothesis is updated as additional evidence is acquired. Both flavors require an understanding of probability <span class="citation">(<a href="#ref-swirl2020" role="doc-biblioref">Kross et al. 2020</a>)</span>.</p>
+<p>Sau cùng, có hai trường phái lớn trong môn thống kê suy luận (suy luận từ kết quả thống kê). Thứ nhất là trường phái tần số (frequentist) dựa trên lập luận rằng <em>khi lặp đi lặp lại nhiều lần thì ta sẽ rút ra được quy luật phân bố xác suất của một sự kiện nào đó</em>. Trường phái Bayesian thì phát biểu rằng <em>xác suất của một sự kiện xảy ra sẽ được thay đổi khi có thêm thông tin mới</em>. Cả hai cách tiếp cận này đều cần thiết để hiểu được khái niệm xác suất.</p>
+<blockquote>
+<p>Finally, there are two broad flavors of inference. The first is frequency, which uses “long run proportion of times an event occurs in independent, identically distributed repetitions.” The second is Bayesian in which the probability estimate for a hypothesis is updated as additional evidence is acquired. Both flavors require an understanding of probability <span class="citation">(<a href="#ref-swirl2020" role="doc-biblioref">Kross et al. 2020</a>; <a href="#ref-10BanTan" role="doc-biblioref">Khanh n.d.</a>)</span>.</p>
+</blockquote>
 </div>
-<div id="probability" class="section level2">
-<h2>Probability</h2>
+<div id="xác-suất-probability" class="section level2">
+<h2>Xác suất [Probability]</h2>
+<p>Các khái niệm cơ bản để hiểu xác suất (theo kiểu frequentist) thông qua việc đánh giá khả năng xảy ra (xác suất) của một sự kiện. Chú ý là có sự tương đồng trong thuật ngữ xác suất (probability) và khả năng xảy ra (probably). Mỗi khi bạn sử dụng từ <code>có thể xảy ra</code> thì bạn đang ngụ ý rằng sự kiện đó <em>có khả năng</em> xuất hiện hơn là <em>không có khả năng</em> xuất hiện.</p>
+<blockquote>
 <p>Here we’ll review basic ideas of probability, the study of quantifying the likelihood of particular events occurring. Note the similarity between the words probability and probably. Every time you use the latter word you’re implying that an event is more likely than not to occur.</p>
-<p>The first step in understanding probability is to see if you understand what outcomes of an experiment are possible. For instance, if you were rolling a single, fair die once, how many outcomes are possible?</p>
-<p>The answer is 6 types of outcome from 1 to 6 point per dice’s plane.</p>
-<p>The probability of a particular outcome of an experiment is the ratio of the number of ways that outcome can occur to all possible outcomes of the experiment. Since there are 6 possible outcomes to the experiment of rolling a die, and we assume the die is fair, each outcome is equally likely. So what is the probability of rolling a 2? <em>Xác suất để tung ra mặt có 2 điểm là <span class="math inline">\(1/6\)</span></em></p>
-<p>What is the probability of rolling an even number? Xác xuất để tung ra số chẵn (2, 4, 6) là <span class="math inline">\(1/2\)</span>.</p>
+</blockquote>
+<p>Việc đầu tiên để hiểu xác suất là việc thừa nhận rằng kết quả đầu ra của 1 thí nghiệm nào đó là sẽ quan sát được (có xảy ra hay không xảy ra). Ví dụ nếu bạn tung 1 con xúc xắc (có 6 mặt) thì kết quả là sẽ thu được 1 mặt trong 6 mặt của xúc xắc.</p>
+<blockquote>
+<p>The first step in understanding probability is to see if you understand what outcomes of an experiment are possible. For instance, if you were rolling a single, fair die once, how many outcomes are possible? The answer is 6 types of outcome from 1 to 6 point per dice’s plane.</p>
+</blockquote>
+<p>Xác suất để 1 kết quả cụ thể nào đó từ 1 thí nghiệm xảy ra là tỷ số giữa <em>số lượng các cách có thể xảy ra kết quả <strong>cụ thể</strong> đó</em> với <em>tất cả</em> các cách có thể xảy ra <em>tất các kết quả</em> từ thí nghiệm. Do vậy, vì <em>chỉ</em> có 6 cách có thể xảy ra khi tung xúc xắc, và chúng ta <em>ngầm</em> giả định rằng cục xúc xắc là cân đối giữa các mặt, do vậy khả năng xảy ra giữa các cách là ngang bằng nhau.</p>
+<blockquote>
+<p>The probability of a particular outcome of an experiment is the ratio of the number of ways that outcome can occur to all possible outcomes of the experiment. Since there are 6 possible outcomes to the experiment of rolling a die, and we assume the die is fair, each outcome is equally likely.</p>
+</blockquote>
+<ul>
+<li><p>So what is the probability of rolling a 2? <span style="color:blue">Do vậy xác suất để tung ra mặt có 2 điểm (2 nút) là <em>1/6</em> (xác suất P dao động từ 0 đến 1, nếu tính ra phần trăm thì nhân với 100 vào).</span></p></li>
+<li><p>What is the probability of rolling an even number? <span style="color:blue">Xác suất để tung ra mặt có số chẵn (2, 4, 6) là <em>1/2</em>.</span></p></li>
+</ul>
+<p>Vì xác suất của 1 <strong>kết quả</strong> hay <strong>sự kiện</strong> cụ thể, ký hiệu E, là tỷ số giữa những cách mà sự kiện E có thể xuất hiện với tất cả các cách để xảy ra các sự kiện, do đó xác suất của E, ký hiệu là P(E) hay p(e) (đôi lúc viết hoa hay viết thường là tùy tác giả), thì <strong><em>luôn luôn</em></strong> dao động từ 0 đến 1. Những sự kiện không thể xảy ra thì có xác suất là 0, còn sự kiện tất yếu phải xảy ra thì có xác suất là 1.</p>
+<blockquote>
 <p>Since the probability of a particular outcome or event E is the ratio of ways that E could occur to the number of all possible outcomes or events, the probability of <span class="math inline">\(E\)</span>, denoted <span class="math inline">\(P(E)\)</span>, is <strong>always</strong> between 0 and 1. <span style="color:blue"><strong>Impossible events</strong></span> have a probability of 0 (since they can’t occur) and events that are <span style="color:blue"><strong>certain to occur</strong></span> have a probability of 1.</p>
+</blockquote>
+<p>Nếu bạn đang làm 1 thí nghiệm nào đó mà các kết quả có thể xảy ra (việc này coi dễ mà khó, vì liệt kê ra các kết quả có thể xảy ra này nếu không đủ thì khi đưa vào tính toán xác suất sẽ không chính xác), ký hiệu là e<sub>1</sub>, e<sub>2</sub>, …, e<sub>n</sub>, do đó tổng xác suất xuất hiện các sự kiện này sẽ là 1 (khi nói đến từng sự kiện nhỏ thì ký hiệu chữ thường). Nếu tất cả các kết quả đầu ra này như nhau <strong>[thường là chúng ta tự giả định, nhưng tốt nhất nên nói cụ thể khi bài toán phức tạp]</strong>, như trong trường hợp tung một viên xúc xắc cân xứng đều 6 mặt, thì xác xuất xảy ra từng sự kiện nhỏ sẽ là 1/n.</p>
+<blockquote>
 <p>If you’re doing an experiment with <span style="color:red"><strong><em>n</em></strong></span> possible outcomes, say e<sub>1</sub>, e<sub>2</sub>, …, e<sub>n</sub>, then the sum of the probabilities of all the outcomes is 1. If all the outcomes are equally likely, as in the case of a fair die, then the probability of each is <span class="math inline">\(1/n\)</span>.</p>
-<p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are two <strong>independent</strong> events then the <mark>probability</mark> of them <strong>both occurring</strong> is the product of the probabilities, <span class="math inline">\(P(A \&amp; B) = P(A) \times P(B)\)</span>.</p>
+</blockquote>
+<div id="cụ-thể-hơn" class="section level3">
+<h3>Cụ thể hơn</h3>
+<div id="hai-sự-kiện-độc-lập-cùng-xuất-hiện" class="section level4">
+<h4>Hai sự kiện độc lập cùng xuất hiện</h4>
+<p><mark>Nếu hai sự kiện A và B là hai sự kiện độc lập nhau</mark> thì có khả năng chúng sẽ <strong><em>cùng xuất hiện</em></strong>, do đó xác suất để A và B cùng xuất hiện thì ký hiệu là <span class="math inline">\(P(A \cap B)\)</span> = P(AB) = P(A&amp;B) = P(A) × P(B).</p>
 <blockquote>
-<p>Suppose you rolled the fair die twice in succession. What is the probability of rolling two 4’s? The probability of rolling the first 4 is <span class="math inline">\(1/6\)</span>. The second roll of the dice doesn’t depend on the outcome of the first, so that also has a probability of <span class="math inline">\(1/6\)</span>. The probability of both events occurring is <span class="math inline">\(1/6 \times 1/6\)</span>. This makes intuitive sense since the probability of 2 such events occurring has to be smaller than the probability of only 1 event. Xác suất để gieo xúc sắc liên tiếp hai lần mà đều xuất hiện mặt có 4 điểm là <span class="math inline">\(1/6 \times 1/6 = 1/36\)</span>.</p>
+<p>If A and B are two <strong>independent</strong> events then the probability of them <strong>both occurring</strong> is the product of the probabilities, P(A&amp;B) = P(A) × P(B).</p>
+</blockquote>
+<p><strong>1/ Giả sử bạn gieo xúc xắc hai lần liên tiếp. Xác suất để tung được hai lần con số 4?</strong></p>
+<p>Xác suất của lần gieo xúc xắc đầu tiên để có con số 4 là 1/6. Xác suất của lần gieo xúc xắc lần thứ hai là độc lập với lần thứ nhất, do đó để có con số 4 thì xác suất cũng là 1/6. Do đó dễ hiểu là xác suất xảy ra của 2 sự kiện (đều đạt con số 4) như vậy là 1/6 × 1/6 = 1/36. Điều này cũng dễ hiểu vì tỷ lệ để đạt được <strong>2 lần gieo liên tiếp</strong> mà đạt con số 4 sẽ nhỏ hơn (khó đạt hơn) chỉ <strong>1 lần gieo</strong> mà đạt được con số 4.</p>
+<blockquote>
+<p>Suppose you rolled the fair die twice in succession. What is the probability of rolling two 4’s?</p>
 </blockquote>
 <blockquote>
-<p>Suppose you rolled the fair die twice. What is the probability of rolling the same number two times in a row? Since we don’t care what the outcome of the first roll is, its probability is <span class="math inline">\(1\)</span>. The second roll of the dice has to match the outcome of the first, so that has a probability of <span class="math inline">\(1/6\)</span>. The probability of both events occurring is <span class="math inline">\(1 \times 1/6\)</span>.</p>
+<p>The probability of rolling the first 4 is 1/6. The second roll of the dice doesn’t depend on the outcome of the first, so that also has a probability of 1/6. The probability of both events occurring is 1/6 × 1/6 = 1/36. This makes intuitive sense since the probability of 2 such events occurring has to be smaller than the probability of only 1 event.</p>
 </blockquote>
-<p>Now consider the experiment of rolling 2 dice, one red and one green. Assume the dice are fair and not loaded. How many distinct outcomes are possible? Each of the dice has 6 ways to land, and their outcomes are independent of each other. Each way the red die lands can be paired with each way the green die lands. For instance, a “1” on the red dice can occur independently of any of the 6 outcomes of the green dice. So the answer is 36 distinct outcomes.</p>
+<p><strong>2/ Giả sử bạn gieo xúc sắc hai lần (liên tiếp). Xác suất để tung được cùng 1 con số là bao nhiêu?</strong></p>
+<p>Vì chúng ta không qua tâm đến kết quả của lần gieo đầu tiên (vì ra bất kỳ số nào cũng được) nên xác suất của sự kiện gieo được 1 con số bất kỳ là 1. Do đó ở lần gieo thứ hai cần đạt được kết quả gieo của lần đầu tiên, vì vậy xác suất của sự kiện đó là 1/6. Vậy xác suất để cả hai sự kiện diễn ra hay là để tung được cùng 1 con số là 1 × 1/6 = 1/6.</p>
+<blockquote>
+<p>Suppose you rolled the fair die twice. What is the probability of rolling the same number two times in a row?</p>
+</blockquote>
+<blockquote>
+<p>Since we don’t care what the outcome of the first roll is, its probability is 1. The second roll of the dice has to match the outcome of the first, so that has a probability of 1/6. The probability of both events occurring is 1 × 1/6 = 1/6.</p>
+</blockquote>
+<p><strong>3/ Giả sử bạn gieo 2 xúc xắc cùng lúc, một con màu đỏ và một con màu xanh. Hai xúc xắc này cân bằng, đồng đều nhau. Có bao nhiêu tổ hợp (kết quả riêng biệt) thu được?</strong></p>
+<p>Vì mỗi xúc xắc đều có 6 mặt và kết quả thu được các mặt này là độc lập với nhau trong mỗi lần gieo. Do vậy mỗi một lần hạt xúc xắc đỏ gieo thu được 1 con số thì sẽ bắt cặp với con số từ hạt xúc xắc xanh. Ví dụ nếu hạt xúc xắc đỏ thu được con số 1, thì sẽ bắt cặp với 1 trong 6 điểm từ hạt xúc xắc xanh. Do đó kết quả là có 6 × 6 = 36 cặp số riêng biệt từ hai xúc xắc này.</p>
+<blockquote>
+<p>Now consider the experiment of rolling 2 dice, one red and one green. Assume the dice are fair and not loaded. How many distinct outcomes are possible?</p>
+</blockquote>
+<blockquote>
+<p>Each of the dice has 6 ways to land, and their outcomes are independent of each other. Each way the red die lands can be paired with each way the green die lands. For instance, a “1” on the red dice can occur independently of any of the 6 outcomes of the green dice. So the answer is 36 distinct outcomes.</p>
+</blockquote>
+</div>
+<div id="sự-kiện-loại-trừ-nhau" class="section level4">
+<h4>Sự kiện loại trừ nhau</h4>
+<p>Nếu sự kiện E có thể xảy ra theo nhiều cách và những cách này loại trừ nhau thì xác suất P(E) là <strong>tổng</strong> của xác suất các lần mà sự kiện E xảy ra.</p>
+<blockquote>
 <p>If an event E can occur in more than one way and these ways are disjoint (mutually exclusive) then P(E) is the sum of the probabilities of each of the ways in which it can occur.</p>
-<p>Rolling these two dice, what’s the probability of rolling a 10? Since the highest possible dice roll is a ‘6’, the only combinations which give ‘10’ are 4+6 and 5+5. The first occurs in two ways - red dice gets ‘4’ and green gets ‘6’ OR red gets ‘6’ and green gets ‘4’. So 3/36 is the answer.</p>
-<p>What sum is the most likely when rolling these two dice? The choice of ‘1’ is impossible rolling two dice, and ‘2’ and ‘12’ each occur in only one possible way (snake-eyes and double 6’s, respectively), so ‘7’ and ‘9’ are the only reasonable choices. To roll ‘7’ you can use any number from ‘1’ to ‘6’, while ‘9’ can only use outcomes of ‘3’ and above. 7 is the correct answer.</p>
+</blockquote>
+<p><strong>1/ Gieo hai hạt xúc xắc, xác suất để thu được hai số có tổng là 10 là bao nhiêu?</strong></p>
+<p>Để thu được tổ hợp kết quả cộng lại là 10, thì số điểm của hai xúc xắc sẽ là [4 và 6] hoặc [5 và 5].</p>
+<p>Xét trong cặp tổ hợp [4 và 6] thì có hai trường hợp là xúc xắc màu đỏ có số 4 và xúc xắc màu xanh có số 6 (xác suất để xảy ra việc này là 1/36), và xúc xắc màu đỏ có số 6, màu xanh có số 4 (tương tự, xác suất xảy ra việc này là 1/36).</p>
+<p>Xét trong cặp tổ hợp [5 và 5] thì có 1 trường hợp là xúc xắc màu đỏ có số 5, màu xanh có số 5, xác suất để được tổ hợp đó là 1/36.</p>
+<p>Tổng hợp lại thì P(E) = 3/36.</p>
+<blockquote>
+<p>Rolling these two dice, what’s the probability of rolling a 10?</p>
+</blockquote>
+<blockquote>
+<p>Since the highest possible dice roll is a ‘6’, the only combinations which give ‘10’ are 4+6 and 5+5. The first occurs in two ways - red dice gets ‘4’ and green gets ‘6’ OR red gets ‘6’ and green gets ‘4’. So 3/36 is the answer.</p>
+</blockquote>
+<p><strong>2/ <span style="color:blue">Con số tổng</span> nào thường hay xảy ra nhất khi gieo hai hạt xúc xắc?</strong></p>
+<p>Khi gieo hai xúc xắc và cộng lại từ kết quả gieo thì để có tổng là 1 thì không thể xảy ra (vì con số thấp nhất của mỗi con xúc xắc là 1, nên tổng nhỏ nhất sẽ là 2). Tổng lớn nhất là 12 (vì 6 + 6). Đây là 2 tổ hợp chỉ có 1 cách xảy ra (gieo ra 2 số 1, hay gieo ra 2 số 6).</p>
+<p>Còn những tổ hợp điểm khác sẽ có nhiều cách xảy ra hơn. Ví dụ để tổng cả hai số là 7 thì các tổ hợp khả dĩ xảy ra giữa hai xúc xắc sẽ theo bảng sau:</p>
+<table>
+<colgroup>
+<col width="32%" />
+<col width="14%" />
+<col width="18%" />
+<col width="34%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="center">Tổ hợp để được tổng là 7 điểm</td>
+<td align="center">Xúc xắc đỏ</td>
+<td align="center">Xúc xắc xanh</td>
+<td align="center">Xác suất để đạt được tổ hợp này</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">6</td>
+<td align="center">1/36</td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center">2</td>
+<td align="center">5</td>
+<td align="center">1/36</td>
+</tr>
+<tr class="even">
+<td align="center">3</td>
+<td align="center">3</td>
+<td align="center">4</td>
+<td align="center">1/36</td>
+</tr>
+<tr class="odd">
+<td align="center">4</td>
+<td align="center">4</td>
+<td align="center">3</td>
+<td align="center">1/36</td>
+</tr>
+<tr class="even">
+<td align="center">5</td>
+<td align="center">5</td>
+<td align="center">2</td>
+<td align="center">1/36</td>
+</tr>
+<tr class="odd">
+<td align="center">6</td>
+<td align="center">6</td>
+<td align="center">1</td>
+<td align="center">1/36</td>
+</tr>
+</tbody>
+</table>
+<p>Do vậy xác suất để có được tổ hợp có tổng là 7 điểm là tổng các xác suất thành phần ở trên là 6/36 = 1/6.</p>
+<p>Khi lập ra bảng tổ hợp điểm như vậy thì ta thấy để gieo hai lần mà có điểm cộng lại bằng 7 thì đó là tổ hợp thường xảy ra nhất vì xác suất là 1/6 so với các tổ hợp điểm khác như số 9 thì chỉ có 4 tổ hợp ([3+6] hay [6+3] và [4+5] hay [5+4] = 1/36 + 1/36 + 1/36 + 1/36 = 4/36).</p>
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+table, th, td {
+   border: 1px solid black;
+}
+blockquote {
+    border-left: solid blue;
+    padding-left: 10px;
+}
+</style>
+<blockquote>
+<p>What sum is the most likely when rolling these two dice?</p>
+</blockquote>
+<blockquote>
+<p>The choice of ‘1’ is impossible rolling two dice, and ‘2’ and ‘12’ each occur in only one possible way (snake-eyes and double 6’s, respectively), so ‘7’ and ‘9’ are the only reasonable choices. To roll ‘7’ you can use any number from ‘1’ to ‘6’, while ‘9’ can only use outcomes of ‘3’ and above. 7 is the correct answer.</p>
+</blockquote>
+</div>
+<div id="chỉ-cần-một-trong-hai-sự-kiện-xuất-hiện" class="section level4">
+<h4>Chỉ cần một trong hai sự kiện xuất hiện</h4>
+<p>Xác suất để có ít nhất một trong hai sự kiện, A và B, xuất hiện là tổng của khả năng xuất hiện A và B trừ đi khả năng xuất hiện của xác suất A và B cùng xuất hiện. Lý do nếu cộng chung cả A và B thì không gian xác suất sẽ bị tính hai lần cho khu vực giao nhau, vì vậy cần trừ đi <strong>1</strong> lần giao nhau giữa A và B.</p>
+<p><span class="math inline">\(P(A \cup B) = P(A + B) = P(A) + P(B) - P(A \&amp; B)\)</span></p>
+<p>Thể hiện trên Venn diagram chính là toàn bộ khu vực tô màu xanh dương và vàng kể cả vùng giao nhau.</p>
+<pre class="r"><code># load Venn diagram package
+library(&quot;VennDiagram&quot;)
+
+# move to new plotting page
+grid.newpage()
+
+# create pairwise Venn diagram
+draw.pairwise.venn(area1 = 18, area2 = 10, cross.area = 4,
+                   category = c(&quot;P(A)&quot;, &quot;P(B)&quot;), fill = c(&quot;Blue&quot;, &quot;Yellow&quot;))</code></pre>
+<p><img src="{{< blogdown/postref >}}index.en_files/figure-html/ven-plot-1.png" width="672" /></p>
+<pre><code>## (polygon[GRID.polygon.1], polygon[GRID.polygon.2], polygon[GRID.polygon.3], polygon[GRID.polygon.4], text[GRID.text.5], text[GRID.text.6], text[GRID.text.7], text[GRID.text.8], text[GRID.text.9])</code></pre>
+<blockquote>
 <p>The probability of at least one of two events, A and B, occurring is the sum of their individual probabilities minus the probability of their intersection. P(A U B) = P(A) + P(B) - P(A&amp;B).</p>
+</blockquote>
+<blockquote>
 <p>It’s easy to see why this is. Calculating P(A) and P(B) counts outcomes that are in both A and B twice, so they’re overcounted. The probability of the intersection of the two events, denoted as A&amp;B, must be subtracted from the sum.</p>
-<p>Back to rolling two dice. Which expression represents the probability of rolling an even number or a number greater than 8? The probability of rolling an even number is 1/2 or 18/36. There are 10 ways of rolling a number greater than ‘8’ - 4 ways for rolling ‘9’, 3 for ‘10’, 2 for ‘11’ and 1 for ‘12’. How big is the intersection between rolling an even number and those greater than ‘8’? (18+10-4)/36 is the answer.</p>
-<p>It follows that if A and B are disjoint or mutually exclusive, i.e. only one of them can occur, then P(A U B) = P(A)+P(B).</p>
-<p>Which of the following expressions represents the probability of rolling a number greater than 10? The only outcomes greater than 10 are 11 and 12 which are mutually exclusive. The first, 11, can occur in two ways, and the second, 12, can occur only with a roll of double 6’s. (2+1)/36.</p>
-<p>Use the answer to the previous question and the fact that the sum of all outcomes must sum to 1 to determine the probability of rolling a number less than or equal to 10. Hint: Subtract the previous answer from 1. 11/12.</p>
+</blockquote>
+<p><strong>Ví dụ:</strong> Trở lại bài toán gieo hai xúc xắc, xác suất khi gieo ra số chẵn (1 trong hai xúc xắc) hoặc ra 1 con số có tổng lớn hơn 8 là bao nhiêu?</p>
+<p>a/ Trước hết, để sự kiện gieo ra bất kỳ 1 trong hai xúc sắc có số chẵn thì ta xét như sau:</p>
+<p>Xúc xắc thứ nhất gieo ra bất kỳ số nào (chẵn hay lẻ) thì xác suất P(e<sub>1</sub>) là 1.</p>
+<p>Xúc xắc thứ hai gieo ra số chẵn (2, 4, 6) thì xác suất P(e<sub>2</sub>) là 3/6.</p>
+<p>Vậy nên xác suất P(e<sub>1</sub> + e<sub>2</sub>) = 1 × 3/6 = 3/6 = 1/2 hay là 18/36 (có 18 tổ hợp gieo xác suất khác nhau trong 36 tổ hợp gieo để có ít nhất 1 con xúc xắc có số chẵn). Ở đây áp dụng cách tính cho hai sự kiện độc lập cùng xuất hiện.</p>
+<p>b/ Đến sự kiện về việc gieo hai xúc xắc mà tổng của hai con xúc xắc này lớn hơn 8 thì ta có các tổng 9, 10, 11 và 12 với lần lượt là có 4 cách để gieo ra hai số có tổng bằng 9 (xác suất là 4/36), 3 cách để gieo ra hai số có tổng bằng 10 (xác suất là 3/36), 2 cách để ra tổng bằng 11 (xác suất 2/36) và 1 cách để ra tổng bằng 12 (xác suất 1/36).</p>
+<p>Vậy nên xác suất của sự kiện gieo làm sao được số điểm của hai xúc xắc cộng lại lớn hơn 8 thì P(tổng hai xúc xắc &gt; 8) = P(tổng hai xúc sắc = 9) + P(tổng hai xúc sắc = 10) + P(tổng hai xúc sắc = 11) + P(tổng hai xúc sắc = 12) = 4/36 + 3/36 + 2/36 + 1/36 = 10/36.</p>
+<p>c/ Tính xác suất của phần giao nhau giữa không gian xác suất của <strong>sự kiện gieo ra ít nhất 1 con số chẵn</strong> và <strong>sự kiện tổng hai lần gieo là con số lớn hơn 8</strong>.</p>
+<table>
+<colgroup>
+<col width="31%" />
+<col width="13%" />
+<col width="17%" />
+<col width="32%" />
+<col width="5%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="center">Tổ hợp để được tổng là 9 điểm</td>
+<td align="center">Xúc xắc đỏ</td>
+<td align="center">Xúc xắc xanh</td>
+<td align="center">Xác suất để đạt được tổ hợp này</td>
+<td align="center">Chọn</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">3</td>
+<td align="center">6</td>
+<td align="center">1/36</td>
+<td align="center">X</td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center">4</td>
+<td align="center">5</td>
+<td align="center">1/36</td>
+<td align="center">X</td>
+</tr>
+<tr class="even">
+<td align="center">3</td>
+<td align="center">5</td>
+<td align="center">4</td>
+<td align="center">1/36</td>
+<td align="center">trùng</td>
+</tr>
+<tr class="odd">
+<td align="center">4</td>
+<td align="center">6</td>
+<td align="center">3</td>
+<td align="center">1/36</td>
+<td align="center">trùng</td>
+</tr>
+<tr class="even">
+<td align="center">Tổ hợp để được tổng là 10 điểm</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">4</td>
+<td align="center">6</td>
+<td align="center">1/36</td>
+<td align="center">X</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">5</td>
+<td align="center">5</td>
+<td align="center">1/36</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">6</td>
+<td align="center">4</td>
+<td align="center">1/36</td>
+<td align="center">trùng</td>
+</tr>
+<tr class="even">
+<td align="center">Tổ hợp để được tổng là 11 điểm</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">5</td>
+<td align="center">6</td>
+<td align="center">1/36</td>
+<td align="center">X</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">6</td>
+<td align="center">5</td>
+<td align="center">1/36</td>
+<td align="center">trùng</td>
+</tr>
+<tr class="odd">
+<td align="center">Tổ hợp để được tổng là 11 điểm</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">6</td>
+<td align="center">6</td>
+<td align="center">1/36</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>Vì <strong>không cần phân biệt</strong> theo <em>màu của xúc xắc</em>, ví dụ [3+6] và [6+3] được tính chung là 1 sự kiện đáp ứng việc có 1 con số chẵn và tổng lớn hơn 8, cũng như không tính tình huống hai xúc sắc ra hai con số chẵn và tổng lớn hơn 8, nên bảng trên được rút gọn lại còn ở những mục đánh dấu (X).</p>
+<p>Do vậy xác suất để xảy ra sự kiện giao nhau là 4/36.</p>
+<p>Tổng hợp lại, xác suất để gieo ra số chẵn (1 trong hai xúc xắc) hoặc ra 1 con số có tổng lớn hơn 8 là bao nhiêu chính là không gian xác suất bao trùm toàn bộ như Figure <a href="#fig:ven-plot"><strong>??</strong></a>.</p>
+<p><span class="math display">\[P(E) = 18/36 + 10/36 - 4/36 = 24/36\]</span></p>
+<blockquote>
+<p>Back to rolling two dice. Which expression represents the probability of rolling an even number or a number greater than 8? In the other hand, how big is the intersection between rolling an even number and those greater than ‘8’?</p>
+</blockquote>
+<blockquote>
+<p>The probability of rolling an even number is 1/2 or 18/36. There are 10 ways of rolling a number greater than ‘8’ - 4 ways for rolling ‘9’, 3 for ‘10’, 2 for ‘11’ and 1 for ‘12’. (18 + 10 - 4)/36 is the answer.</p>
+</blockquote>
+</div>
+<div id="sự-kiện-loại-trừ-nhau-nhắc-lại-cụ-thể-hơn" class="section level4">
+<h4>Sự kiện loại trừ nhau (nhắc lại, cụ thể hơn)</h4>
+<p>Nếu A và B loại trừ nhau, ví dụ <strong>chỉ một trong hai sự kiện này xuất hiện</strong> thì phần <strong>hợp</strong> nhau là <span class="math inline">\(P(A \cup B) = P(A) + P(B)\)</span></p>
+<blockquote>
+<p>It follows that if A and B are disjoint or mutually exclusive, i.e. only one of them can occur, then P(A U B) = P(A) + P(B).</p>
+</blockquote>
+<p><strong>Ví dụ:</strong> Xác suất của sự kiện tung 2 xúc xắc mà có tổng lớn hơn 10? Ta biết để tổng lớn hơn 10 thì có 2 số là 11 và 12. Trong đó để có tổng là 11 thì có hai cách (tổ hợp của 5+6 và 6+5), để tổng là 12 thì có một cách (tổ hợp của 6+6). Do đó xác suất của sự kiện có tổng lớn hơn 10 là (2 + 1)/36 = 3/36 = 1/12.</p>
+<blockquote>
+<p>Which of the following expressions represents the probability of rolling a number greater than 10? The only outcomes greater than 10 are 11 and 12 which are mutually exclusive. The first, 11, can occur in two ways, and the second, 12, can occur only with a roll of double 6’s.</p>
+</blockquote>
+<p>Ngược lại, xác suất của tất cả sự kiện gieo hai xúc xắc mà có tổng nhỏ hơn hoặc bằng 10 sẽ là tổng xác suất xuất hiện tất cả sự kiện (là 1) trừ đi xác suất xuất hiện tổ hợp điểm lớn hơn 10 (đã tính ở trên là 1/12), do đó kết quả của xác suất các sự kiện có tổng điểm hai xúc xắc nhỏ hơn hoặc bằng 10 là 11/12.</p>
+<blockquote>
+<p>Use the answer to the previous question and the fact that the sum of all outcomes must sum to 1 to determine the probability of rolling a number less than or equal to 10. Hint: Subtract the previous answer from 1.</p>
+</blockquote>
+</div>
+</div>
 </div>
 <div id="now-well-apply-the-concepts-of-probability-to-playing-cards." class="section level2">
 <h2>Now we’ll apply the concepts of probability to playing cards.</h2>
@@ -107,6 +406,9 @@ There are only 4 different suits in a deck. 0 is the answer.</p>
 <div id="tài-liệu-tham-khảo" class="section level2 unnumbered">
 <h2>Tài liệu tham khảo</h2>
 <div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-10BanTan" class="csl-entry">
+Khanh, Pham Dinh. n.d. <span>“10. <span>Bạn</span> Là <span>Tần</span> Suất (<span>Frequentist</span>) Hay <span>Bayesian</span>? — <span>Deep</span> <span>AI</span> <span>KhanhBlog</span>.”</span> Accessed July 11, 2022. <a href="https://phamdinhkhanh.github.io/deepai-book/ch_ml/index_Bayes.html">https://phamdinhkhanh.github.io/deepai-book/ch_ml/index_Bayes.html</a>.
+</div>
 <div id="ref-swirl2020" class="csl-entry">
 Kross, Sean, Nick Carchedi, Bill Bauer, and Gina Grdina. 2020. <em>Swirl: Learn r, in r</em>. <a href="https://CRAN.R-project.org/package=swirl">https://CRAN.R-project.org/package=swirl</a>.
 </div>

@@ -136,7 +136,16 @@ type: book
 
 [Cú pháp Markdown](https://daringfireball.net/projects/markdown/syntax)
 
+[Alt code](https://usefulshortcuts.com/alt-codes/maths-alt-codes.php)
+
+|            |              |                  |
+|:----------:|:------------:|:----------------:|
+| Dấu nhân   | 2 × 2 = 4    | `Alt + 2015`     |
+| Nhiệt độ   | 100 °C       | `Alt + 0176`     |
+
 Khi muốn <mark>highlight</mark> thì dùng thẻ `<mark>...</mark>`.
+
+Khi chèn R chunk thì sử dụng ở đây https://rdrr.io/snippets/
 
 ## Tham khảo
 
