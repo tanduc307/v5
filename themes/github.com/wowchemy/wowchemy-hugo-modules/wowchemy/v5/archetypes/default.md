@@ -14,6 +14,7 @@ draft: false
 output:
   blogdown::html_page:
     toc: true
+weight:
 bibliography: D:/GITHUB/v5/zoterobib/xacsuat.bib
 link-citations: yes
 nocite: |

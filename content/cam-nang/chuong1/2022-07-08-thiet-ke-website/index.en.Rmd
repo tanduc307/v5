@@ -147,6 +147,16 @@ Khi muốn <mark>highlight</mark> thì dùng thẻ `<mark>...</mark>`.
 
 Khi chèn R chunk thì sử dụng ở đây https://rdrr.io/snippets/
 
+Ghi định lý
+
+```
+::: {.theorem name="Pythagorean theorem"}
+For a right triangle, if $c$ denotes the length of the hypotenuse
+and $a$ and $b$ denote the lengths of the other two sides, we have
+$$a^2 + b^2 = c^2$$
+:::
+```
+
 ## Tham khảo
 
 [Alison Hill's method](https://www.apreshill.com/blog/2020-12-new-year-new-blogdown/)

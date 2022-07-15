@@ -1,0 +1,56 @@
+---
+title: Giải tích tổ hợp
+author: Duc Nguyen
+date: '2022-07-13'
+slug: giai-tich-to-hop
+categories:
+  - xác suất thống kê
+  - giải tích
+tags:
+  - thuật ngữ
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-07-13T14:10:01+07:00'
+featured: no
+output:
+  blogdown::html_page:
+    toc: yes
+bibliography: D:/GITHUB/v5/zoterobib/xacsuat.bib
+link-citations: yes
+nocite: |
+  @R-bookdown
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+weight: 1
+---
+
+## Hoán vị không lặp
+
+::: {.theorem name="Hoán vị không lặp"}
+**Định nghĩa:** Cho tập hợp $M$ gồm $n$ phần tử ($n \ge 1$). Mỗi cách sắp xếp của $n$ phần tử của tập hợp $M$ (không lặp lại cùng phần tử đã lấy) theo một thứ tự nhất định được gọi là **một hoán vị** của $n$ phần tử đã cho.
+
+Ký hiệu số các hoán vị (permutation) khác nhau của $n$ phần tử là $P_n$
+
+**Định lý:** $P_n = n!$ với $n! = 1 × 2 × 3 × ... × n$
+:::
+
+**Ví dụ:** Có bao nhiêu tổ hợp số khác nhau được hình thành từ 4 chữ số của 1 tập hợp có các phần tử {1, 2, 3, 4} mà trong mỗi tổ hợp số đó không có hai số trùng nhau (không lặp lại).
+
+**Trả lời:** $P_4 = 4! = 24$ số. Cụ thể:
+
+```{r}
+library(gtools)
+x <- c(1, 2, 3, 4)
+permutations(4, 4, x, set = F) # Lấy 4 phần tử từ tập hợp và tổ hợp các thành phần này thành những bộ có đủ 4 phần tử mà không lặp lại.
+```
+
+
+
+
+
+
+

@@ -1,0 +1,75 @@
+---
+title: Giải tích tổ hợp
+author: Duc Nguyen
+date: '2022-07-13'
+slug: giai-tich-to-hop
+categories:
+  - xác suất thống kê
+  - giải tích
+tags:
+  - thuật ngữ
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-07-13T14:10:01+07:00'
+featured: no
+output:
+  blogdown::html_page:
+    toc: yes
+bibliography: D:/GITHUB/v5/zoterobib/xacsuat.bib
+link-citations: yes
+nocite: |
+  @R-bookdown
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+weight: 1
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#hoán-vị-không-lặp">Hoán vị không lặp</a></li>
+</ul>
+</div>
+
+<div id="hoán-vị-không-lặp" class="section level2">
+<h2>Hoán vị không lặp</h2>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-1" class="theorem"><strong>Theorem 1  (Hoán vị không lặp) </strong></span><strong>Định nghĩa:</strong> Cho tập hợp <span class="math inline">\(M\)</span> gồm <span class="math inline">\(n\)</span> phần tử (<span class="math inline">\(n \ge 1\)</span>). Mỗi cách sắp xếp của <span class="math inline">\(n\)</span> phần tử của tập hợp <span class="math inline">\(M\)</span> (không lặp lại cùng phần tử đã lấy) theo một thứ tự nhất định được gọi là <strong>một hoán vị</strong> của <span class="math inline">\(n\)</span> phần tử đã cho.</p>
+<p>Ký hiệu số các hoán vị (permutation) khác nhau của <span class="math inline">\(n\)</span> phần tử là <span class="math inline">\(P_n\)</span></p>
+<p><strong>Định lý:</strong> <span class="math inline">\(P_n = n!\)</span> với <span class="math inline">\(n! = 1 × 2 × 3 × ... × n\)</span></p>
+</div>
+<p><strong>Ví dụ:</strong> Có bao nhiêu tổ hợp số khác nhau được hình thành từ 4 chữ số của 1 tập hợp có các phần tử {1, 2, 3, 4} mà trong mỗi tổ hợp số đó không có hai số trùng nhau (không lặp lại).</p>
+<p><strong>Trả lời:</strong> <span class="math inline">\(P_4 = 4! = 24\)</span> số. Cụ thể:</p>
+<pre class="r"><code>library(gtools)
+x &lt;- c(1, 2, 3, 4)
+permutations(4, 4, x, set = F) # Lấy 4 phần tử từ tập hợp và tổ hợp các thành phần này thành những bộ có đủ 4 phần tử mà không lặp lại.</code></pre>
+<pre><code>##       [,1] [,2] [,3] [,4]
+##  [1,]    1    2    3    4
+##  [2,]    1    2    4    3
+##  [3,]    1    3    2    4
+##  [4,]    1    3    4    2
+##  [5,]    1    4    2    3
+##  [6,]    1    4    3    2
+##  [7,]    2    1    3    4
+##  [8,]    2    1    4    3
+##  [9,]    2    3    1    4
+## [10,]    2    3    4    1
+## [11,]    2    4    1    3
+## [12,]    2    4    3    1
+## [13,]    3    1    2    4
+## [14,]    3    1    4    2
+## [15,]    3    2    1    4
+## [16,]    3    2    4    1
+## [17,]    3    4    1    2
+## [18,]    3    4    2    1
+## [19,]    4    1    2    3
+## [20,]    4    1    3    2
+## [21,]    4    2    1    3
+## [22,]    4    2    3    1
+## [23,]    4    3    1    2
+## [24,]    4    3    2    1</code></pre>
+</div>

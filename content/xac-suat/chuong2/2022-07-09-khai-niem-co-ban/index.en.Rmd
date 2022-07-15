@@ -14,7 +14,7 @@ lastmod: '2022-07-09T22:04:46+07:00'
 featured: no
 output:
   blogdown::html_page:
-    toc: yes
+    toc: true            
 bibliography: D:/GITHUB/v5/zoterobib/xacsuat.bib
 link-citations: yes
 nocite: |
@@ -24,6 +24,7 @@ image:
   focal_point: ''
   preview_only: no
 projects: []
+weight: 2
 ---
 
 ## Nhập môn [xác suất] và [thống kê]
@@ -170,7 +171,7 @@ $P(A \cup B) = P(A + B) = P(A) + P(B) - P(A \& B)$
 
 Thể hiện trên Venn diagram chính là toàn bộ khu vực tô màu xanh dương và vàng kể cả vùng giao nhau.
 
-```{r ven-plot, echo = TRUE, message = FALSE, warning = FALSE}
+```
 # load Venn diagram package
 library("VennDiagram")
 
@@ -180,6 +181,10 @@ grid.newpage()
 # create pairwise Venn diagram
 draw.pairwise.venn(area1 = 18, area2 = 10, cross.area = 4,
                    category = c("P(A)", "P(B)"), fill = c("Blue", "Yellow"))
+```
+
+```{r ven-plot, out.width='100%', fig.show='hold', fig.cap='Venn diagram.'}
+knitr::include_graphics('ven-plot-1.png')
 ```
 
 > The probability of at least one of two events, A and B, occurring is the sum of their individual probabilities minus the probability of their intersection. P(A U B) = P(A) + P(B) - P(A&B).
@@ -246,9 +251,13 @@ Ngược lại, xác suất của tất cả sự kiện gieo hai xúc xắc mà
 
 > Use the answer to the previous question and the fact that the sum of all outcomes must sum to 1 to determine the probability of rolling a number less than or equal to 10. Hint: Subtract the previous answer from 1. 
 
-## Now we'll apply the concepts of probability to playing cards.
+## Hiểu xác suất qua trò chơi bài
 
-A deck of cards is a set of 52 cards, 4 suits of 13 cards each. There are two red suits, diamonds and hearts, and two black suits, spades and clubs. Each of the 13 cards in a suit has a value - an ace which is sometimes thought of as 1, a number from 2 to 10, and 3 face cards, king, queen, and jack. We've created a deck in R for you. Type 'deck' to see it now.
+> Now we'll apply the concepts of probability to playing cards.
+
+Một bộ bài có 52 lá, chia làm 4 nhóm (suit), mỗi loại 13 lá. Và có 1 lá. Có hai màu đỏ (cơ - HEARTS, rô - DIAMOND) và đen (chuồn - CLUBES, bích - SPADES). Mỗi lá bài có một giá trị khác nhau, con át/xì (ace) thường là mạnh nhất, đánh số 1, theo sau là các lá từ 2 đến 10, và 3 **lá bài hình** (face card) là bồi (jack), đầm (queen), già (king).
+
+> A deck of cards is a set of 52 cards, 4 suits of 13 cards each. There are two red suits, diamonds and hearts, and two black suits, spades and clubs. Each of the 13 cards in a suit has a value - an ace which is sometimes thought of as 1, a number from 2 to 10, and 3 face cards, king, queen, and jack. We've created a deck in R for you. Type 'deck' to see it now.
 
 ```
 deck
@@ -267,16 +276,50 @@ deck
 [12,] "Q:spades"  "Q:hearts"  "Q:diamonds"  "Q:clubs" 
 [13,] "K:spades"  "K:hearts"  "K:diamonds"  "K:clubs" 
 ```
-When drawing a single card, how many outcomes are possible? 52.
-What is the probability of drawing a jack? 4/52 (có 4 con jack).
-If you're dealt a hand of 5 cards, what is the probability of getting all 5 of the same value?
-There are only 4 different suits in a deck. 0 is the answer.
 
-What is the probability of drawing a face card? There are 3 face cards in each of the 4 suits in the deck. 3/13
+**1/ Khi rút một lá bài bất kỳ, có bao nhiêu khả năng sẽ bóc được?** 
 
-Suppose you draw a face card and don't replace it in the deck. What is the probability that when you draw a second card it also will be a face card? There are only 51 cards remaining in the deck, and of those, only 11 are face cards. 11/51.
+> When drawing a single card, how many outcomes are possible?
 
-Suppose you draw a face card and don't replace it in the deck. What is the probability that when you draw a second card it also will be a face card of the same suit? There are 2 face cards of the same suit left in the deck. 2/51.
+**Trả lời:** Vì bộ bài có 52 lá khác nhau hoàn toàn (theo các đặc tính tổ hợp) do đó sẽ có 52 kết quả khác nhau khi rút 1 lá bất kỳ.
+
+**2/ Xác suất để rút được lá jack?**
+
+> What is the probability of drawing a jack? 4/52
+
+**Trả lời:** Vì có 4 lá jack nên xác suất rút được lá jack là 4/52.
+
+**3/ Nếu bạn rút 5 lá bài, xác suất để rút được cả 5 lá cùng loại là bao nhiêu?**
+
+> If you're dealt a hand of 5 cards, what is the probability of getting all 5 of the same value?
+
+**Trả lời:** Vì chỉ có 4 lá cùng loại (nhưng khác nhóm) nên không thể rút được 5 lá cùng loại. Do đó xác suất là 0.
+
+> There are only 4 different suits in a deck. 0 is the answer.
+
+**4/ Xác suất để rút được một lá bài hình?**
+
+> What is the probability of drawing a face card? 
+
+**Trả lời**: Vì có 3 lá bài hình ở mỗi nhóm, nên xác suất rút được 1 lá bài hình là 12/52 hay là 3/13 (khi xét 3 lá bài hình trong 13 lá bài ở 1 nhóm).
+
+> There are 3 face cards in each of the 4 suits in the deck. 
+
+**5/ Giả sử bạn rút 1 lá bài hình và không đưa lại vào bộ bài. Xác suất khi bạn rút lá bài lần thứ hai và nó cũng là bài hình là bao nhiêu?**
+
+> Suppose you draw a face card and don't replace it in the deck. What is the probability that when you draw a second card it also will be a face card? 
+
+**Trả lời:** Sau khi đã rút 1 lá bài hình thì trong bộ bài còn lại 51 lá trong đó có 11 lá bài hình. Do đó xác suất để rút lá bài tiếp theo được lá bài hình là 11/51.
+
+> There are only 51 cards remaining in the deck, and of those, only 11 are face cards. 11/51.
+
+**6/ Giả sử bạn rút 1 lá bài hình và không đưa lại vào bộ bài. Xác suất khi bạn rút lá bài lần thứ hai và nó cũng là bài hình nhưng cùng loại là bao nhiêu?**
+
+> Suppose you draw a face card and don't replace it in the deck. What is the probability that when you draw a second card it also will be a face card of the same suit? 
+
+**Trả lời:** Sau khi đã rút 1 lá bài hình **ở một loại nào đó** thì trong bộ bài còn lại 51 lá và 2 lá bài hình **ở loại đó**, nên xác suất rút lần thứ hai được lá bài hình cùng loại là 2/51.
+
+> There are 2 face cards of the same suit left in the deck. 2/51.
 
 ## Tài liệu tham khảo
 

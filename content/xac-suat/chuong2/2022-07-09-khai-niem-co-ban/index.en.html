@@ -14,7 +14,7 @@ lastmod: '2022-07-09T22:04:46+07:00'
 featured: no
 output:
   blogdown::html_page:
-    toc: yes
+    toc: true            
 bibliography: D:/GITHUB/v5/zoterobib/xacsuat.bib
 link-citations: yes
 nocite: |
@@ -24,6 +24,7 @@ image:
   focal_point: ''
   preview_only: no
 projects: []
+weight: 2
 ---
 
 
@@ -34,7 +35,7 @@ projects: []
 <ul>
 <li><a href="#cụ-thể-hơn">Cụ thể hơn</a></li>
 </ul></li>
-<li><a href="#now-well-apply-the-concepts-of-probability-to-playing-cards.">Now we’ll apply the concepts of probability to playing cards.</a></li>
+<li><a href="#hiểu-xác-suất-qua-trò-chơi-bài">Hiểu xác suất qua trò chơi bài</a></li>
 <li><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
 </ul>
 </div>
@@ -215,7 +216,7 @@ blockquote {
 <p>Xác suất để có ít nhất một trong hai sự kiện, A và B, xuất hiện là tổng của khả năng xuất hiện A và B trừ đi khả năng xuất hiện của xác suất A và B cùng xuất hiện. Lý do nếu cộng chung cả A và B thì không gian xác suất sẽ bị tính hai lần cho khu vực giao nhau, vì vậy cần trừ đi <strong>1</strong> lần giao nhau giữa A và B.</p>
 <p><span class="math inline">\(P(A \cup B) = P(A + B) = P(A) + P(B) - P(A \&amp; B)\)</span></p>
 <p>Thể hiện trên Venn diagram chính là toàn bộ khu vực tô màu xanh dương và vàng kể cả vùng giao nhau.</p>
-<pre class="r"><code># load Venn diagram package
+<pre><code># load Venn diagram package
 library(&quot;VennDiagram&quot;)
 
 # move to new plotting page
@@ -224,8 +225,13 @@ grid.newpage()
 # create pairwise Venn diagram
 draw.pairwise.venn(area1 = 18, area2 = 10, cross.area = 4,
                    category = c(&quot;P(A)&quot;, &quot;P(B)&quot;), fill = c(&quot;Blue&quot;, &quot;Yellow&quot;))</code></pre>
-<p><img src="{{< blogdown/postref >}}index.en_files/figure-html/ven-plot-1.png" width="672" /></p>
-<pre><code>## (polygon[GRID.polygon.1], polygon[GRID.polygon.2], polygon[GRID.polygon.3], polygon[GRID.polygon.4], text[GRID.text.5], text[GRID.text.6], text[GRID.text.7], text[GRID.text.8], text[GRID.text.9])</code></pre>
+<pre class="r"><code>knitr::include_graphics(&#39;ven-plot-1.png&#39;)</code></pre>
+<div class="figure"><span style="display:block;" id="fig:ven-plot"></span>
+<img src="ven-plot-1.png" alt="Venn diagram." width="100%" />
+<p class="caption">
+Figure 1: Venn diagram.
+</p>
+</div>
 <blockquote>
 <p>The probability of at least one of two events, A and B, occurring is the sum of their individual probabilities minus the probability of their intersection. P(A U B) = P(A) + P(B) - P(A&amp;B).</p>
 </blockquote>
@@ -334,7 +340,7 @@ draw.pairwise.venn(area1 = 18, area2 = 10, cross.area = 4,
 <td align="center">trùng</td>
 </tr>
 <tr class="odd">
-<td align="center">Tổ hợp để được tổng là 11 điểm</td>
+<td align="center">Tổ hợp để được tổng là 12 điểm</td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
@@ -351,7 +357,7 @@ draw.pairwise.venn(area1 = 18, area2 = 10, cross.area = 4,
 </table>
 <p>Vì <strong>không cần phân biệt</strong> theo <em>màu của xúc xắc</em>, ví dụ [3+6] và [6+3] được tính chung là 1 sự kiện đáp ứng việc có 1 con số chẵn và tổng lớn hơn 8, cũng như không tính tình huống hai xúc sắc ra hai con số chẵn và tổng lớn hơn 8, nên bảng trên được rút gọn lại còn ở những mục đánh dấu (X).</p>
 <p>Do vậy xác suất để xảy ra sự kiện giao nhau là 4/36.</p>
-<p>Tổng hợp lại, xác suất để gieo ra số chẵn (1 trong hai xúc xắc) hoặc ra 1 con số có tổng lớn hơn 8 là bao nhiêu chính là không gian xác suất bao trùm toàn bộ như Figure <a href="#fig:ven-plot"><strong>??</strong></a>.</p>
+<p>Tổng hợp lại, xác suất để gieo ra số chẵn (1 trong hai xúc xắc) hoặc ra 1 con số có tổng lớn hơn 8 là bao nhiêu chính là không gian xác suất bao trùm toàn bộ như Figure <a href="#fig:ven-plot">1</a>.</p>
 <p><span class="math display">\[P(E) = 18/36 + 10/36 - 4/36 = 24/36\]</span></p>
 <blockquote>
 <p>Back to rolling two dice. Which expression represents the probability of rolling an even number or a number greater than 8? In the other hand, how big is the intersection between rolling an even number and those greater than ‘8’?</p>
@@ -377,9 +383,15 @@ draw.pairwise.venn(area1 = 18, area2 = 10, cross.area = 4,
 </div>
 </div>
 </div>
-<div id="now-well-apply-the-concepts-of-probability-to-playing-cards." class="section level2">
-<h2>Now we’ll apply the concepts of probability to playing cards.</h2>
+<div id="hiểu-xác-suất-qua-trò-chơi-bài" class="section level2">
+<h2>Hiểu xác suất qua trò chơi bài</h2>
+<blockquote>
+<p>Now we’ll apply the concepts of probability to playing cards.</p>
+</blockquote>
+<p>Một bộ bài có 52 lá, chia làm 4 nhóm (suit), mỗi loại 13 lá. Và có 1 lá. Có hai màu đỏ (cơ - HEARTS, rô - DIAMOND) và đen (chuồn - CLUBES, bích - SPADES). Mỗi lá bài có một giá trị khác nhau, con át/xì (ace) thường là mạnh nhất, đánh số 1, theo sau là các lá từ 2 đến 10, và 3 <strong>lá bài hình</strong> (face card) là bồi (jack), đầm (queen), già (king).</p>
+<blockquote>
 <p>A deck of cards is a set of 52 cards, 4 suits of 13 cards each. There are two red suits, diamonds and hearts, and two black suits, spades and clubs. Each of the 13 cards in a suit has a value - an ace which is sometimes thought of as 1, a number from 2 to 10, and 3 face cards, king, queen, and jack. We’ve created a deck in R for you. Type ‘deck’ to see it now.</p>
+</blockquote>
 <pre><code>deck
       spades      hearts      diamonds      clubs     
  [1,] &quot;A:spades&quot;  &quot;A:hearts&quot;  &quot;A:diamonds&quot;  &quot;A:clubs&quot; 
@@ -395,13 +407,48 @@ draw.pairwise.venn(area1 = 18, area2 = 10, cross.area = 4,
 [11,] &quot;J:spades&quot;  &quot;J:hearts&quot;  &quot;J:diamonds&quot;  &quot;J:clubs&quot; 
 [12,] &quot;Q:spades&quot;  &quot;Q:hearts&quot;  &quot;Q:diamonds&quot;  &quot;Q:clubs&quot; 
 [13,] &quot;K:spades&quot;  &quot;K:hearts&quot;  &quot;K:diamonds&quot;  &quot;K:clubs&quot; </code></pre>
-<p>When drawing a single card, how many outcomes are possible? 52.
-What is the probability of drawing a jack? 4/52 (có 4 con jack).
-If you’re dealt a hand of 5 cards, what is the probability of getting all 5 of the same value?
-There are only 4 different suits in a deck. 0 is the answer.</p>
-<p>What is the probability of drawing a face card? There are 3 face cards in each of the 4 suits in the deck. 3/13</p>
-<p>Suppose you draw a face card and don’t replace it in the deck. What is the probability that when you draw a second card it also will be a face card? There are only 51 cards remaining in the deck, and of those, only 11 are face cards. 11/51.</p>
-<p>Suppose you draw a face card and don’t replace it in the deck. What is the probability that when you draw a second card it also will be a face card of the same suit? There are 2 face cards of the same suit left in the deck. 2/51.</p>
+<p><strong>1/ Khi rút một lá bài bất kỳ, có bao nhiêu khả năng sẽ bóc được?</strong></p>
+<blockquote>
+<p>When drawing a single card, how many outcomes are possible?</p>
+</blockquote>
+<p><strong>Trả lời:</strong> Vì bộ bài có 52 lá khác nhau hoàn toàn (theo các đặc tính tổ hợp) do đó sẽ có 52 kết quả khác nhau khi rút 1 lá bất kỳ.</p>
+<p><strong>2/ Xác suất để rút được lá jack?</strong></p>
+<blockquote>
+<p>What is the probability of drawing a jack? 4/52</p>
+</blockquote>
+<p><strong>Trả lời:</strong> Vì có 4 lá jack nên xác suất rút được lá jack là 4/52.</p>
+<p><strong>3/ Nếu bạn rút 5 lá bài, xác suất để rút được cả 5 lá cùng loại là bao nhiêu?</strong></p>
+<blockquote>
+<p>If you’re dealt a hand of 5 cards, what is the probability of getting all 5 of the same value?</p>
+</blockquote>
+<p><strong>Trả lời:</strong> Vì chỉ có 4 lá cùng loại (nhưng khác nhóm) nên không thể rút được 5 lá cùng loại. Do đó xác suất là 0.</p>
+<blockquote>
+<p>There are only 4 different suits in a deck. 0 is the answer.</p>
+</blockquote>
+<p><strong>4/ Xác suất để rút được một lá bài hình?</strong></p>
+<blockquote>
+<p>What is the probability of drawing a face card?</p>
+</blockquote>
+<p><strong>Trả lời</strong>: Vì có 3 lá bài hình ở mỗi nhóm, nên xác suất rút được 1 lá bài hình là 12/52 hay là 3/13 (khi xét 3 lá bài hình trong 13 lá bài ở 1 nhóm).</p>
+<blockquote>
+<p>There are 3 face cards in each of the 4 suits in the deck.</p>
+</blockquote>
+<p><strong>5/ Giả sử bạn rút 1 lá bài hình và không đưa lại vào bộ bài. Xác suất khi bạn rút lá bài lần thứ hai và nó cũng là bài hình là bao nhiêu?</strong></p>
+<blockquote>
+<p>Suppose you draw a face card and don’t replace it in the deck. What is the probability that when you draw a second card it also will be a face card?</p>
+</blockquote>
+<p><strong>Trả lời:</strong> Sau khi đã rút 1 lá bài hình thì trong bộ bài còn lại 51 lá trong đó có 11 lá bài hình. Do đó xác suất để rút lá bài tiếp theo được lá bài hình là 11/51.</p>
+<blockquote>
+<p>There are only 51 cards remaining in the deck, and of those, only 11 are face cards. 11/51.</p>
+</blockquote>
+<p><strong>6/ Giả sử bạn rút 1 lá bài hình và không đưa lại vào bộ bài. Xác suất khi bạn rút lá bài lần thứ hai và nó cũng là bài hình nhưng cùng loại là bao nhiêu?</strong></p>
+<blockquote>
+<p>Suppose you draw a face card and don’t replace it in the deck. What is the probability that when you draw a second card it also will be a face card of the same suit?</p>
+</blockquote>
+<p><strong>Trả lời:</strong> Sau khi đã rút 1 lá bài hình <strong>ở một loại nào đó</strong> thì trong bộ bài còn lại 51 lá và 2 lá bài hình <strong>ở loại đó</strong>, nên xác suất rút lần thứ hai được lá bài hình cùng loại là 2/51.</p>
+<blockquote>
+<p>There are 2 face cards of the same suit left in the deck. 2/51.</p>
+</blockquote>
 </div>
 <div id="tài-liệu-tham-khảo" class="section level2 unnumbered">
 <h2>Tài liệu tham khảo</h2>
