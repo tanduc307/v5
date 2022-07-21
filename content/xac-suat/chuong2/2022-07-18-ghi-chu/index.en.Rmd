@@ -1,0 +1,201 @@
+---
+title: Ghi chú
+author: Duc Nguyen
+date: '2022-07-18'
+slug: ghi-chu
+categories:
+  - xác suất thống kê
+tags:
+  - tài liệu
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-07-18T09:22:03+07:00'
+featured: no
+output:
+  blogdown::html_page:
+    toc: yes
+weight: ~
+bibliography: D:/GITHUB/v5/zoterobib/xacsuat.bib
+link-citations: yes
+nocite: |
+  @R-bookdown
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+## Các concepts chính trong thống kê
+
+Statistics is a key component of empirical investigations.
+
+
+probability, expectations, conditional probabilities, distributions, confidence intervals, bootstrapping, binomial proportions, and much more. 
+
+Module 1 covers experiments, probability, variables, mass functions, density functions, cumulative distribution functions, expectations, variations, and vectors.
+
+Module 2 covers conditional probability, bayes' rule, likelihood, distributions, and asymptotics. These are the most fundamental core concepts in mathematical biostatistics and statistics. 
+
+Module 3 covers confidence intervals (CI), bootstrapping, and plotting. These are core concepts in mathematical biostatistics and statistics. 
+
+Module 4 covers binomial proportions and logs. 
+
+
+## Nói về Bayes
+https://youtu.be/eDMGDhyDxuY
+
+### Why this matters
+
+#### Concepts
+
+**The central dogma of inferential statistics** is
+> Statisticians use **probability** to describe (understand and quantify) **uncertainty**.
+
+**probability** is a mathematical concept. Không cần tranh cãi nhiều.
+**uncertainty** định nghĩa này gây tranh cãi, do đó vấn đề khác biệt nhau giữa Bayesian and frequentist nằm ở chỗ họ hiểu như thế nào khi định lượng về mức độ không chắc chắn xảy ra của 1 sự kiện nào đó. 
+
+#### What is probability?
+
+##### Probability is a measure.
+
+Dates back 1933 by A. N. Kolmogorov
+
+Probability is a measure từ một sự kiện độc lập nào đó khi được diễn tả qua công thức toán (mathematical formalization).
+
+##### Distributions define measure of events.
+
+Xác suất là khả năng xảy ra của một sự kiện quy về 0 và 1. Có hai dạng phân phối xác suất là:
+
+1/ Exponential (theo hàm log) và tiệm cận về 0
+
+2/ Normal/Gaussian/phân phối chuẩn
+
+Đây là các phân phối rời rạc discrete distribution ví dụ như bạn tung xúc xắc có các giá trị thu được từ 1 đến 6.
+
+##### Parameters define distribution.
+
+Khi bạn đã có các thông số, vd như scale parameter thì bạn tính được phân phối exponential, hoặc bạn biết mean và sd thì tính được phân phối normal.
+
+Ví dụ trong trường hợp viên xúc xắc thì khi bạn biết được xác suất xảy ra của từng mặt trong viên xúc xắc thì bạn sẽ xây dựng được hàm phân phối của nó.
+
+Lý do để hiểu các concept ở trên là để khi bạn đặt ra giả thuyết về chuyện 'Nam giới làm trong phòng lab thường cao hơn nữ' thì bạn biết cách xây dựng phép đo, định nghĩa về phân phối.
+
+Ở đây là hàm phân phối về chiều cao của nam trong lab, tương tự là hàm phân phối về chiều cao của nữ trong lab. Nhưng bạn ko thể so sánh hai cái phân phối này lại với nhau theo kiểu so sánh về chiều cao của các phân phối, bạn **CHỈ CÓ** thể so sánh với các thông số (parameter) từ phân phối đó với nhau mà thôi, trong trường hợp này là so sánh với số trung bình của hai nhóm nam và nữ này để xác nhận giả thuyết là đúng.
+
+Do vậy các thông số là công cụ của thống kê suy luận.
+
+##### Likelihood fixes data and varies parameters.
+
+Công thức này gọi là probability mass function is a way of describing a distribution with parameter $theta$ and basically it is just the function that returns the probability that a random variable $X$ takes a value litte $x$ given that the distribution has parameter little $theta$. ==> có thể tính ra chính xác giá trị của sự kiện khi biết được các thông số xác suất này.
+
+$f(x) = \Pr (X = x|\Theta  = \theta )$
+
+And if I summed up over all possible values of $x$ that I get 1 because that is what probability distributions do.
+
+So what happens if I flip this function on its head if instead of fixing my parameter $theta$ and vary my data $x$, I fix $x$ and I vary $\theta$, that is something that is called a likelihood.
+
+$l(\theta) = \Pr (X = x|\Theta  = \theta )$
+
+So the likelihood is a key tool in both Bayesian and frequentist inference.
+
+You can sort of see why that would be where if you calculate the likelihood for a bunch of different parameter values, the ones that have a higher likelihood value are in some sense more **consistent** with your observed data than the ones with lower likelihood values.
+
+Something to keep in mind about the likelihood though is that it is not a probability distribution remember when I was integrating over $x$ (lấy tích phân theo $x$) that had to integrate to one (là lấy từ 0 đến 1), but if I integrate over $\theta$ that does not have to integrate to one. It doesn't even have to be a finite value and this is going a matter a little bit later. (nếu tích phân theo $\theta$ thì không phải lấy từ 0 đến 1, cũng không phải lấy đến vô cực $\infty$).
+
+#### What is uncertainty?
+
+Now we're going to get into this more subtle concept or what are the different kinds of things that statisticians would call uncertainty and try to describe with probability. This is a subtle concept and I have been told one of the best ways to explain suble concepts is through the use of story.
+
+Ý tưởng là frequentist định nghĩa xác suất là khách quan, còn Bayesian định nghĩa xác suất xảy ra là chủ quan (thay đổi theo từng người) KHI TA KHÔNG BIẾT RÕ CHÍNH XÁC XÁC SUẤT XẢY RA CỦA 1 SỰ KIỆN NÀO ĐÓ.
+
+https://youtu.be/eDMGDhyDxuY?t=664
+
+#### An incomplete history of uncertainty quantification
+
+Xác suất lúc này gọi là doctrine of chances
+
+B. Pascal vs P. Fermat bàn về trò đánh bài.
+
+B. Pascal came up with the concept of expected value
+
+Thomas Bayes
+
+Laplace không tin vào randomness vì thế giới trước đây là kiểu deterministic.
+
+
+===
+Fisher came up with the concept of maximum likelihood
+
+Neyman the idea of randomization experiment
+
+Pearson decision theoretic foundations
+ 
+Những vị này đi theo thuyết only randomness.
+
+#### The Big Reveal
+
+Cơ bản là cái nào ko giải thích theo kiểu frequentist được áp dụng cách xử lý kiểu Bayesian.
+
+### Mention other topics
+
+Liên quan Nate Silver poll thống kê bỏ phiếu
+
+### Terms
+
+1/ con·tem·plate verb 
+BrE /ˈkɒntəmpleɪt/ ; NAmE /ˈkɑːntəmpleɪt/ 
+
++ VERB FORMS
+
+1 [transitive] to think about whether you should do something, or how you should do something 
+SYNONYM consider, think about/of
+ contemplate something You're too young to be contemplating retirement.
+ contemplate doing something I have never contemplated living abroad.
+ contemplate how/what, etc… He continued while she contemplated how to answer.
+
+2 [transitive] to think carefully about and accept the possibility of something happening contemplate something The thought of war is too awful to contemplate.
+ contemplate how/what, etc… I can't contemplate what it would be like to be alone.
+ contemplate that… She contemplated that things might get even worse.
+
+3 [transitive, intransitive] contemplate (something) (formal) to think deeply about something for a long time to contemplate your future
+ She lay in bed, contemplating.
+
+4 [transitive] contemplate somebody/something (formal) to look at somebody/something in a careful way for a long time 
+SYNONYM stare at
+ She contemplated him in silence.
+ He sat there, contemplating his fingernails.
+
+2/ cav·eat noun 
+BrE /ˈkæviæt/ ; NAmE /ˈkæviæt/ 
+ (formal, from Latin)
+a warning that particular things need to be considered before something can be done Any discussion of legal action must be preceded by a caveat on costs.
+
+3/ curs·ory adjective 
+BrE /ˈkɜːsəri/ ; NAmE /ˈkɜːrsəri/ 
+ (often disapproving)
+done quickly and without giving enough attention to details 
+SYNONYM brief, perfunctory
+ a cursory glance/examination/inspection
+ He gave the report a rather cursory look.
+
+4/ daunt·ing adjective 
+BrE /ˈdɔːntɪŋ/ ; NAmE /ˈdɔːntɪŋ/ 
+making somebody feel nervous and less confident about doing something; likely to make somebody feel this way 
+SYNONYM intimidating
+ She has the daunting task of cooking for 20 people every day.
+ Starting a new job can be a daunting prospect.
+
+5/ parsimony
+Parsimonious models are simple models with great explanatory predictive power. They explain data with a minimum number of parameters, or predictor variables.
+
+The idea behind parsimonious models stems from Occam’s razor, or “the law of briefness” (sometimes called lex parsimoniae in Latin). 
+
+The law states that you should use no more “things” than necessary; In the case of parsimonious models, those “things” are parameters. 
+
+Parsimonious models have optimal parsimony, or just the right amount of predictors needed to explain the model well.
+
+
+
+

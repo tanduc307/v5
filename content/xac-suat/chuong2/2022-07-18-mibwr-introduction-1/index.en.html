@@ -1,0 +1,168 @@
+---
+title: MIBWR - Introduction - [1]
+author: Duc Nguyen
+date: '2022-07-18'
+slug: mibwr-introduction-1
+categories:
+  - xác suất thống kê
+tags:
+  - tài liệu
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-07-18T11:21:20+07:00'
+featured: no
+output:
+  blogdown::html_page:
+    toc: yes
+weight: ~
+bibliography: D:/GITHUB/v5/zoterobib/xacsuat.bib
+link-citations: yes
+nocite: |
+  @R-bookdown
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
+<li><a href="#chapter-1-introduction">Chapter 1: Introduction</a>
+<ul>
+<li><a href="#biostatistics">Biostatistics</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="tài-liệu-tham-khảo" class="section level2">
+<h2>Tài liệu tham khảo</h2>
+<p>Nguồn: <span class="citation">(<a href="#ref-crainiceanuMethodsBiostatistics" role="doc-biblioref">Crainiceanu, Caffo, and Muschelli 2019</a>)</span></p>
+</div>
+<div id="chapter-1-introduction" class="section level2">
+<h2>Chapter 1: Introduction</h2>
+<p>We provide a modern look at introductory biostatistical concepts and associated computational tools, reflecting the latest developments in computation and visualization using the R language environment.</p>
+<p>The idea is to offer a complete, online, live book that evolves with the newest developments
+and is continuously enriched by additional concepts, better examples, and updated R tools. A version of the book will be offered as a hard copy, but, at the core, this is an online book that is reproducible and continuously updated.</p>
+<p>We provide a one-stop platform that combines theoretical, methodological, and sampling concepts, while simultaneously teaching R and data analysis in realistic scenarios.</p>
+<p>There are many books that accomplish one or more of these objectives, but we want to cover all of them simultaneously. It is the way we would have liked to learn biostatistics and data science.</p>
+<p>Biostatistics is easy to teach poorly. Too often, books focus on methodology
+with no emphasis on programming and practical implementation.</p>
+<p>In contrast, books focused on R programming and visualization rarely discuss foundational topics that provide the infrastructure needed by data analysts to make decisions, evaluate analytic tools, and get ready for new and unforeseen challenges.</p>
+<p>Thus, we are bridging this divide that had no reason to exist in the first place. The book is unapologetic about its focus on biostatistics, that is statistics with biological, public health, and medical applications, though we think that it could be used successfully for large statistical and data science courses.</p>
+<p>The book introduces the biostatistical methods necessary for a master’s level biostatistician or data analyst.</p>
+<p>However, it should be accessible to undergraduate students who have a background in calculus and linear algebra and are passionate about data analysis.</p>
+<p>It covers a wide range of topics combined with R programming and uses a reproducible format that interweaves methodological concepts, data, software, and results.</p>
+<p>Modern teaching of biostatistical concepts is much easier using the associated R tools.</p>
+<p>Indeed, without R it would be difficult to truly understand crucial concepts such as <strong>Monte Carlo</strong> simulations, bootstrap, permutation testing, coverage probability, central limit theorem, and probability density functions.</p>
+<p>The basics of R programming and syntax can be learned by reading and understanding this book, but additional effort will be necessary to master R programming.</p>
+<p>We have used data from multiple public sources, but we are especially thankful
+for the <strong>Sleep Heart Health Study</strong> (SHHS) (Dean et al. 2016; Quan et al. 1997;
+Redline et al. 1998) and the <strong>Kirby21</strong> (Landman et al. 2011) datasets, which
+are used extensively throughout the book.</p>
+<p>In particular, we would like to thank the leaders and researchers of SHHS for conducting this “multi-center cohort study implemented by the National Heart Lung &amp; Blood Institute NHLBI) to determine the cardiovascular and other consequences of sleep-disordered breathing.”</p>
+<p>We would also like to thank the National Sleep Research Resource (NSSR)
+and the many researchers who have worked on organizing and publishing exceptional, publicly available resources for sleep research.</p>
+<p>The data used in this book are publicly available and are used under a data user agreement specific for this book.</p>
+<p>And we thank Naresh Punjabi, friend and mentor, who introduced us to the wonderful world of sleep research, and Bennett Landman, who collected, described, and made publicly available the Kirby21 dataset.</p>
+<p>According to the Neuroimaging Informatics Tools and Resources Clearinghouse (NITRC), the Kirby21 dataset contains “scan-rescan imaging sessions on 21 healthy volunteers (no history of neurological disease).</p>
+<p>Imaging modalities include MPRAGE, FLAIR, DTI, resting state fMRI, B0 and B1 field maps, ASL, VASO, quantita-tive T1 mapping, quantitative T2 mapping, and magnetization transfer imaging.</p>
+<p>All data have been converted to NIFTI format.”</p>
+<p>For the purposes of this book we use a small subsample of these data.</p>
+<p>We would like to thank the many participants in these studies who donated their time and data for the advancement of knowledge and science.</p>
+<p>The book is the result of a long term collaboration between the three authors and reflects their combined research and teaching philosophies.</p>
+<p>Ciprian Crainiceanu, PhD, received his doctorate in statistics from Cornell University in 2003 and is a professor of biostatistics at Johns Hopkins University.</p>
+<p>He has taught the master’s level Methods in Biostatistics course, using and expanding on materials borrowed from Dr. Caffo, who, in turn, distilled materials developed over many years by other Johns Hopkins University Biostatistics faculty.</p>
+<p>Dr. Crainiceanu is a generalist, who works in many different scientific areas.</p>
+<p>He has specialized in wearable and implantable technology (WIT)
+with application to health studies and neuroimaging, especially in structural magnetic resonance imaging (MRI) and computed tomography (CT) with application to clinical studies.</p>
+<p>Drs. Crainiceanu and Caffo are the co-founders and co-directors of the Statistical Methods and Applications for Research in Technology (SMART) research group.</p>
+<p>Brian Caffo, PhD, received his doctorate in statistics from the University of Florida in 2001 before joining the faculty at the Johns Hopkins Department of Biostatistics, where he became a full professor in 2013.</p>
+<p>He has pursued research in statistical computing, generalized linear mixed models, neuroimaging, functional magnetic resonance imaging, image processing, and the analysis of big data.</p>
+<p>He created and led a team that won the ADHD-200 prediction competition and placed twelfth in the large Heritage Health prediction competition.</p>
+<p>He was the recipient of the Presidential Early Career Award for Scientists and Engineers (PECASE), the highest award given by the US government for early career researchers in Science, Technology, Engineering, and Mathematics (STEM) fields.</p>
+<p>He also co-created and co-directs the Data Science Specialization, a popular massive open online course (MOOC) degree on data analysis
+and computing, with over three million enrollments.</p>
+<p>John Muschelli, PhD, received his doctorate in biostatistics from the Johns Hopkins Bloomberg School of Public Health in 2016 before joining the faculty there in the same year.</p>
+<p>He received his master’s degree under Dr. Caffo and his PhD
+under Dr. Crainiceanu.</p>
+<p>He has pursued research in statistical computing, neuroimaging, computed tomography in patients with hemorrhagic stroke, image
+processing, and interactive graphics.</p>
+<p>He is a founder of the Neuroconductor project (<a href="https://neuroconductor.org/" class="uri">https://neuroconductor.org/</a>), which aims at centralizing the biomedical imaging tools for R.</p>
+<p>He has created a number of R packages on topics ranging from biomedical imaging to <strong>interfacing with APIs for bibliometric analysis</strong>.</p>
+<p>He has also created short courses in neuroimaging in R and is passionate about introducing users to R.</p>
+<div id="biostatistics" class="section level3">
+<h3>Biostatistics</h3>
+<p>We begin with the difficult task of defining the subject that we are attempting to teach.</p>
+<p>We start with the definition that our department (Biostatistics
+at Johns Hopkins) agreed upon in its 2007 self-study.</p>
+<p>“Biostatistics is the theory and methodology for the acquisition and use of quantitative evidence in biomedical research.</p>
+<p>Biostatisticians develop innovative designs and analytic methods targeted at increasing available information, improving the relevance and validity of statistical analyses, making best use of available information and communicating relevant uncertainties.”</p>
+<p>This definition will serve our needs well enough, though additional insights are necessary, since much has happened in the world of data since 2007.</p>
+<p>In short order, a data revolution is happening and biostatistics is a key part of it.</p>
+<p>If one wants to take part in this revolution in biological sciences, public health and medicine, some degree of mastery of biostatistics is key.</p>
+<p>However, biostatistics is a challenging subject to master if one is interested in understanding <strong>both</strong> the underlying concepts and their appropriate implementation.</p>
+<p>In this book we try to achieve <strong>these complementary goals</strong>.</p>
+<p>As the pace of the data revolution accelerates, it is worth asking whether devoting the amount of space herein to the fundamentals of biostatistics is worthwhile.</p>
+<p>It is our opinion that while <strong>learning how to push</strong> the biostatistical buttons to conduct a routine analysis is perhaps straightforward, <strong>understanding why</strong> to apply a specific technique or <strong>what and when to change</strong> is often difficult and requires more insight.</p>
+<p>Moreover, jobs that require only a cursory understanding of statistics and routine statistical analyses are the most likely to disappear and
+be automated out of existence.</p>
+<p>Critical thinking, creativity, and understanding the specifics of scientific problems demand more effort, a higher level of thinking,
+and a broader understanding of science.</p>
+<p><strong>Thus, we believe that jobs requiring these skills will not be automated anytime soon.</strong></p>
+<p>The principles of data analysis are crucial to solving existent and future analytic problems.</p>
+<p>Indeed, preparing the student for what may happen in data analysis 10 years from now is daunting, but <strong>learning the basic principles</strong> is a step in the <strong>right direction</strong>, as principles are changing slower than emerging data challenges.</p>
+<p>Biostatistics can be viewed as a powerful and practical philosophy of science, in which the scientific hypothesis, the experiment, the data, the model, and the associated inference form the basis of scientific progress.</p>
+<p>In the end, biostatistics is hard because it is focused on solving difficult problems using simple approaches and <em>simplicity is difficult to achieve in complex scenarios</em>.</p>
+<p>The class that inspired this book is often taken by students with very different backgrounds and skill levels.</p>
+<p>Calculus, linear algebra, and a moderate level of mathematical literacy are prerequisites for it.</p>
+<p>However, even if a student has the prerequisites does not mean they need to take it or that they will perform well.</p>
+<p>Indeed, by far the hardest problem for students taking this class has been to <strong>adapt to the different way of thinking</strong> required by working with data.</p>
+<p>Students with strong engineering or mathematical backgrounds are often puzzled by the fact that mathematical mastery is not enough to become an expert in the easier, softer, “dirtier” concepts of biostatistics.</p>
+<p>Students with strong scientific backgrounds can also become frustrated by the slower pace of introduction of useful concepts, mathematical intricacies, and modeling abstractions.</p>
+<p>Biostatistics is not hard in the usual sense that it <strong>requires either</strong> <em>deep mathematical concepts</em> <strong>or</strong> <em>committing large books to memory</em>.</p>
+<p>In fact, the required mathematical level is reasonable and students are seldom required to memorize concepts.</p>
+<p>Thus, the associated biostatistics exams at Johns Hopkins are open everything, including book, laptop, and internet.</p>
+<p>The difficulty of biostatistics <strong>rests in the different philosophy</strong>, the different way of thinking, and the different set of skills required
+to process human communication of scientific problems and their translation into well-defined problems that can be solved with data.</p>
+<p>Once a scientific problem is defined, the biostatistics philosophy is to try to solve it using the simplest possible approaches that are not too simplistic.</p>
+<p>Thus, <strong>parsimony</strong> (sự súc tích, đơn giản) and <strong>inductive reasoning</strong> (suy luận quy nạp) are fundamental concepts in biostatistics.</p>
+<p>In the logical discourse of knowledge biostatistics has a very well-defined place.</p>
+<p>Indeed, biostatistics starts with the current accepted state of knowledge (the collection of null hypotheses) and uses data to inductively refute or reinforce parts of the knowledge or generate new potential knowledge (new null hypotheses).</p>
+<p>In the biostatistical philosophy there is no truth, just the state of current knowledge.</p>
+<p>In contrast, mathematics starts with a set of axioms (the truth) and develops knowledge deductively based on logic.</p>
+<p>These differences lead to vastly different philosophies, especially when one is interested in solving specific scientific problems.</p>
+<p>With the large increase in data availability and complexity, the importance of biostatistical philosophy and practice will continue to increase and deeply influence our society and knowledge.</p>
+<p>A key goal of this text is to teach the different way of thinking present in biostatistical applications.</p>
+<p>This methodology has many similarities to that of other empirical sciences, such as social sciences and economics.</p>
+<p>However, a distinguishing feature of biostatistics is that the elements of biological sciences, public health, and medical science are key components of the problem.</p>
+<p>Given this wide range of scientific applications, of particular importance in our study will be translating scientific ideas into formal inductive inferential problems cast in the language of statistics.</p>
+<p>We emphasize the value of <strong>simple methods</strong> that <strong>do not cross</strong> the line into being <strong>simplistic</strong>.</p>
+<p>This process of balancing performance, parsimony, and interpretability, has elements of art and science.</p>
+<p>Probably the most important role of a biostatistician is to bring scientists together, help bridge the scientific language barriers, and create productive and truly interdisciplinary research teams.</p>
+<p>Inter- or trans-disciplinary research is a hot topic that is extremely easy to talk about and hard to implement.</p>
+<p>Many universities have or are launching interdisciplinary programs that often do not work or under-perform without apparent explanation.</p>
+<p>The actual reason is that interdisciplinary research requires a lot of effort and risk taking that remains under-rewarded in Academia.</p>
+<p>Moreover, it requires the honest intent of participants to be part of a team of equals, the will to listen and learn a different scientific language and approach, and a continuous application of collaborative
+principles dedicated to defining and solving scientific problems.</p>
+<p>Biostatistics is used extensively in studies that impact the lives of billions of people.</p>
+<p>Below we present a few examples indicating the importance of careful biostatistical thinking.</p>
+<div id="example-1-cancer-screening" class="section level4">
+<h4>Example 1: Cancer screening</h4>
+<p>The Canadian National Breast Cancer Screening studies (Miller et al. 2002,
+2000, 2014) were large landmark clinical trials studying the impact of mam-mography. The first publication based on this large randomized screening trial
+found no benefit of early tumor detection via digital mammography for women
+aged 40-49, contradicting standard radiological practice at the time. Many dis-cussion articles have criticized the study on statistical grounds. For example,
+Burhenne and Burhenne (1993) focused on statistical power and the ability to
+generalize from the sample. One can see from this study the important role that</p>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-crainiceanuMethodsBiostatistics" class="csl-entry">
+Crainiceanu, Ciprian, Brian Caffo, and John Muschelli. 2019. <span>“Methods in <span>Biostatistics</span> with <span>R</span>,”</span> 592.
+</div>
+</div>
+</div>
+</div>
+</div>

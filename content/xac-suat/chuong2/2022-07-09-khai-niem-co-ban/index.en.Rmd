@@ -183,8 +183,8 @@ draw.pairwise.venn(area1 = 18, area2 = 10, cross.area = 4,
                    category = c("P(A)", "P(B)"), fill = c("Blue", "Yellow"))
 ```
 
-```{r ven-plot, out.width='100%', fig.show='hold', fig.cap='Venn diagram.'}
-knitr::include_graphics('ven-plot-1.png')
+```{r venn-plot-1, out.width='100%', fig.show='hold', fig.cap='Không gian xác suất.'}
+knitr::include_graphics('venn-plot-1.png')
 ```
 
 > The probability of at least one of two events, A and B, occurring is the sum of their individual probabilities minus the probability of their intersection. P(A U B) = P(A) + P(B) - P(A&B).
@@ -229,7 +229,7 @@ Vì **không cần phân biệt** theo *màu của xúc xắc*, ví dụ [3+6] v
 
 Do vậy xác suất để xảy ra sự kiện giao nhau là 4/36.
 
-Tổng hợp lại, xác suất để gieo ra số chẵn (1 trong hai xúc xắc) hoặc ra 1 con số có tổng lớn hơn 8 là bao nhiêu chính là không gian xác suất bao trùm toàn bộ như Figure \@ref(fig:ven-plot).
+Tổng hợp lại, xác suất để gieo ra số chẵn (1 trong hai xúc xắc) hoặc ra 1 con số có tổng lớn hơn 8 là bao nhiêu chính là không gian xác suất bao trùm toàn bộ như Figure \@ref(fig:venn-plot-1).
 
 $$P(E) = 18/36 + 10/36 - 4/36 = 24/36$$
 
