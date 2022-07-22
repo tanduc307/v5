@@ -229,9 +229,59 @@ Below we present a few examples indicating the importance of careful biostatisti
 
 #### Example 1: Cancer screening
 
-The Canadian National Breast Cancer Screening studies (Miller et al. 2002,
-2000, 2014) were large landmark clinical trials studying the impact of mam-mography. The first publication based on this large randomized screening trial
-found no benefit of early tumor detection via digital mammography for women
-aged 40-49, contradicting standard radiological practice at the time. Many dis-cussion articles have criticized the study on statistical grounds. For example,
-Burhenne and Burhenne (1993) focused on statistical power and the ability to
-generalize from the sample. One can see from this study the important role that
+The Canadian National Breast Cancer Screening studies (Miller et al. 2002, 2000, 2014) were large landmark clinical trials studying the impact of mammography. 
+
+The first publication based on this large randomized screening trial found no benefit of early tumor detection via digital mammography for women aged 40-49, contradicting standard radiological practice at the time. 
+
+Many discussion articles have criticized the study on statistical grounds. 
+
+For example, Burhenne and Burhenne (1993) focused on statistical power and the ability to generalize from the sample. 
+
+One can see from this study the important role that statistics and empiricism plays; standard health practice for a large proportion of women depends on the findings.
+
+#### Example 2: Harvard first-borns 
+
+From 75 to 80 percent of students at Harvard are first-borns. 
+
+Do first-born children work harder academically, and so end up over-represented at top universities? 
+
+Yes, claims noted philosopher Michael Sandel (Sandel 2010). But Millner and Calel (2012) find a simple fault in the statistical reasoning and give a more plausible explanation: wealthy and well-educated parents tend to have fewer children.
+
+#### Example 3: Oscar winners
+
+Redelmeier and Singh (2001) identified all actors and actresses ever nominated for an Academy Award in a leading or a supporting role up to the time of the study (n = 762). 
+
+Among them were 235 Oscar winners. For each nominee, another cast member of the same sex who was in the same film and was born
+in the same era was identified (n = 887) and these were used as controls. 
+
+The overall difference in life expectancy was 3.9 years (79.7 years for award winners vs. 75.8 years for controls; p-value = .003). 
+
+To avoid the possible selection bias, an analysis using time-dependent covariates (winners counted as controls until they won the Oscar) did not find significant differences (Sylvestre, Huszti, and Hanley 2006). This is called selection or *immortal bias*.
+
+#### Example 4: Hormone Replacement Therapy (HRT)
+
+A large clinical trial (the Women's Health Initiative) published results in 2002 (Rossouw et al. 2002) that contradicted prior evidence on the efficacy of hormone replacement therapy (HRT) for post-menopausal women and suggested a negative impact of HRT for several key health outcomes. 
+
+Based on a statistically based protocol, the study was stopped early due to an excess number of negative events.
+
+#### Example 5: ExtraCorporeal Membrane Oxygena-tion (ECMO) treatment
+
+Bartlett et al. (1985) published results of a clinical trial conducted at a major neonatal intensive care center. 
+
+The trial compared standard treatment with a promising new extracorporeal membrane oxygenation treatment (ECMO) for
+newborn infants with severe respiratory failure. 
+
+Ethical considerations led to a statistical randomization scheme whereby only one infant received the control therapy, thereby opening the study to sample-size based criticisms; see Rosen-berger and Lachin (2015).
+
+#### Summary
+
+Biostatistics plays a central role in biological sciences, public health, and medical applications and provides a platform for correct design, analysis, and interpretation of data. 
+
+Biostatistics requires: (1) a tight coupling of the biostatistical methods with ethical and scientific goals of research; (2) an emphasis on the scientific interpretation of statistical evidence to impact policy; and (3) a detailed acknowledgment of assumptions and a comprehensive evaluation of the robustness of conclusions to these assumptions.
+
+### Mathematical prerequisites
+
+Calculus, linear algebra, and a moderate level of mathematical literacy are needed to understand this book. 
+
+In short, you should be able to solve the following integral
+

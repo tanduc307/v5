@@ -34,6 +34,7 @@ projects: []
 <li><a href="#chapter-1-introduction">Chapter 1: Introduction</a>
 <ul>
 <li><a href="#biostatistics">Biostatistics</a></li>
+<li><a href="#mathematical-prerequisites">Mathematical prerequisites</a></li>
 </ul></li>
 </ul>
 </div>
@@ -152,16 +153,51 @@ principles dedicated to defining and solving scientific problems.</p>
 <p>Below we present a few examples indicating the importance of careful biostatistical thinking.</p>
 <div id="example-1-cancer-screening" class="section level4">
 <h4>Example 1: Cancer screening</h4>
-<p>The Canadian National Breast Cancer Screening studies (Miller et al. 2002,
-2000, 2014) were large landmark clinical trials studying the impact of mam-mography. The first publication based on this large randomized screening trial
-found no benefit of early tumor detection via digital mammography for women
-aged 40-49, contradicting standard radiological practice at the time. Many dis-cussion articles have criticized the study on statistical grounds. For example,
-Burhenne and Burhenne (1993) focused on statistical power and the ability to
-generalize from the sample. One can see from this study the important role that</p>
+<p>The Canadian National Breast Cancer Screening studies (Miller et al. 2002, 2000, 2014) were large landmark clinical trials studying the impact of mammography.</p>
+<p>The first publication based on this large randomized screening trial found no benefit of early tumor detection via digital mammography for women aged 40-49, contradicting standard radiological practice at the time.</p>
+<p>Many discussion articles have criticized the study on statistical grounds.</p>
+<p>For example, Burhenne and Burhenne (1993) focused on statistical power and the ability to generalize from the sample.</p>
+<p>One can see from this study the important role that statistics and empiricism plays; standard health practice for a large proportion of women depends on the findings.</p>
+</div>
+<div id="example-2-harvard-first-borns" class="section level4">
+<h4>Example 2: Harvard first-borns</h4>
+<p>From 75 to 80 percent of students at Harvard are first-borns.</p>
+<p>Do first-born children work harder academically, and so end up over-represented at top universities?</p>
+<p>Yes, claims noted philosopher Michael Sandel (Sandel 2010). But Millner and Calel (2012) find a simple fault in the statistical reasoning and give a more plausible explanation: wealthy and well-educated parents tend to have fewer children.</p>
+</div>
+<div id="example-3-oscar-winners" class="section level4">
+<h4>Example 3: Oscar winners</h4>
+<p>Redelmeier and Singh (2001) identified all actors and actresses ever nominated for an Academy Award in a leading or a supporting role up to the time of the study (n = 762).</p>
+<p>Among them were 235 Oscar winners. For each nominee, another cast member of the same sex who was in the same film and was born
+in the same era was identified (n = 887) and these were used as controls.</p>
+<p>The overall difference in life expectancy was 3.9 years (79.7 years for award winners vs. 75.8 years for controls; p-value = .003).</p>
+<p>To avoid the possible selection bias, an analysis using time-dependent covariates (winners counted as controls until they won the Oscar) did not find significant differences (Sylvestre, Huszti, and Hanley 2006). This is called selection or <em>immortal bias</em>.</p>
+</div>
+<div id="example-4-hormone-replacement-therapy-hrt" class="section level4">
+<h4>Example 4: Hormone Replacement Therapy (HRT)</h4>
+<p>A large clinical trial (the Women’s Health Initiative) published results in 2002 (Rossouw et al. 2002) that contradicted prior evidence on the efficacy of hormone replacement therapy (HRT) for post-menopausal women and suggested a negative impact of HRT for several key health outcomes.</p>
+<p>Based on a statistically based protocol, the study was stopped early due to an excess number of negative events.</p>
+</div>
+<div id="example-5-extracorporeal-membrane-oxygena-tion-ecmo-treatment" class="section level4">
+<h4>Example 5: ExtraCorporeal Membrane Oxygena-tion (ECMO) treatment</h4>
+<p>Bartlett et al. (1985) published results of a clinical trial conducted at a major neonatal intensive care center.</p>
+<p>The trial compared standard treatment with a promising new extracorporeal membrane oxygenation treatment (ECMO) for
+newborn infants with severe respiratory failure.</p>
+<p>Ethical considerations led to a statistical randomization scheme whereby only one infant received the control therapy, thereby opening the study to sample-size based criticisms; see Rosen-berger and Lachin (2015).</p>
+</div>
+<div id="summary" class="section level4">
+<h4>Summary</h4>
+<p>Biostatistics plays a central role in biological sciences, public health, and medical applications and provides a platform for correct design, analysis, and interpretation of data.</p>
+<p>Biostatistics requires: (1) a tight coupling of the biostatistical methods with ethical and scientific goals of research; (2) an emphasis on the scientific interpretation of statistical evidence to impact policy; and (3) a detailed acknowledgment of assumptions and a comprehensive evaluation of the robustness of conclusions to these assumptions.</p>
+</div>
+</div>
+<div id="mathematical-prerequisites" class="section level3">
+<h3>Mathematical prerequisites</h3>
+<p>Calculus, linear algebra, and a moderate level of mathematical literacy are needed to understand this book.</p>
+<p>In short, you should be able to solve the following integral</p>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-crainiceanuMethodsBiostatistics" class="csl-entry">
 Crainiceanu, Ciprian, Brian Caffo, and John Muschelli. 2019. <span>“Methods in <span>Biostatistics</span> with <span>R</span>,”</span> 592.
-</div>
 </div>
 </div>
 </div>
