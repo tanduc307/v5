@@ -1,0 +1,36 @@
+---
+title: Các công thức đạo hàm
+author: Duc Nguyen
+date: '2022-08-03'
+slug: cac-cong-thuc-dao-ham
+categories:
+  - kỹ năng toán
+tags:
+  - công thức
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-08-03T22:05:58+07:00'
+featured: no
+output:
+  blogdown::html_page:
+    toc: yes
+weight: ~
+bibliography: D:/GITHUB/v5/zoterobib/xacsuat.bib
+link-citations: yes
+nocite: |
+  @R-bookdown
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+## ĐẠO HÀM
+
+### Định nghĩa
+
+$f'({x_0}) = \mathop {\lim }\limits_{\Delta x \to 0} {{\Delta y} \over {\Delta x}}$ hoặc $f'({x_0}) = \mathop {\lim }\limits_{\Delta x \to 0} {{f(x) - f({x_0})} \over {x - {x_0}}}$
+
+### Công thức
