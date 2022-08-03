@@ -1,0 +1,150 @@
+---
+title: MIBWR - Probability - [1]
+author: Duc Nguyen
+date: '2022-07-24'
+slug: mibwr-probability-1
+categories:
+  - xác suất thống kê
+tags:
+  - tài liệu
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-07-24T15:55:12+07:00'
+featured: no
+output:
+  blogdown::html_page:
+    toc: yes
+weight: ~
+bibliography: D:/GITHUB/v5/zoterobib/xacsuat.bib
+link-citations: yes
+nocite: |
+  @R-bookdown
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
+<li><a href="#chapter-3-probability-random-variables-distributions">Chapter 3: Probability, random variables, distributions</a>
+<ul>
+<li><a href="#experiments">Experiments</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="tài-liệu-tham-khảo" class="section level2">
+<h2>Tài liệu tham khảo</h2>
+<p>Nguồn: <span class="citation">(<a href="#ref-crainiceanuMethodsBiostatistics" role="doc-biblioref">Crainiceanu, Caffo, and Muschelli 2019</a>)</span></p>
+<p>This chapter covers the following topics</p>
+<p>• Experiments</p>
+<p>• An intuitive introduction to the bootstrap</p>
+<p>• Probability and probability calculus</p>
+<p>• Sampling in R</p>
+<p>• Random variables</p>
+<p>• Probability mass function</p>
+<p>• Probability density function</p>
+<p>• Cumulative distribution function</p>
+<p>• Quantiles</p>
+<p>• Supplementary R training</p>
+</div>
+<div id="chapter-3-probability-random-variables-distributions" class="section level2">
+<h2>Chapter 3: Probability, random variables, distributions</h2>
+<div id="experiments" class="section level3">
+<h3>Experiments</h3>
+<p><em>An experiment is the process of data collection for a target population according to a specific sampling protocol that includes rules for what, when, where, and how to collect data on experimental units (e.g. individuals) from the target population.</em></p>
+<p><strong><em>For example</em></strong>, in a clinical trial for a diabetes prevention treatment the target population could be all individuals who are pre-diabetics before the trial starts and satisfy additional, well-defined, inclusion criteria.</p>
+<p>Any subject from the target population who agrees to participate in the trial can be selected up to a pre-defined maximum sample size.</p>
+<p>Subjects are then randomized to treatment with some probability.</p>
+<p><em>In many cases</em>, treatment is assigned <strong>with a probability of 0.5</strong>.</p>
+<p>The primary outcome could be the level of glycated hemoglobin (HbA1C), which can provide a measure of how much glucose is in the bloodstream, a means of diagnosing diabetes.</p>
+<p>One could also collect demographic variables (e.g., age, gen-der, race) and additional health related outcomes (e.g,. adverse effects, blood pressure, blood glucose variability).</p>
+<p>Data are sampled before the trial starts, at baseline (when the trial starts), at various interim visits (e.g., every three
+months), and at the end of the trial.</p>
+<p>Collecting the data is done during scheduled in-hospital visits, but could also entail continuous monitoring (e.g., using
+implantable glucose monitors) or ecological momentary assessment (EMA) using phone or computer apps.</p>
+<p>Data can be collected by obtaining blood and urine samples, downloading the data from the implantable monitor, and via the internet or cellular network.</p>
+<p>Designing such a trial requires intense pre-planning and a rigorous schedule to obtain high quality data. Of course, not all experiments are as complex.</p>
+<p>For example, it would be interesting to take any experiment that one could think about and parse it into its components.</p>
+<p>The simplest such experiment is flipping a coin or waiting for nature to flip the coin of who will get lung cancer in the next 10 years.</p>
+<p>Consider the outcome of an experiment such as:</p>
+<p>• a collection of measurements from a sampled population</p>
+<p>• measurements from a laboratory experiment</p>
+<p>• the result of a clinical trial</p>
+<p>• the results of a simulated (computer) experiment</p>
+<p>• values from hospital records sampled retrospectively</p>
+<div id="notation" class="section level4">
+<h4>Notation</h4>
+<p>To develop these concepts rigorously, we will introduce some notation for the experiment setup.</p>
+<p>• The sample space <span class="math inline">\(\Omega\)</span> is the collection of possible outcomes of an experiment. Example: a six-sided die roll = {1; 2; 3; 4; 5; 6}, a coin flip = {heads; tails}</p>
+<p>• An event, say <span class="math inline">\(E\)</span>, is a subset of <span class="math inline">\(\Omega\)</span>. Example: die roll is even <span class="math inline">\(E\)</span> (sự kiện E là số chẵn, lưu ý even là chẵn, odd là lẻ) = {2; 4; 6}</p>
+<p>• An elementary or simple event is a particular result of an experiment. Example: die roll is a four, <span class="math inline">\(\omega\)</span> = 4</p>
+<p>• Ø (null sign) is called the null event or the empty set</p>
+<p>The sample space can be extremely complex or very simple.</p>
+<p>Let us consider the die roll example.</p>
+<p>If the die is rolled once, any number between 1 and 6 could be the outcome for a total of 6 possible outcomes.</p>
+<p>However, if the experiment is to roll the die twice (tung viên xúc xắc hai lần liên tiếp), the outcome is the pair of all possible combinations (1, 1), (1, 2), . . . , (6, 6) for a total of 36 possible outcomes; here we count (1, 2) and (2, 1) as two different outcomes.</p>
+<p>If the experiment is to roll the die <em>n</em> times, the outcomes are all the possible <em>n-tuples</em> with the numbers 1 through 6 in every position for a total number of outcomes equal to 6<sup>n</sup>.</p>
+<p>To get an idea of just how big this sample can be, note that the number of possible ordered <em>n-tuples</em> for n = 130 is larger than 10<sup>82</sup>, the estimated number of atoms in the known universe (<a href="http://www.universetoday.com/36302/atoms-in-the-universe/" class="uri">http://www.universetoday.com/36302/atoms-in-the-universe/</a>).</p>
+<p>Thus, it would make little sense to play this game until all possible outcomes have been obtained, but it would make perfect sense to predict the mean of the <em>n</em> outcomes or predict how many outcomes will be larger than 5.</p>
+<p>Biostatistics is concerned with extracting useful, actionable information from complex outcomes that can result from even the simplest experiments.</p>
+<p>While the fair die example may be a little dry, consider the example of a study of cognitive impairment in older adults.</p>
+<p>In this case, we could <strong>conceptualize</strong> the assignment of health status <strong>as</strong> a die where three out of the six faces have a
+one on it, two faces have a two on it, and one has a three on it.</p>
+<p>This assigns to individuals one of the following possible levels of cognitive impairment (none, moderate, severe).</p>
+<p>The die is considered unfair because the probabilities of assigning levels of impairment are likely not to be equal; this is an example when unfairness is probably good, as most people will be assigned to “non-impaired”.</p>
+<p>Nonetheless, alea iacta est (“the die is cast”).</p>
+</div>
+<div id="interpretation-of-set-operations" class="section level4">
+<h4>Interpretation of set operations</h4>
+<p>Data analysis, manipulation, and tabulation are intrinsically related to data sets and logic operators.</p>
+<p>Indeed, we often try to understand the structure of the data and that requires understanding how to <strong>subset</strong> the data and how to <strong>quantify</strong> the various relationships between subsets of the data.</p>
+<p>To better understand this, we need to introduce the <strong>theoretical set operations</strong> (phép tính trên tập hợp) and their interpretations.</p>
+<p>• <span class="math inline">\(\omega \in E\)</span> (<span class="math inline">\(\omega\)</span> is an element of <span class="math inline">\(E\)</span>) implies that <span class="math inline">\(E\)</span> occurs when <span class="math inline">\(\omega\)</span> occurs. Nghĩa là: tập hợp <span class="math inline">\(E\)</span> chứa sự kiện riêng lẻ <span class="math inline">\(\omega\)</span>, do đó khi sự kiện <span class="math inline">\(\omega\)</span> xuất hiện thì đồng nghĩa sự kiện <em>tập hợp</em> <span class="math inline">\(E\)</span> cũng xuất hiện. Ví dụ: gọi <span class="math inline">\(E\)</span> là tập hợp các sự kiện thu được mặt số chẵn khi tung xúc xắc {2, 4, 6}, do đó khi tung ra mặt số {2} (hay là sự kiện <span class="math inline">\(\omega = 2\)</span>) thì ám chỉ sự kiện này thuộc tập hợp <span class="math inline">\(E\)</span> số chẵn đã xuất hiện.</p>
+<p>• <span class="math inline">\(\omega \notin E\)</span> (<span class="math inline">\(\omega\)</span> is not an element of <span class="math inline">\(E\)</span>) implies that <span class="math inline">\(E\)</span> does not occur when <span class="math inline">\(\omega\)</span> occurs.</p>
+<p>• <span class="math inline">\(E \subset F\)</span> (<span class="math inline">\(E\)</span> is a subset of <span class="math inline">\(F\)</span>) implies that the occurrence of E implies the occurrence of F. <strong>Tập hợp</strong> <span class="math inline">\(E\)</span> thuộc tập hợp <span class="math inline">\(F\)</span>, do đó khi <span class="math inline">\(E\)</span> xuất hiện cũng đồng nghĩa <span class="math inline">\(F\)</span> xuất hiện.</p>
+<p>• <span class="math inline">\(E \cap F\)</span> implies the event that both E and F occur (intersection). Đây là tập hợp các sự kiện giao nhau giữa <span class="math inline">\(E\)</span> và <span class="math inline">\(F\)</span>, khi các sự kiện này xuất hiện thì đồng nghĩa <span class="math inline">\(E\)</span> và <span class="math inline">\(F\)</span> đồng thời xuất hiện.</p>
+<p>• <span class="math inline">\(E \cup F\)</span> implies the event that at least one of E or F occur (union). Vì tập hợp <span class="math inline">\(E\)</span> hợp với tập hợp <span class="math inline">\(F\)</span> nên nếu có một sự kiện trong <em>khối</em> tập hợp này xảy ra thì có nghĩa là có <em>ít nhất</em> là tập hợp <span class="math inline">\(E\)</span> <em>hay</em> <span class="math inline">\(F\)</span> xuất hiện.</p>
+<p>• <span class="math inline">\(E \cap F = \emptyset\)</span> or Ø means that E and F are mutually exclusive/disjoint, or cannot both occur. Hai sự kiện này loại trừ nhau, không thể xảy ra đồng thời, nếu <span class="math inline">\(E\)</span> xảy ra thì <span class="math inline">\(F\)</span> không thể xảy ra.</p>
+<p>• <span class="math inline">\({E^c}\)</span> or <span class="math inline">\(\overline E\)</span> is the event that <span class="math inline">\(E\)</span> does not occur, also referred to as the complement. Tập hợp các sự kiện không thuộc <span class="math inline">\(E\)</span>, là các sự kiện xảy ra nhưng không làm <span class="math inline">\(E\)</span> xuất hiện, được như phần tương ứng/phần bù với <span class="math inline">\(E\)</span>.</p>
+<p>• <span class="math inline">\(E \backslash F = E \cap {F^c}\)</span> is the event that <span class="math inline">\(E\)</span> <em>occurs</em> <strong><em>and</em></strong> <span class="math inline">\(F\)</span> <em>does not occur</em>.</p>
+</div>
+<div id="set-theory-facts" class="section level4">
+<h4>Set theory facts</h4>
+<p>DeMorgan’s laws.</p>
+<p>• <span class="math inline">\({\left( {A \cup B} \right)^c} = {A^c} \cap {B^c}\)</span></p>
+<p>Example: If an alligator <em>or</em> a turtle you are not <span class="math inline">\({\left( {A \cup B} \right)^c}\)</span> then you are not an alligator <em>and</em> you are also not a turtle (<span class="math inline">\({A^c} \cap {B^c}\)</span>).</p>
+<p>• <span class="math inline">\({\left( {A \cap B} \right)^c} = {A^c} \cup {B^c}\)</span></p>
+<p>Example: If your car is not both hybrid and diesel <span class="math inline">\({\left( {A \cap B} \right)^c}\)</span> then your car is either not hybrid or not diesel (<span class="math inline">\({A^c} \cup {B^c}\)</span>).</p>
+<p>• <span class="math inline">\({({A^c})^c} = A\)</span></p>
+<p>• <span class="math inline">\((A \cup B)\backslash C = (A\backslash C) \cup (B\backslash C)\)</span> where <span class="math inline">\(\backslash\)</span> means “set minus”</p>
+<div id="proving-the-equality-of-two-sets" class="section level5">
+<h5>Proving the equality of two sets</h5>
+<p><span class="math inline">\(A = B\)</span> is done by showing that every element of <span class="math inline">\(A\)</span> is in <span class="math inline">\(B\)</span> (i.e., <span class="math inline">\(A \subset B\)</span>) and every element in <span class="math inline">\(B\)</span> is in <span class="math inline">\(A\)</span> (i.e., <span class="math inline">\(B \subset A\)</span>).</p>
+<p>For example, let us show that <span class="math inline">\({\left( {A \cup B} \right)^c} = {A^c} \cap {B^c}\)</span>.</p>
+<p>We first show that <span class="math inline">\({\left( {A \cup B} \right)^c} \subset {A^c} \cap {B^c}\)</span>.</p>
+<p>Let <span class="math inline">\(\omega \in \left( {A \cup B} \right)^c\)</span>, which, by definition, implies that $<span class="math inline">\((A \cup B)\)</span>.</p>
+<p>Thus, <span class="math inline">\(\omega \notin A\)</span> and <span class="math inline">\(\omega \notin B\)</span>, then, by definition, <span class="math inline">\(\omega \in {A^c} \cap {B^c}\)</span>.</p>
+<p>Indeed, by <em>reductio ad absurdum</em>, if <span class="math inline">\(\omega \in A\)</span> or <span class="math inline">\(\omega \in B\)</span>, then, by definition, <span class="math inline">\(\omega \in A \cup B\)</span>, which would be contradictory.</p>
+<p>The fact that <span class="math inline">\({(A \cup B)^c} \supset ({A^c} \cap {B^c})\)</span> can be shown using a similar approach.</p>
+<p>Several problems in this chapter can be solved using this general strategy.</p>
+<p>The approach is not difficult, but it needs to follow the <strong>strict rule of logic</strong>.</p>
+<p>In general, set operations are based on logical operators: AND (in <code>R</code> &amp;), OR (in <code>R</code> | ), NOT (in <code>R</code> !).</p>
+<p>These logical operators can be combined and can produce complex combinations that are extremely useful in practice.</p>
+<p>For example, having a data set one may want to focus on a subset that contains only African American men from age 65 to 75 who are non-smokers.</p>
+<p>This phrase can immediately be translated into logical operators and the data can be extracted using <code>R</code> programming.</p>
+<p>This is a routine application of set theory that will become indispensable in practice (below we provide an example of exactly how to proceed).</p>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-crainiceanuMethodsBiostatistics" class="csl-entry">
+Crainiceanu, Ciprian, Brian Caffo, and John Muschelli. 2019. <span>“Methods in <span>Biostatistics</span> with <span>R</span>,”</span> 592.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,197 @@
+---
+title: Tích phân
+author: Duc Nguyen
+date: '2022-07-22'
+slug: tich-phan
+categories:
+  - kỹ năng toán
+tags:
+  - thuật ngữ
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-07-22T13:26:39+07:00'
+featured: no
+output:
+  blogdown::html_page:
+    toc: yes
+weight: ~
+bibliography: D:/GITHUB/v5/zoterobib/xacsuat.bib
+link-citations: yes
+nocite: |
+  @R-bookdown
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+Cách giải tích phân:
+\[\int\limits_0^\infty  {{x^2}} {e^{ - ax}}dx\]
+
+Your input: \[f(x) = {x^2}{e^{ - ax}}\]
+
+From: \[\int {f(x} )dx = F'(x)\]
+
+Integrate by parts: \[\int {fg' = fg - \int {f'g} } {\rm{ }}\] or: \[\int {udv = uv - \int {vdu} } \] 
+
+Where: \[u = f = {x^2}{\rm{ }} \Rightarrow {\rm{ }}f' = ({x^2})' = 2x\]
+
+And:\[dv = g' = {e^{ - ax}} \Rightarrow {\rm{ }}g =  - \frac{{{e^{ - ax}}}}{a}\]
+
+Rewrite:
+
+\begin{equation}
+\begin{aligned}
+
+\int {{x^2}} {e^{ - ax}}dx &= \left( {{x^2} \times \left( { - \frac{{{e^{ - ax}}}}{a}} \right)} \right) - \int {2x \times \left( { - \frac{{{e^{ - ax}}}}{a}} \right)} dx \\
+&=  - \frac{{{x^2}{e^{ - ax}}}}{a} - \int  -  \frac{{2x{e^{ - ax}}}}{a}dx
+\end{aligned}
+(\#eq:equation1)
+\end{equation}
+
+
+------
+
+Now solving: 
+
+\begin{equation}
+\begin{aligned}
+\int  -  \frac{{2x{e^{ - ax}}}}{a}dx &=  - \frac{2}{a}\int {x{e^{ - ax}}dx}
+\end{aligned}
+(\#eq:equation2)
+\end{equation}
+
+Now solving: \[\int {x{e^{ - ax}}dx} \]
+
+Integrate by parts: \[\int {fg' = fg - \int {f'g} } {\rm{ }}\] or: \[\int {udv = uv - \int {vdu} } \] 
+
+Where: \[u = f = x{\rm{ }} \Rightarrow {\rm{ }}f' = x' = 1\]
+
+And: \[dv = g' = {e^{ - ax}} \Rightarrow {\rm{ }}g =  - \frac{{{e^{ - ax}}}}{a}\]
+
+Rewrite: 
+
+\begin{equation}
+\begin{aligned}
+\int {x{e^{ - ax}}dx}  &=  - \frac{{x{e^{ - ax}}}}{a} - \int { - \frac{{{e^{ - ax}}}}{a}dx}
+\end{aligned}
+(\#eq:equation3)
+\end{equation}
+
+------
+
+Now solving: \[\int { - \frac{{{e^{ - ax}}}}{a}dx} \]
+
+Substitue: \[u =  - ax \Rightarrow {\rm{ }}f' = \frac{{du}}{{dx}} =  - a \Rightarrow dx =  - \frac{1}{a}du\]
+
+Rewrite:
+
+\begin{equation}
+\begin{aligned}
+\int { - \frac{{{e^{ - ax}}}}{a}dx}  &= \frac{1}{{{a^2}}}\int {{e^u}du}
+\end{aligned}
+(\#eq:equation4)
+\end{equation}
+
+------
+
+Now solving: \[\int {{e^u}du} \]
+
+Apply exponential rule: \[\int {{a^u}du}  = \frac{{{a^u}}}{{\ln (a)}}{\rm{ with }}a = e\]
+
+Rewrite: 
+
+\begin{equation}
+\begin{aligned}
+\int {{e^u}du}  &= \frac{{{e^u}}}{{\ln (e)}} &= {e^u}
+\end{aligned}
+(\#eq:equation5)
+\end{equation}
+
+**(4) & (5)** \[ \Rightarrow \frac{1}{{{a^2}}}\int {{e^u}du = \frac{{{e^u}}}{{{a^2}}}{\rm{  }}} \]
+
+Undo substitution: \[u = - ax\]
+
+\begin{equation}
+\begin{aligned}
+\Rightarrow \frac{1}{{{a^2}}}\int {{e^u}du = \frac{{{e^u}}}{{{a^2}}} \Leftrightarrow \frac{{{e^{ - ax}}}}{{{a^2}}}}
+\end{aligned}
+(\#eq:equation6)
+\end{equation}
+
+**(3) & (6)** 
+
+\begin{equation}
+\begin{aligned}
+\Rightarrow \int {x{e^{ - ax}}dx}  &=  - \frac{{x{e^{ - ax}}}}{a} - \int { - \frac{{{e^{ - ax}}}}{a}dx}  \\
+&=  - \frac{{x{e^{ - ax}}}}{a} - \frac{{{e^{ - ax}}}}{{{a^2}}}
+\end{aligned}
+(\#eq:equation7)
+\end{equation}
+
+**(2) & (7)** 
+
+\begin{equation}
+\begin{aligned}
+\Rightarrow \int  -  \frac{{2x{e^{ - ax}}}}{a}dx &=  - \frac{2}{a}\int {x{e^{ - ax}}dx} \\
+&=  - \frac{2}{a} \times \left( { - \frac{{x{e^{ - ax}}}}{a} - \frac{{{e^{ - ax}}}}{{{a^2}}}} \right) \\
+&= \frac{{2x{e^{ - ax}}}}{{{a^2}}} + \frac{{2{e^{ - ax}}}}{{{a^3}}}
+\end{aligned}
+(\#eq:equation8)
+\end{equation}
+
+**(1) & (8)** 
+
+\begin{equation}
+\begin{aligned}
+\Rightarrow  - \frac{{{x^2}{e^{ - ax}}}}{a} - \int  -  \frac{{2x{e^{ - ax}}}}{a}dx{\rm{ }} &=  - \frac{{{x^2}{e^{ - ax}}}}{a} - \frac{{2x{e^{ - ax}}}}{{{a^2}}} - \frac{{2{e^{ - ax}}}}{{{a^3}}}
+\end{aligned}
+(\#eq:equation9)
+\end{equation}
+
+The problem is solved:
+
+$$
+\begin{aligned}
+\int {{x^2}} {e^{ - ax}}dx &=  - \frac{{{x^2}{e^{ - ax}}}}{a} - \frac{{2x{e^{ - ax}}}}{{{a^2}}} - \frac{{2{e^{ - ax}}}}{{{a^3}}} + C\\
+ &=  - \frac{{{a^2}{x^2}{e^{ - ax}}}}{{{a^3}}} - \frac{{a2x{e^{ - ax}}}}{{{a^3}}} - \frac{{2{e^{ - ax}}}}{{{a^3}}} + C\\
+ &=  - \frac{{{e^{ - ax}}({a^2}{x^2} + 2ax + 2)}}{{{a^3}}} + C\\
+ &=  - \frac{{{e^{ - ax}}(ax(ax + 2) + 2)}}{{{a^3}}} + C
+\end{aligned}
+$$
+
+------
+
+Solution:
+
+\begin{equation}
+\begin{aligned}
+\int\limits_0^\infty  {{x^2}} {e^{ - ax}}dx &= \mathop {\lim }\limits_{x = 0 \to \infty } \left( {f(\infty ) - f(x)} \right) \\
+&= f(\infty ) - f(0)
+\end{aligned}
+\end{equation}
+
+Calculate:
+
+$$f(\infty ) =  - \frac{{{e^{ - a \times \infty }}(a \times \infty (a \times \infty  + 2) + 2)}}{{{a^3}}} = 0$$
+
+$$f(0) =  - \frac{{{e^{ - a \times 0}}(a \times 0(a \times 0 + 2) + 2)}}{{{a^3}}} = \frac{2}{{{a^3}}}$$
+
+Where: \[{e^{ - a \times \infty }} = 0\] 
+
+And: \[{e^{ - a \times 0}} = 1\]
+
+$$ \Rightarrow \int\limits_0^\infty  {{x^2}} {e^{ - ax}}dx = \frac{2}{{{a^3}}} $$
+
+
+
+
+
+
+
+
+
+
+

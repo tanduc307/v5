@@ -1,0 +1,160 @@
+---
+title: MIBWR - Probability - [2]
+author: Duc Nguyen
+date: '2022-07-25'
+slug: mibwr-probability-2
+categories:
+  - xác suất thống kê
+tags:
+  - tài liệu
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-07-25T15:30:34+07:00'
+featured: no
+output:
+  blogdown::html_page:
+    toc: yes
+weight: ~
+bibliography: D:/GITHUB/v5/zoterobib/xacsuat.bib
+link-citations: yes
+nocite: |
+  @R-bookdown
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+## Tài liệu tham khảo
+Nguồn: [@crainiceanuMethodsBiostatistics]
+
+We start by reading a small data set. First, let us tell R where the file is:
+
+```{r}
+file_name = file.path("D:", "GITHUB", "v5", "R", "dataset", "bmi_age.txt") # Nhập vị trí file dữ liệu
+data_bmi = read.table(file = file_name, 
+                      header = TRUE, # File contains a header row 
+                      stringsAsFactors = FALSE) # We do not want to convert strings/words to a categorical vari-able/factor
+print(data_bmi)
+```
+
+Check this dataset
+
+```{r}
+dim(data_bmi)
+
+colnames(data_bmi) # PID là mã ID của đối tượng nghiên cứu; BMI là chỉ số cân nặng-chiều cao, SEX là giới tính, AGE là số tuổi.
+
+mean(data_bmi$BMI)
+
+sd(data_bmi$BMI)
+```
+
+We use the dollar sign `$` to indicate that we are extracting a single variable from the data_bmi dataset. 
+
+For simplicity, we will assign all the columns of the dataset to their own separate variables using the `attach` function. 
+
+We do not recommend this approach in general, especially when multiple datasets are being used, since variables across records can become de-linked and independently sorted. 
+
+We will do this only for this data set to simplify the code example.
+
+```{r}
+attach(data_bmi)
+```
+
+We can also show a basic plot (fancier plotting options will be shown later) of age vs. BMI:
+
+```{r}
+plot(AGE, BMI,type="p", pch=20, cex=2, col="blue") # Vẽ đồ thị tương quan giữa AGE và BMI
+
+rect(xleft = 45, xright = 100, ybottom = 0, ytop = 26, col = scales::alpha("purple", 0.5)) # tô màu vùng dữ liệu
+
+rect(xleft = 45, xright = 100, ybottom = 26, ytop = 100, col = scales::alpha("red", 0.5)) # tô màu vùng dữ liệu
+
+rect(xleft = 0, xright = 45, ybottom = 0, ytop = 26, col = scales::alpha("blue", 0.5)) # tô màu vùng dữ liệu
+
+points(AGE, BMI, type="p", pch=20, cex=2, col="blue") # Đưa các điểm dữ liệu vào đồ thị (đồ đậm lại với màu xanh dương)
+
+text(x = AGE + 1, # Vị trí của con số hiện kế bên cái chấm cách 1 khoảng là 1 đơn vị trên trục hoành, nhìn cho đẹp
+     y = BMI, labels = PID, col = "black") # Ghi chú trục tung và trục hoành
+
+abline(h = 26, v = 45, col = "black") # Vẽ hai đường ngang và dọc ở vị trí 26 và 45
+```
+
+**Sử dụng đồ thị này để giải thích các thuật ngữ về phép tính trên tập hợp**
+
+Here the call to abline is for drawing vertical and horizontal lines so that we can count the numbers in each respective box. 
+
+We now make the connection between set theory and operations clearer in the context of the data. 
+
+In particular, we emphasize how set operations translate into logic operators that can then be used for data extraction and operations. 
+
+Consider the following subsets of subjects: $A$ subjects with $BMI < 26$ and $B$ subjects older than 45 $(AGE> 45)$.
+
+Construct a logical indicator for which records fall into $A$.
+
+```{r}
+index_BMI_less_26 = BMI < 26 # which is represented by the points in the purple/blue regions and B
+```
+
+```{r}
+index_AGE_greater_45 = AGE > 45 # which is represented by the points in the purple/red regions
+```
+
+Display the IDs for A and B. 
+
+Here PID is the unique patient ID, though in many applications the PID can be more complex than just integer numbers.
+
+```{r}
+PID[index_BMI_less_26]
+```
+
+```{r}
+PID[index_AGE_greater_45]
+```
+
+Let us calculate ${(A \cap B)^c}$, the complement of the intersection between A and B, which is shown by the non-purple regions.
+
+These are subjects who do not/are (note the $c$ that stands for complement) (have a BMI less than 26) and (older than 45) and
+
+```{r}
+index_A_int_B_compl = !(index_BMI_less_26 & index_AGE_greater_45)
+PID[index_A_int_B_compl]
+```
+
+The <mark>translation</mark> of ${(A \cap B)^c}$ into R is `!(index_BMI_less_26 & index_AGE_greater_45)`.
+
+Note that `!` indicates is `not`, or `complement`, and `&` indicates `and`, or `intersection`.
+
+So, the resulting IDs are everybody, except the subject with IDs 4 and 7. 
+
+It would be instructive to conduct the same type of analysis for ${A^c} \cup {B^c}$, ${\left( {A \cup B} \right)^c}$, and ${A^c}$. Đại khái là cách thực hiện tìm các phần tử của những tập hợp này cũng tương tự như trên khi sử dụng `R` để viết hàm.   
+
+While this dataset is relatively small for educational purposes, similar subsetting approaches are both essential and *impossible* to do by hand in large datasets.
+
+## An intuitive introduction to the bootstrap
+
+A major problem in practice is that, even if we run two identical experiments, data are never the same. 
+
+For example, if two large epidemiological studies collect data on the effects of smoking on developing lung cancer, and have the exact
+same sampling protocol and length, then the studies will select different people, with different demographic information and different times of transition from being healthy to having lung cancer. 
+
+However, even though the two samples will be different, they will have some things in common. 
+
+Those things are the target of estimation, the probability and time for conversion from being healthy to developing lung cancer, and the original target population (e.g., the US population). 
+
+In practice we often have one study and we are interested in understanding what would happen if multiple studies were conducted. 
+
+The reason for that is fundamental and it has to do with the generalizability of the experiment. 
+
+Indeed, a study would collect data for a subsample of the population to make predictions about the rate and expected time of transition to lung cancer in the overall population.
+
+**Bootstrap is a widely used statistical technique based on resampling the data.**
+
+The bootstrap is designed to create many potential studies that share the same characteristics with the study that collected the data and may represent the **variability** of running these experiments *without actually running the experiments*.
+
+
+
+

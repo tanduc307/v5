@@ -1,0 +1,130 @@
+---
+title: MIBWR - Probability - [2]
+author: Duc Nguyen
+date: '2022-07-25'
+slug: mibwr-probability-2
+categories:
+  - xác suất thống kê
+tags:
+  - tài liệu
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-07-25T15:30:34+07:00'
+featured: no
+output:
+  blogdown::html_page:
+    toc: yes
+weight: ~
+bibliography: D:/GITHUB/v5/zoterobib/xacsuat.bib
+link-citations: yes
+nocite: |
+  @R-bookdown
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
+<li><a href="#an-intuitive-introduction-to-the-bootstrap">An intuitive introduction to the bootstrap</a></li>
+</ul>
+</div>
+
+<div id="tài-liệu-tham-khảo" class="section level2">
+<h2>Tài liệu tham khảo</h2>
+<p>Nguồn: <span class="citation">(<a href="#ref-crainiceanuMethodsBiostatistics" role="doc-biblioref">Crainiceanu, Caffo, and Muschelli 2019</a>)</span></p>
+<p>We start by reading a small data set. First, let us tell R where the file is:</p>
+<pre class="r"><code>file_name = file.path(&quot;D:&quot;, &quot;GITHUB&quot;, &quot;v5&quot;, &quot;R&quot;, &quot;dataset&quot;, &quot;bmi_age.txt&quot;) # Nhập vị trí file dữ liệu
+data_bmi = read.table(file = file_name, 
+                      header = TRUE, # File contains a header row 
+                      stringsAsFactors = FALSE) # We do not want to convert strings/words to a categorical vari-able/factor
+print(data_bmi)</code></pre>
+<pre><code>##    PID BMI SEX AGE
+## 1    1  22   1  45
+## 2    2  27   0  57
+## 3    3  31   1  66
+## 4    4  24   1  49
+## 5    5  23   0  33
+## 6    6  18   0  40
+## 7    7  21   0  65
+## 8    8  26   1  59
+## 9    9  34   1  65
+## 10  10  20   0  42</code></pre>
+<p>Check this dataset</p>
+<pre class="r"><code>dim(data_bmi)</code></pre>
+<pre><code>## [1] 10  4</code></pre>
+<pre class="r"><code>colnames(data_bmi) # PID là mã ID của đối tượng nghiên cứu; BMI là chỉ số cân nặng-chiều cao, SEX là giới tính, AGE là số tuổi.</code></pre>
+<pre><code>## [1] &quot;PID&quot; &quot;BMI&quot; &quot;SEX&quot; &quot;AGE&quot;</code></pre>
+<pre class="r"><code>mean(data_bmi$BMI)</code></pre>
+<pre><code>## [1] 24.6</code></pre>
+<pre class="r"><code>sd(data_bmi$BMI)</code></pre>
+<pre><code>## [1] 4.993329</code></pre>
+<p>We use the dollar sign <code>$</code> to indicate that we are extracting a single variable from the data_bmi dataset.</p>
+<p>For simplicity, we will assign all the columns of the dataset to their own separate variables using the <code>attach</code> function.</p>
+<p>We do not recommend this approach in general, especially when multiple datasets are being used, since variables across records can become de-linked and independently sorted.</p>
+<p>We will do this only for this data set to simplify the code example.</p>
+<pre class="r"><code>attach(data_bmi)</code></pre>
+<p>We can also show a basic plot (fancier plotting options will be shown later) of age vs. BMI:</p>
+<pre class="r"><code>plot(AGE, BMI,type=&quot;p&quot;, pch=20, cex=2, col=&quot;blue&quot;) # Vẽ đồ thị tương quan giữa AGE và BMI
+
+rect(xleft = 45, xright = 100, ybottom = 0, ytop = 26, col = scales::alpha(&quot;purple&quot;, 0.5)) # tô màu vùng dữ liệu
+
+rect(xleft = 45, xright = 100, ybottom = 26, ytop = 100, col = scales::alpha(&quot;red&quot;, 0.5)) # tô màu vùng dữ liệu
+
+rect(xleft = 0, xright = 45, ybottom = 0, ytop = 26, col = scales::alpha(&quot;blue&quot;, 0.5)) # tô màu vùng dữ liệu
+
+points(AGE, BMI, type=&quot;p&quot;, pch=20, cex=2, col=&quot;blue&quot;) # Đưa các điểm dữ liệu vào đồ thị (đồ đậm lại với màu xanh dương)
+
+text(x = AGE + 1, # Vị trí của con số hiện kế bên cái chấm cách 1 khoảng là 1 đơn vị trên trục hoành, nhìn cho đẹp
+     y = BMI, labels = PID, col = &quot;black&quot;) # Ghi chú trục tung và trục hoành
+
+abline(h = 26, v = 45, col = &quot;black&quot;) # Vẽ hai đường ngang và dọc ở vị trí 26 và 45</code></pre>
+<p><img src="{{< blogdown/postref >}}index.en_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><strong>Sử dụng đồ thị này để giải thích các thuật ngữ về phép tính trên tập hợp</strong></p>
+<p>Here the call to abline is for drawing vertical and horizontal lines so that we can count the numbers in each respective box.</p>
+<p>We now make the connection between set theory and operations clearer in the context of the data.</p>
+<p>In particular, we emphasize how set operations translate into logic operators that can then be used for data extraction and operations.</p>
+<p>Consider the following subsets of subjects: <span class="math inline">\(A\)</span> subjects with <span class="math inline">\(BMI &lt; 26\)</span> and <span class="math inline">\(B\)</span> subjects older than 45 <span class="math inline">\((AGE&gt; 45)\)</span>.</p>
+<p>Construct a logical indicator for which records fall into <span class="math inline">\(A\)</span>.</p>
+<pre class="r"><code>index_BMI_less_26 = BMI &lt; 26 # which is represented by the points in the purple/blue regions and B</code></pre>
+<pre class="r"><code>index_AGE_greater_45 = AGE &gt; 45 # which is represented by the points in the purple/red regions</code></pre>
+<p>Display the IDs for A and B.</p>
+<p>Here PID is the unique patient ID, though in many applications the PID can be more complex than just integer numbers.</p>
+<pre class="r"><code>PID[index_BMI_less_26]</code></pre>
+<pre><code>## [1]  1  4  5  6  7 10</code></pre>
+<pre class="r"><code>PID[index_AGE_greater_45]</code></pre>
+<pre><code>## [1] 2 3 4 7 8 9</code></pre>
+<p>Let us calculate <span class="math inline">\({(A \cap B)^c}\)</span>, the complement of the intersection between A and B, which is shown by the non-purple regions.</p>
+<p>These are subjects who do not/are (note the <span class="math inline">\(c\)</span> that stands for complement) (have a BMI less than 26) and (older than 45) and</p>
+<pre class="r"><code>index_A_int_B_compl = !(index_BMI_less_26 &amp; index_AGE_greater_45)
+PID[index_A_int_B_compl]</code></pre>
+<pre><code>## [1]  1  2  3  5  6  8  9 10</code></pre>
+<p>The <mark>translation</mark> of <span class="math inline">\({(A \cap B)^c}\)</span> into R is <code>!(index_BMI_less_26 &amp; index_AGE_greater_45)</code>.</p>
+<p>Note that <code>!</code> indicates is <code>not</code>, or <code>complement</code>, and <code>&amp;</code> indicates <code>and</code>, or <code>intersection</code>.</p>
+<p>So, the resulting IDs are everybody, except the subject with IDs 4 and 7.</p>
+<p>It would be instructive to conduct the same type of analysis for <span class="math inline">\({A^c} \cup {B^c}\)</span>, <span class="math inline">\({\left( {A \cup B} \right)^c}\)</span>, and <span class="math inline">\({A^c}\)</span>. Đại khái là cách thực hiện tìm các phần tử của những tập hợp này cũng tương tự như trên khi sử dụng <code>R</code> để viết hàm.</p>
+<p>While this dataset is relatively small for educational purposes, similar subsetting approaches are both essential and <em>impossible</em> to do by hand in large datasets.</p>
+</div>
+<div id="an-intuitive-introduction-to-the-bootstrap" class="section level2">
+<h2>An intuitive introduction to the bootstrap</h2>
+<p>A major problem in practice is that, even if we run two identical experiments, data are never the same.</p>
+<p>For example, if two large epidemiological studies collect data on the effects of smoking on developing lung cancer, and have the exact
+same sampling protocol and length, then the studies will select different people, with different demographic information and different times of transition from being healthy to having lung cancer.</p>
+<p>However, even though the two samples will be different, they will have some things in common.</p>
+<p>Those things are the target of estimation, the probability and time for conversion from being healthy to developing lung cancer, and the original target population (e.g., the US population).</p>
+<p>In practice we often have one study and we are interested in understanding what would happen if multiple studies were conducted.</p>
+<p>The reason for that is fundamental and it has to do with the generalizability of the experiment.</p>
+<p>Indeed, a study would collect data for a subsample of the population to make predictions about the rate and expected time of transition to lung cancer in the overall population.</p>
+<p><strong>Bootstrap is a widely used statistical technique based on resampling the data.</strong></p>
+<p>The bootstrap is designed to create many potential studies that share the same characteristics with the study that collected the data and may represent the <strong>variability</strong> of running these experiments <em>without actually running the experiments</em>.</p>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-crainiceanuMethodsBiostatistics" class="csl-entry">
+Crainiceanu, Ciprian, Brian Caffo, and John Muschelli. 2019. <span>“Methods in <span>Biostatistics</span> with <span>R</span>,”</span> 592.
+</div>
+</div>
+</div>

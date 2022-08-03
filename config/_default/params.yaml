@@ -59,7 +59,7 @@ locale:
 features:
   syntax_highlighter:
     enable: true    
-    theme: "rainbow"
+    theme: "atom-one-light.min"
     extra_languages:
       - r
       - latex

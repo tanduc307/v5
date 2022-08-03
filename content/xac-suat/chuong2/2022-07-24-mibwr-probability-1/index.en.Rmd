@@ -1,0 +1,206 @@
+---
+title: MIBWR - Probability - [1]
+author: Duc Nguyen
+date: '2022-07-24'
+slug: mibwr-probability-1
+categories:
+  - xác suất thống kê
+tags:
+  - tài liệu
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-07-24T15:55:12+07:00'
+featured: no
+output:
+  blogdown::html_page:
+    toc: yes
+weight: ~
+bibliography: D:/GITHUB/v5/zoterobib/xacsuat.bib
+link-citations: yes
+nocite: |
+  @R-bookdown
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+## Tài liệu tham khảo
+Nguồn: [@crainiceanuMethodsBiostatistics]
+
+This chapter covers the following topics
+
+• Experiments
+
+• An intuitive introduction to the bootstrap
+
+• Probability and probability calculus
+
+• Sampling in R
+
+• Random variables
+
+• Probability mass function
+
+• Probability density function
+
+• Cumulative distribution function
+
+• Quantiles
+
+• Supplementary R training
+
+## Chapter 3: Probability, random variables, distributions
+
+### Experiments
+
+*An experiment is the process of data collection for a target population according to a specific sampling protocol that includes rules for what, when, where, and how to collect data on experimental units (e.g. individuals) from the target population.*
+
+***For example***, in a clinical trial for a diabetes prevention treatment the target population could be all individuals who are pre-diabetics before the trial starts and satisfy additional, well-defined, inclusion criteria. 
+
+Any subject from the target population who agrees to participate in the trial can be selected up to a pre-defined maximum sample size. 
+
+Subjects are then randomized to treatment with some probability. 
+
+*In many cases*, treatment is assigned **with a probability of 0.5**.
+
+The primary outcome could be the level of glycated hemoglobin (HbA1C), which can provide a measure of how much glucose is in the bloodstream, a means of diagnosing diabetes. 
+
+One could also collect demographic variables (e.g., age, gen-der, race) and additional health related outcomes (e.g,. adverse effects, blood pressure, blood glucose variability). 
+
+Data are sampled before the trial starts, at baseline (when the trial starts), at various interim visits (e.g., every three
+months), and at the end of the trial. 
+
+Collecting the data is done during scheduled in-hospital visits, but could also entail continuous monitoring (e.g., using
+implantable glucose monitors) or ecological momentary assessment (EMA) using phone or computer apps. 
+
+Data can be collected by obtaining blood and urine samples, downloading the data from the implantable monitor, and via the internet or cellular network. 
+
+Designing such a trial requires intense pre-planning and a rigorous schedule to obtain high quality data. Of course, not all experiments are as complex. 
+
+For example, it would be interesting to take any experiment that one could think about and parse it into its components. 
+
+The simplest such experiment is flipping a coin or waiting for nature to flip the coin of who will get lung cancer in the next 10 years.
+
+Consider the outcome of an experiment such as:
+
+• a collection of measurements from a sampled population
+
+• measurements from a laboratory experiment
+
+• the result of a clinical trial
+
+• the results of a simulated (computer) experiment
+
+• values from hospital records sampled retrospectively
+
+#### Notation
+
+To develop these concepts rigorously, we will introduce some notation for the experiment setup.
+
+• The sample space $\Omega$ is the collection of possible outcomes of an experiment. Example: a six-sided die roll = {1; 2; 3; 4; 5; 6}, a coin flip = {heads; tails}
+
+• An event, say $E$, is a subset of $\Omega$. Example: die roll is even $E$ (sự kiện E là số chẵn, lưu ý even là chẵn, odd là lẻ) = {2; 4; 6}
+
+• An elementary or simple event is a particular result of an experiment. Example: die roll is a four, $\omega$ = 4
+
+• Ø (null sign) is called the null event or the empty set
+
+The sample space can be extremely complex or very simple. 
+
+Let us consider the die roll example. 
+
+If the die is rolled once, any number between 1 and 6 could be the outcome for a total of 6 possible outcomes. 
+
+However, if the experiment is to roll the die twice (tung viên xúc xắc hai lần liên tiếp), the outcome is the pair of all possible combinations (1, 1), (1, 2), . . . , (6, 6) for a total of 36 possible outcomes; here we count (1, 2) and (2, 1) as two different outcomes. 
+
+If the experiment is to roll the die *n* times, the outcomes are all the possible *n-tuples* with the numbers 1 through 6 in every position for a total number of outcomes equal to 6^n^.
+
+To get an idea of just how big this sample can be, note that the number of possible ordered *n-tuples* for n = 130 is larger than 10^82^, the estimated number of atoms in the known universe (http://www.universetoday.com/36302/atoms-in-the-universe/).
+
+Thus, it would make little sense to play this game until all possible outcomes have been obtained, but it would make perfect sense to predict the mean of the *n* outcomes or predict how many outcomes will be larger than 5. 
+
+Biostatistics is concerned with extracting useful, actionable information from complex outcomes that can result from even the simplest experiments.
+
+While the fair die example may be a little dry, consider the example of a study of cognitive impairment in older adults. 
+
+In this case, we could **conceptualize** the assignment of health status **as** a die where three out of the six faces have a
+one on it, two faces have a two on it, and one has a three on it. 
+
+This assigns to individuals one of the following possible levels of cognitive impairment (none, moderate, severe). 
+
+The die is considered unfair because the probabilities of assigning levels of impairment are likely not to be equal; this is an example when unfairness is probably good, as most people will be assigned to “non-impaired”. 
+
+Nonetheless, alea iacta est (“the die is cast”).
+
+#### Interpretation of set operations
+
+Data analysis, manipulation, and tabulation are intrinsically related to data sets and logic operators. 
+
+Indeed, we often try to understand the structure of the data and that requires understanding how to **subset** the data and how to **quantify** the various relationships between subsets of the data. 
+
+To better understand this, we need to introduce the **theoretical set operations** (phép tính trên tập hợp) and their interpretations.
+
+• $\omega \in E$ ($\omega$ is an element of $E$) implies that $E$ occurs when $\omega$ occurs. Nghĩa là: tập hợp $E$ chứa sự kiện riêng lẻ $\omega$, do đó khi sự kiện $\omega$ xuất hiện thì đồng nghĩa sự kiện *tập hợp* $E$ cũng xuất hiện. Ví dụ: gọi $E$ là tập hợp các sự kiện thu được mặt số chẵn khi tung xúc xắc {2, 4, 6}, do đó khi tung ra mặt số {2} (hay là sự kiện $\omega = 2$) thì ám chỉ sự kiện này thuộc tập hợp $E$ số chẵn đã xuất hiện.
+
+• $\omega \notin E$ ($\omega$ is not an element of $E$) implies that $E$ does not occur when $\omega$ occurs. 
+
+• $E \subset F$ ($E$ is a subset of $F$) implies that the occurrence of E implies the occurrence of F. **Tập hợp** $E$ thuộc tập hợp $F$, do đó khi $E$ xuất hiện cũng đồng nghĩa $F$ xuất hiện.
+
+• $E \cap F$ implies the event that both E and F occur (intersection). Đây là tập hợp các sự kiện giao nhau giữa $E$ và $F$, khi các sự kiện này xuất hiện thì đồng nghĩa $E$ và $F$ đồng thời xuất hiện. 
+
+• $E \cup F$ implies the event that at least one of E or F occur (union). Vì tập hợp $E$ hợp với tập hợp $F$ nên nếu có một sự kiện trong *khối* tập hợp này xảy ra thì có nghĩa là có *ít nhất* là tập hợp $E$ *hay* $F$ xuất hiện.
+
+• $E \cap F = \emptyset$ or Ø means that E and F are mutually exclusive/disjoint, or cannot both occur. Hai sự kiện này loại trừ nhau, không thể xảy ra đồng thời, nếu $E$ xảy ra thì $F$ không thể xảy ra.
+
+• ${E^c}$ or $\overline E$ is the event that $E$ does not occur, also referred to as the complement. Tập hợp các sự kiện không thuộc $E$, là các sự kiện xảy ra nhưng không làm $E$ xuất hiện, được như phần tương ứng/phần bù với $E$.
+
+• $E \backslash F = E \cap {F^c}$ is the event that $E$ *occurs* ***and*** $F$ *does not occur*.
+
+#### Set theory facts
+
+DeMorgan’s laws.
+
+• ${\left( {A \cup B} \right)^c} = {A^c} \cap {B^c}$
+
+Example: If an alligator *or* a turtle you are not ${\left( {A \cup B} \right)^c}$ then you are not an alligator *and* you are also not a turtle (${A^c} \cap {B^c}$).
+
+• ${\left( {A \cap B} \right)^c} = {A^c} \cup {B^c}$ 
+
+Example: If your car is not both hybrid and diesel ${\left( {A \cap B} \right)^c}$ then your car is either not hybrid or not diesel (${A^c} \cup {B^c}$).
+
+• ${({A^c})^c} = A$ 
+
+• $(A \cup B)\backslash C = (A\backslash C) \cup (B\backslash C)$ where $\backslash$ means "set minus"
+
+##### Proving the equality of two sets ######
+
+$A = B$ is done by showing that every element of $A$ is in $B$ (i.e., $A \subset B$) and every element in $B$ is in $A$ (i.e., $B \subset A$).
+
+For example, let us show that ${\left( {A \cup B} \right)^c} = {A^c} \cap {B^c}$.
+
+We first show that ${\left( {A \cup B} \right)^c} \subset {A^c} \cap {B^c}$.
+
+Let $\omega \in \left( {A \cup B} \right)^c$, which, by definition, implies that $\omega \notin $(A \cup B)$.
+
+Thus, $\omega \notin A$ and $\omega \notin B$, then, by definition, $\omega \in {A^c} \cap {B^c}$.
+
+Indeed, by *reductio ad absurdum*, if $\omega \in A$ or $\omega \in B$, then, by definition, $\omega \in A \cup B$, which would be contradictory.
+
+The fact that ${(A \cup B)^c} \supset ({A^c} \cap {B^c})$ can be shown using a similar approach.
+
+Several problems in this chapter can be solved using this general strategy. 
+
+The approach is not difficult, but it needs to follow the **strict rule of logic**.
+
+In general, set operations are based on logical operators: AND (in `R` &), OR (in `R` | ), NOT (in `R` !).
+
+These logical operators can be combined and can produce complex combinations that are extremely useful in practice. 
+
+For example, having a data set one may want to focus on a subset that contains only African American men from age 65 to 75 who are non-smokers. 
+
+This phrase can immediately be translated into logical operators and the data can be extracted using `R` programming. 
+
+This is a routine application of set theory that will become indispensable in practice (below we provide an example of exactly how to proceed).

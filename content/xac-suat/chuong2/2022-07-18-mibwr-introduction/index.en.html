@@ -1,8 +1,8 @@
 ---
-title: MIBWR - Introduction - [1]
+title: MIBWR - Introduction
 author: Duc Nguyen
 date: '2022-07-18'
-slug: mibwr-introduction-1
+slug: mibwr-introduction
 categories:
   - xác suất thống kê
 tags:
@@ -35,6 +35,8 @@ projects: []
 <ul>
 <li><a href="#biostatistics">Biostatistics</a></li>
 <li><a href="#mathematical-prerequisites">Mathematical prerequisites</a></li>
+<li><a href="#r">R</a></li>
+<li><a href="#data">Data</a></li>
 </ul></li>
 </ul>
 </div>
@@ -195,6 +197,31 @@ newborn infants with severe respiratory failure.</p>
 <h3>Mathematical prerequisites</h3>
 <p>Calculus, linear algebra, and a moderate level of mathematical literacy are needed to understand this book.</p>
 <p>In short, you should be able to solve the following integral</p>
+<p><span class="math display">\[\int\limits_0^\infty  {{x^2}} {{\rm{e}}^{ - ax}}dx\]</span>
+in 3 minutes and be able to explain how you did it. You should not have any questions about “what’s the wiggly sign?” and “what’s the funny 8?” and it should be 100% clear why the integral is finite only when a &gt; 0. Also, you should be able to explain why</p>
+<p><span class="math display">\[\log (3/{10^\alpha }) = \log (3) - \alpha \log (10)\]</span></p>
+</div>
+<div id="r" class="section level3">
+<h3>R</h3>
+<p>For this book we will use the statistical software R (<span class="citation">(<a href="#ref-R" role="doc-biblioref"><strong>R?</strong></a>)</span>, <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>) because it is free, flexible, and up-to-date due to the many packages con-tributed by the community.</p>
+<p>R contains a variety of packages including paramet-ric and nonparametric tests, survival analysis, regression, and machine learning (random forests, support vector machines, neuronal networks, clustering).</p>
+<p>Understanding biostatistics at a deeper level is hard because it requires understanding <strong>a combination of difficult new concepts</strong>.</p>
+<p>For example, it is hard to understand what a random variable, a probability density function, or weak convergence is without hands-on experience with a dedicated analytic software, such as R.</p>
+<p>Here we will emphasize the close connection between theoretical concepts and practical questions, using dedicated R software.</p>
+<p>In a world moving quickly towards more computerization and data intensive decision making it is unimaginable to teach a biostatistics course without introducing the basics of
+scientific computing.</p>
+<p>Moreover, though statistical concepts can be explained using simulations and other R functions, R is a powerful analytic language.</p>
+<p>We wish to provide you the tools to understand biostatistical concepts as well as the ability to analyze data using the methods we discuss. Of course, R is not the only possible platform for this purpose.</p>
+<p>Indeed, SAS and STATA are also widely used by statisticians, while Python is another powerful platform used extensively in data analysis.</p>
+<p>Programs such as SPSS, Minitab and Excel, which can be great for some analyses, are insufficient for the needs of this book.</p>
+<p>There are many ways to learn R. There are many introductory tutorials online, such as Code School and DataCamp.</p>
+<p>This general R reference card is useful to see many commonly-used R functions.</p>
+<p>The next chapter introduces some basic concepts in R that will be used throughout the book, though every chapter will contain commented R code interweaved with biostatistical concepts.</p>
+<p>Several additional dedicated R chapters are available throughout the book and introduce increasingly more advanced topics in R to complement the introduction of biostatistical concepts.</p>
+</div>
+<div id="data" class="section level3">
+<h3>Data</h3>
+<p>All data located for this course can be downloaded on the leanpub book page or can be downloaded directly from GitHub.</p>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-crainiceanuMethodsBiostatistics" class="csl-entry">
 Crainiceanu, Ciprian, Brian Caffo, and John Muschelli. 2019. <span>“Methods in <span>Biostatistics</span> with <span>R</span>,”</span> 592.

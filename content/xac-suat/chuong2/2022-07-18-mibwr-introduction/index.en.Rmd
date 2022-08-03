@@ -1,8 +1,8 @@
 ---
-title: MIBWR - Introduction - [1]
+title: MIBWR - Introduction
 author: Duc Nguyen
 date: '2022-07-18'
-slug: mibwr-introduction-1
+slug: mibwr-introduction
 categories:
   - xác suất thống kê
 tags:
@@ -285,3 +285,43 @@ Calculus, linear algebra, and a moderate level of mathematical literacy are need
 
 In short, you should be able to solve the following integral
 
+$$\int\limits_0^\infty  {{x^2}} {{\rm{e}}^{ - ax}}dx$$
+in 3 minutes and be able to explain how you did it. You should not have any questions about “what's the wiggly sign?” and “what's the funny 8?” and it should be 100% clear why the integral is finite only when a > 0. Also, you should be able to explain why
+
+$$\log (3/{10^\alpha }) = \log (3) - \alpha \log (10)$$
+
+### R
+
+For this book we will use the statistical software R (@R, https://cran.r-project.org/) because it is free, flexible, and up-to-date due to the many packages con-tributed by the community. 
+
+R contains a variety of packages including paramet-ric and nonparametric tests, survival analysis, regression, and machine learning (random forests, support vector machines, neuronal networks, clustering).
+
+
+Understanding biostatistics at a deeper level is hard because it requires understanding **a combination of difficult new concepts**. 
+
+For example, it is hard to understand what a random variable, a probability density function, or weak convergence is without hands-on experience with a dedicated analytic software, such as R. 
+
+Here we will emphasize the close connection between theoretical concepts and practical questions, using dedicated R software. 
+
+In a world moving quickly towards more computerization and data intensive decision making it is unimaginable to teach a biostatistics course without introducing the basics of
+scientific computing.
+
+Moreover, though statistical concepts can be explained using simulations and other R functions, R is a powerful analytic language.
+
+We wish to provide you the tools to understand biostatistical concepts as well as the ability to analyze data using the methods we discuss. Of course, R is not the only possible platform for this purpose. 
+
+Indeed, SAS and STATA are also widely used by statisticians, while Python is another powerful platform used extensively in data analysis.
+
+Programs such as SPSS, Minitab and Excel, which can be great for some analyses, are insufficient for the needs of this book.
+
+There are many ways to learn R. There are many introductory tutorials online, such as Code School and DataCamp. 
+
+This general R reference card is useful to see many commonly-used R functions. 
+
+The next chapter introduces some basic concepts in R that will be used throughout the book, though every chapter will contain commented R code interweaved with biostatistical concepts. 
+
+Several additional dedicated R chapters are available throughout the book and introduce increasingly more advanced topics in R to complement the introduction of biostatistical concepts.
+
+### Data
+
+All data located for this course can be downloaded on the leanpub book page or can be downloaded directly from GitHub.

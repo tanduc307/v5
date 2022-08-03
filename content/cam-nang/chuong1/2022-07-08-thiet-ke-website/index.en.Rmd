@@ -142,6 +142,7 @@ type: book
 |:----------:|:------------:|:----------------:|
 | Dấu nhân   | 2 × 2 = 4    | `Alt + 2015`     |
 | Nhiệt độ   | 100 °C       | `Alt + 0176`     |
+| Null sign, tập hợp rỗng   | Ø       | `Alt + 0216`     |
 
 Khi muốn <mark>highlight</mark> thì dùng thẻ `<mark>...</mark>`.
 
@@ -156,6 +157,10 @@ and $a$ and $b$ denote the lengths of the other two sides, we have
 $$a^2 + b^2 = c^2$$
 :::
 ```
+
+Ghi công thức toán https://vickyscowcroft.github.io/bookdown_lecture_notes_guide/sec-equations.html
+
+
 
 ## Tham khảo
 
