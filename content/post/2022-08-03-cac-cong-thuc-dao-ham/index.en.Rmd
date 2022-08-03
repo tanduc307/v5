@@ -31,6 +31,24 @@ projects: []
 
 ### Định nghĩa
 
-$f'({x_0}) = \mathop {\lim }\limits_{\Delta x \to 0} {{\Delta y} \over {\Delta x}}$ hoặc $f'({x_0}) = \mathop {\lim }\limits_{\Delta x \to 0} {{f(x) - f({x_0})} \over {x - {x_0}}}$
+$$f'({x_0}) = \mathop {\lim }\limits_{\Delta x \to 0} {{\Delta y} \over {\Delta x}}$$ 
+
+hoặc 
+
+$$f'({x_0}) = \mathop {\lim }\limits_{\Delta x \to 0} {{f(x) - f({x_0})} \over {x - {x_0}}}$$
 
 ### Công thức
+
+$$\eqalign{
+  & (u + v)' = u' + v'  \cr 
+  & (u \times v)' = u'v + v'u  \cr 
+  & {\left( {{u \over v}} \right)^\prime } = {{u'v - v'u} \over {{v^2}}} \cr} $$
+
+
+$$\eqalign{
+  & {{y'}_x} = {{y'}_u} \times {{u'}_x}  \cr 
+  & (k \times u)' = k \times u'  \cr 
+  & {\left( {{k \over u}} \right)^\prime } =  - {{k \times u'} \over {{u^2}}} \cr} $$  
+
+### Đạo hàm các hàm số sơ cấp
+
